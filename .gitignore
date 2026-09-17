@@ -1,0 +1,17 @@
+# Dependencias (pipeline de Tailwind ya no se usa, pero por si acaso)
+node_modules/
+
+# Configuración local de Claude Code
+.claude/
+
+# Copias de seguridad dejadas durante el trabajo
+*.bak
+*.bak-original
+*.bak-*
+
+# Fuentes de diseño (PSD, no para producción)
+assets/source/
+
+# Sistema
+.DS_Store
+Thumbs.db
