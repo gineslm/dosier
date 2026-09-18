@@ -719,7 +719,7 @@ main {
 /* Desplazamiento con hueco para la barra fija en móvil.
    IDs en español (es/index.html) e inglés (index.html): mismo fichero para
    ambas páginas. */
-#perfil, #proyectos, #portfolio, #contactar,
+#perfil, #proyectos, #casos, #portfolio, #contactar,
 #profile, #projects, #contact {
   scroll-margin-top: var(--scroll-offset);
 }
