@@ -5,13 +5,15 @@
   "description": "Portfolio of Gines Lopez - UX/UI & Frontend",
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "build:html": "node build.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "nunjucks": "^3.2.4",
     "tailwindcss": "^4.3.3"
   }
 }
