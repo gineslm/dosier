@@ -13,16 +13,4 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.dsigncloud.es/dosier/en/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dsigncloud.es/dosier/en/"/>
   </url>
-  <url>
-    <loc>https://www.dsigncloud.es/dosier/en/casos/app-taxi/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.dsigncloud.es/dosier/en/casos/app-taxi/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.dsigncloud.es/dosier/en/es/casos/app-taxi/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dsigncloud.es/dosier/en/casos/app-taxi/"/>
-  </url>
-  <url>
-    <loc>https://www.dsigncloud.es/dosier/en/es/casos/app-taxi/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.dsigncloud.es/dosier/en/casos/app-taxi/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.dsigncloud.es/dosier/en/es/casos/app-taxi/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dsigncloud.es/dosier/en/casos/app-taxi/"/>
-  </url>
 </urlset>

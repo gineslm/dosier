@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.meta.title }}</title>
     <meta name="description" content="{{ page.meta.description }}">
+{% if robots %}
+    <meta name="robots" content="{{ robots }}">
+{% endif %}
 {% if page.meta.og %}
     <meta property="og:title" content="{{ page.meta.og.title }}">
     <meta property="og:description" content="{{ page.meta.og.description }}">

@@ -1,4 +1,9 @@
 {% set stylesheetHref = 'case.css' %}
+{# Páginas de caso: no deben aparecer en buscadores (se comparten por URL
+   directa, no forman parte del perfil indexable). Este layout es la base
+   de todas las páginas de caso presentes y futuras, así que el noindex
+   se aplica aquí una vez, no por caso. #}
+{% set robots = 'noindex, nofollow' %}
 {% include "partials/head.njk" %}
 <body>
 <div class="ds-theme-dark-casos-estudio" style="width: 100%; display: flex; flex-direction: column;">
