@@ -1,0 +1,235 @@
+{% extends "layouts/case-study.njk" %}
+{% block body %}
+      <div id="{{ page.body.cover.id }}" data-sec="{{ page.body.cover.id }}" style="padding: 8px 0 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+
+        <h1 data-r="h1-app" style="font-weight: var(--weight-thin); font-size: 72px; line-height: var(--text-name-lh); margin: 0 0 14px; color: var(--color-ink); text-wrap: pretty;">{{ page.body.cover.titleApp }}</h1>
+        <h1 data-r="h1-lead" style="font-weight: var(--weight-thin); font-size: var(--text-name); line-height: var(--text-name-lh); margin: 0 0 14px; color: var(--color-ink); max-width: 20ch; text-wrap: pretty;">{{ page.body.cover.lead }}</h1>
+        <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-muted); margin: 8px 0 0;">{{ page.body.cover.meta }}</p>
+      </div>
+
+      <div id="{{ page.body.context.id }}" data-sec="{{ page.body.context.id }}" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.context.heading }}</h2>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 75ch; text-wrap: pretty;">{{ page.body.context.text }}</p>
+      </div>
+
+      <div id="{{ page.body.brief.id }}" data-sec="{{ page.body.brief.id }}" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.brief.heading }}</h2>
+        <div style="border: 1px solid var(--color-chip-border); border-left: 4px solid var(--color-accent); background: var(--color-accent-soft); padding: 20px;">
+          <p style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; color: var(--color-accent-strong); margin: 0 0 8px; text-transform: uppercase;">{{ page.body.brief.kicker }}</p>
+          <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); font-style: italic; color: var(--color-ink); margin: 0; font-weight: 300;">{{ page.body.brief.ticket }}</p>
+        </div>
+        <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-muted); margin: 10px 0 0; max-width: 75ch;">{{ page.body.brief.note }}</p>
+      </div>
+
+      <div id="{{ page.body.finding.id }}" data-sec="{{ page.body.finding.id }}" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.finding.heading }}</h2>
+        <div data-r="grid2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start;">
+          <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; text-wrap: pretty;">{{ page.body.finding.lead }}</p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="box-sizing: border-box; padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #fff; border: 1px solid #cfcfcf;">
+              <span style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #8a8a8a;">{{ page.body.finding.wrongModel.label }}</span>
+              <span style="font-size: 12px; font-weight: 700; color: #1c1c1c;">{{ page.body.finding.wrongModel.title }}</span>
+              <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin-top: 2px;">
+                <div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div>
+                <div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div><div style="aspect-ratio: 1; background: #eee; border: 1px solid #ddd;"></div>
+              </div>
+              <p style="font-size: 11px; color: #6b6b6b; line-height: 1.4; margin: 2px 0 0;">{{ page.body.finding.wrongModel.caption }}</p>
+            </div>
+            <div style="box-sizing: border-box; padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #f6f6f6; border: 1px solid var(--color-accent);">
+              <span style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #8a8a8a;">{{ page.body.finding.correctModel.label }}</span>
+              <span style="font-size: 12px; font-weight: 700; color: #1c1c1c;">{{ page.body.finding.correctModel.title }}</span>
+              <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 2px;">
+{% for item in page.body.finding.correctModel.items %}
+                <div style="border: 1px solid #dedede; background: #fff; padding: 6px 8px; font-size: 10px; line-height: 1.4; color: #3a3a3a;"><b style="display: block; color: #1c1c1c; font-weight: 600;">{{ item.time }}</b>{{ item.detail }}</div>
+{% endfor %}
+              </div>
+              <p style="font-size: 11px; color: #6b6b6b; line-height: 1.4; margin: 2px 0 0;">{{ page.body.finding.correctModel.caption }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="{{ page.body.validation.id }}" data-sec="{{ page.body.validation.id }}" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.validation.heading }}</h2>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 75ch; text-wrap: pretty;">{{ page.body.validation.text }}</p>
+      </div>
+
+      <div id="{{ page.body.decision.id }}" data-sec="{{ page.body.decision.id }}" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.decision.heading }}</h2>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 75ch; text-wrap: pretty;">{{ page.body.decision.text }}</p>
+      </div>
+
+      <div id="{{ page.body.solution.id }}" data-sec="{{ page.body.solution.id }}" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.solution.heading }}</h2>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 20px; font-weight: 300; max-width: 619px; text-wrap: pretty;">{{ page.body.solution.intro }}</p>
+
+        <div style="font-size: 11px; color: var(--color-muted); margin-bottom: 16px;">{{ page.body.solution.legendBefore }}<span style="border-bottom: 1px dashed var(--color-muted); padding-bottom: 1px;">{{ page.body.solution.legendDashed }}</span>{{ page.body.solution.legendAfter }}</div>
+
+        <div data-r="grid3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; align-items: start;">
+
+          <div>
+            <span style="display: inline-block; background: var(--color-accent-soft); color: var(--color-accent-strong); font-family: var(--font-condensed); font-size: var(--text-legal); padding: 4px 10px; border-radius: 8px; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">{{ page.body.solution.upcoming.tag }}</span>
+            <div data-r="wf" style="background: #f2f2f1; border-radius: 18px; padding: 12px 10px; border: 1px solid #e2e2e2; box-sizing: border-box; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.3);">
+              <div style="background: #fff; border-radius: 12px; border: 1px solid #e2e2e2; padding: 10px; box-sizing: border-box;">
+                <div style="display: flex; align-items: flex-end; gap: 14px; border-bottom: 1px solid #e2e2e2; margin-bottom: 10px;">
+                  <span style="font-size: 12px; font-weight: 600; color: #1c1c1c; padding-bottom: 6px; border-bottom: 2px solid #1c1c1c; margin-bottom: -1px;">{{ page.body.solution.upcoming.tabActive }}</span>
+                  <span style="font-size: 12px; font-weight: 400; color: #9a9a9a; padding-bottom: 6px;">{{ page.body.solution.upcoming.tabInactive }}</span>
+                  <span style="flex: 1;"></span>
+                </div>
+                <div style="font-size: 11px; color: #9a9a9a; padding: 2px 4px 6px;">{{ page.body.solution.upcoming.dateLabel }}</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+{% for trip in page.body.solution.upcoming.trips %}
+                  <div style="background: #fff; border: 1px solid #e2e2e2; border-radius: 8px; padding: 8px 12px; display: flex; align-items: center; gap: 6px">
+                    <div style="flex: 1; min-width: 0;">
+                      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px;"><span style="font-size: 12px; color: #1c1c1c;">{{ trip.time }}</span><span style="font-size: 9px; padding: 2px 7px; border-radius: 8px; white-space: nowrap; border: 1px solid #cfcfcf; color: #4a4a4a; background: #f2f2f1;">{{ trip.status }}</span></div>
+                      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px;"><span style="font-size: 11px; color: #6b6b6b;">{{ trip.dest }}</span><span style="display: flex; gap: 2px; color: #9a9a9a; flex-shrink: 0; margin-left: 8px;">{% for p in range(trip.pax) %}<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>{% endfor %}</span></div>
+                    </div>
+                  </div>
+{% endfor %}
+                </div>
+              </div>
+            </div>
+            <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 10px 0 0;">{{ page.body.solution.upcoming.caption }}</p>
+          </div>
+
+          <div>
+            <span style="display: inline-block; background: var(--color-accent-soft); color: var(--color-accent-strong); font-family: var(--font-condensed); font-size: var(--text-legal); padding: 4px 10px; border-radius: 8px; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">{{ page.body.solution.past.tag }}</span>
+            <div data-r="wf" style="background: #f2f2f1; border-radius: 18px; padding: 12px 10px; border: 1px solid #e2e2e2; box-sizing: border-box; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.3);">
+              <div style="background: #fff; border-radius: 12px; border: 1px solid #e2e2e2; padding: 10px; box-sizing: border-box;">
+                <div style="display: flex; align-items: flex-end; gap: 14px; border-bottom: 1px solid #e2e2e2; margin-bottom: 10px;">
+                  <span style="font-size: 12px; font-weight: 400; color: #9a9a9a; padding-bottom: 6px;">{{ page.body.solution.past.tabInactive }}</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #1c1c1c; padding-bottom: 6px; border-bottom: 2px solid #1c1c1c; margin-bottom: -1px;">{{ page.body.solution.past.tabActive }}</span>
+                  <span style="flex: 1;"></span>
+                  <div style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid #cfcfcf; display: flex; align-items: center; justify-content: center; color: #4a4a4a; flex-shrink: 0;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></div>
+                </div>
+                <div style="border: 1px solid #e2e2e2; border-radius: 10px; padding: 8px; margin-bottom: 10px; background: #f7f7f7;">
+                  <div style="display: flex; gap: 5px; margin-bottom: 6px;">
+                    <select style="font-size: 11px; height: 26px; flex: 1; min-width: 0; border: 1px solid #cfcfcf; border-radius: 6px; background: #fff; padding: 0 8px; color: #1c1c1c;">{% for opt in page.body.solution.past.searchOptions %}<option>{{ opt }}</option>{% endfor %}</select>
+                    <input placeholder="{{ page.body.solution.past.searchPlaceholder }}" style="font-size: 11px; height: 26px; flex: 1; min-width: 0; border: 1px solid #cfcfcf; border-radius: 6px; background: #fff; padding: 0 8px; color: #1c1c1c;">
+                    <div style="width: 26px; height: 26px; border: 1px solid #cfcfcf; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #6b6b6b;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></div>
+                  </div>
+                  <button type="button" style="width: 100%; font-size: 11px; padding: 7px; border: 1px solid #cfcfcf; border-radius: 8px; background: #fff; color: #1c1c1c; box-sizing: border-box;">{{ page.body.solution.past.searchButton }}</button>
+                </div>
+                <div style="font-size: 10px; color: #9a9a9a; margin-bottom: 6px;">{{ page.body.solution.past.resultsLabel }}</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+{% for result in page.body.solution.past.results %}
+                  <div style="background: #f2f2f1; border: 1px solid #e2e2e2; border-radius: 8px; padding: 8px 12px;">
+                    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px;"><span style="font-size: 12px; color: #1c1c1c;">{{ result.time }}</span><span style="font-size: 9px; padding: 2px 7px; border-radius: 8px; white-space: nowrap; border: 1px solid #cfcfcf; color: #4a4a4a; background: #fff;">{{ result.status }}</span></div>
+                    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px;"><span style="font-size: 11px; color: #6b6b6b;">{{ result.dest }}</span><span style="display: flex; gap: 2px; color: #9a9a9a; flex-shrink: 0; margin-left: 8px;">{% for p in range(result.pax) %}<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>{% endfor %}</span></div>
+                  </div>
+{% endfor %}
+                </div>
+              </div>
+            </div>
+            <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 10px 0 0;">{{ page.body.solution.past.caption }}</p>
+          </div>
+
+          <div>
+            <span style="display: inline-block; background: var(--color-accent-soft); color: var(--color-accent-strong); font-family: var(--font-condensed); font-size: var(--text-legal); padding: 4px 10px; border-radius: 8px; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">{{ page.body.solution.scheduled.tag }}</span>
+            <div data-r="wf" style="background: #f2f2f1; border-radius: 18px; padding: 12px 10px; border: 1px solid #e2e2e2; box-sizing: border-box; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.3);">
+              <div style="background: #fff; border-radius: 12px; border: 1px solid #e2e2e2; padding: 10px; box-sizing: border-box;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; font-size: 12px; font-weight: 600; color: #1c1c1c;"><span style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>{{ page.body.solution.scheduled.tripLabel }}</span><span style="font-size: 9px; padding: 2px 7px; border-radius: 8px; white-space: nowrap; border: 1px solid #cfcfcf; color: #4a4a4a; background: #f2f2f1; font-weight: 400;">{{ page.body.solution.scheduled.statusLabel }}</span></div>
+                <div style="font-size: 10px; color: #9a9a9a; margin-bottom: 3px;">{{ page.body.solution.scheduled.infoLabel }}</div>
+                <div style="font-size: 11px; color: #6b6b6b; line-height: 1.7; margin-bottom: 10px;">
+                  <div style="display: flex; align-items: flex-start; gap: 5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg><span>{{ page.body.solution.scheduled.addresses[0] }}</span></div>
+                  <div style="display: flex; align-items: flex-start; gap: 5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M5 3v18"></path><path d="M5 4h11l-2 4 2 4H5"></path></svg><span>{{ page.body.solution.scheduled.addresses[1] }}</span></div>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 5px; font-size: 10px; color: #9a9a9a;"><span style="flex: 1;">{{ page.body.solution.scheduled.passengersLabel }}</span></div>
+                <div style="border: 1px solid #e2e2e2; border-radius: 8px; overflow: hidden; margin-bottom: 10px; background: #f2f2f1;">
+{% for pax in page.body.solution.scheduled.passengers %}
+                  <div style="padding: 7px 8px;{% if not loop.last %} border-bottom: 1px solid #eee;{% endif %}"><div style="font-size: 11px; color: #6b6b6b;">{{ pax.name }}</div><div style="font-size: 10px; color: #6b6b6b;">{{ pax.doc }}</div></div>
+{% endfor %}
+                </div>
+                <div style="font-size: 10px; color: #9a9a9a; margin-bottom: 4px;">{{ page.body.solution.scheduled.actionsLabel }}</div>
+                <button type="button" style="width: 100%; font-size: 11px; padding: 7px; border: 1px solid #cfcfcf; border-radius: 8px; background: #fff; color: #1c1c1c; box-sizing: border-box;">{{ page.body.solution.scheduled.declineButton }}</button>
+              </div>
+            </div>
+            <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 10px 0 0;">{{ page.body.solution.scheduled.caption }}</p>
+          </div>
+
+          <div>
+            <span style="display: inline-block; background: var(--color-accent-soft); color: var(--color-accent-strong); font-family: var(--font-condensed); font-size: var(--text-legal); padding: 4px 10px; border-radius: 8px; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">{{ page.body.solution.active.tag }}</span>
+            <div data-r="wf" style="background: #f2f2f1; border-radius: 18px; padding: 12px 10px; border: 1px solid #e2e2e2; box-sizing: border-box; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.3);">
+              <div style="background: #fff; border-radius: 12px; border: 1px solid #e2e2e2; padding: 10px; box-sizing: border-box;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; font-size: 12px; font-weight: 600; color: #1c1c1c;"><span style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>{{ page.body.solution.active.tripLabel }}</span><span style="font-size: 9px; padding: 2px 7px; border-radius: 8px; white-space: nowrap; border: 1px solid #cfcfcf; color: #4a4a4a; background: #f2f2f1; font-weight: 400;">{{ page.body.solution.active.statusLabel }}</span></div>
+                <div style="font-size: 10px; color: #9a9a9a; margin-bottom: 3px;">{{ page.body.solution.active.infoLabel }}</div>
+                <div style="font-size: 11px; color: #6b6b6b; line-height: 1.7; margin-bottom: 10px;">
+                  <div style="display: flex; align-items: flex-start; gap: 5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg><span>{{ page.body.solution.active.addresses[0] }}</span></div>
+                  <div style="display: flex; align-items: flex-start; gap: 5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M5 3v18"></path><path d="M5 4h11l-2 4 2 4H5"></path></svg><span>{{ page.body.solution.active.addresses[1] }}</span></div>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 5px; font-size: 10px; color: #9a9a9a;"><span style="flex: 1;">{{ page.body.solution.active.passengersLabel }}</span></div>
+                <div style="border: 1px solid #e2e2e2; border-radius: 8px; overflow: hidden; margin-bottom: 10px;">
+{% for pax in page.body.solution.active.passengers %}
+                  <div style="padding: 7px 8px; display: flex; align-items: center; gap: 6px;{% if not loop.last %} border-bottom: 1px solid #eee;{% endif %}"><div style="flex: 1; min-width: 0;"><div style="font-size: 11px; color: #1c1c1c;">{{ pax.name }}</div><div style="font-size: 10px; color: #6b6b6b;">{{ pax.doc }}</div></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: #9a9a9a; flex-shrink: 0;"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
+{% endfor %}
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <button type="button" style="width: 100%; font-size: 11px; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 7px; border: 1px dashed #cfcfcf; border-radius: 8px; background: #fff; color: #1c1c1c; box-sizing: border-box;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>{{ page.body.solution.active.addPassengerButton }}</button>
+                  <div style="font-size: 10px; color: #9a9a9a; margin-top: 4px;">{{ page.body.solution.active.actionsLabel }}</div>
+                  <button type="button" style="width: 100%; font-size: 11px; padding: 7px; border: 1px solid #cfcfcf; border-radius: 8px; background: #fff; color: #1c1c1c; box-sizing: border-box;">{{ page.body.solution.active.startSignaturesButton }}</button>
+                  <button type="button" style="width: 100%; font-size: 11px; padding: 7px; border: 1px solid #cfcfcf; border-radius: 8px; background: #fff; color: #1c1c1c; box-sizing: border-box;">{{ page.body.solution.active.attachDocsButton }}</button>
+                  <button type="button" style="width: 100%; font-size: 11px; padding: 7px; border: 1px solid #cfcfcf; border-radius: 8px; background: #fff; color: #6b6b6b; box-sizing: border-box;">{{ page.body.solution.active.reportIssueButton }}</button>
+                </div>
+              </div>
+            </div>
+            <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 10px 0 0;">{{ page.body.solution.active.caption }}</p>
+          </div>
+
+          <div>
+            <span style="display: inline-block; background: transparent; border: 1px dashed var(--color-chip-border); color: var(--color-muted); font-family: var(--font-condensed); font-size: var(--text-legal); padding: 4px 10px; border-radius: 8px; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">{{ page.body.solution.modal.tag }}</span>
+            <div data-r="wf" style="background: rgba(0,0,0,0.45); border-radius: 18px; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; min-height: 200px;">
+              <div style="background: #fff; border-radius: 12px; padding: 14px; width: 100%; max-width: 230px; box-sizing: border-box; box-shadow: 0 16px 32px -8px rgba(0,0,0,0.5);">
+                <div style="font-size: 12px; font-weight: 600; margin-bottom: 10px; color: #1c1c1c;">{{ page.body.solution.modal.title }}</div>
+                <div style="font-size: 10px; color: #9a9a9a; margin-bottom: 3px;">{{ page.body.solution.modal.nameLabel }}</div>
+                <input value="{{ page.body.solution.modal.nameValue }}" readonly="" style="font-size: 11px; height: 28px; width: 100%; margin-bottom: 8px; border: 1px solid #cfcfcf; border-radius: 6px; background: #fff; padding: 0 8px; color: #1c1c1c; box-sizing: border-box;">
+                <div style="font-size: 10px; color: #9a9a9a; margin-bottom: 3px;">{{ page.body.solution.modal.docLabel }}</div>
+                <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                  <select style="font-size: 11px; height: 28px; width: 84px; flex-shrink: 0; border: 1px solid #cfcfcf; border-radius: 6px; background: #fff; padding: 0 6px; color: #1c1c1c;">{% for t in page.body.solution.modal.docTypes %}<option>{{ t }}</option>{% endfor %}</select>
+                  <input value="{{ page.body.solution.modal.docValue }}" readonly="" style="font-size: 11px; height: 28px; flex: 1; min-width: 0; border: 1px solid #cfcfcf; border-radius: 6px; background: #fff; padding: 0 8px; color: #1c1c1c;">
+                </div>
+                <div style="font-size: 10px; color: #9a9a9a; margin-bottom: 3px;">{{ page.body.solution.modal.nationalityLabel }}</div>
+                <select style="font-size: 11px; height: 28px; width: 100%; margin-bottom: 10px; border: 1px solid #cfcfcf; border-radius: 6px; background: #fff; padding: 0 6px; color: #1c1c1c;">{% for n in page.body.solution.modal.nationalityOptions %}<option>{{ n }}</option>{% endfor %}</select>
+                <div style="display: flex; gap: 6px;">
+                  <button type="button" style="flex: 1; font-size: 11px; padding: 6px; border: 1px solid #cfcfcf; border-radius: 8px; background: #fff; color: #1c1c1c;">{{ page.body.solution.modal.cancelButton }}</button>
+                  <button type="button" style="flex: 1; font-size: 11px; padding: 6px; border: 1px solid #1c1c1c; border-radius: 8px; background: #1c1c1c; color: #fff;">{{ page.body.solution.modal.saveButton }}</button>
+                </div>
+                <div style="border-top: 1px solid #eee; margin-top: 10px; padding-top: 8px; font-size: 10px; color: #8a8a8a; display: flex; align-items: center; gap: 5px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M6 6l1 14h10l1-14"></path></svg>
+                  {{ page.body.solution.modal.deleteNote }}
+                </div>
+              </div>
+            </div>
+            <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 10px 0 0;">{{ page.body.solution.modal.caption }}</p>
+          </div>
+
+          <div>
+            <span style="display: inline-block; background: transparent; border: 1px dashed var(--color-chip-border); color: var(--color-muted); font-family: var(--font-condensed); font-size: var(--text-legal); padding: 4px 10px; border-radius: 8px; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">{{ page.body.solution.signature.tag }}</span>
+            <div data-r="wf" style="background: #f2f2f1; border-radius: 18px; padding: 12px 10px; border: 1px solid #e2e2e2; box-sizing: border-box; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.3);">
+              <div style="background: #fff; border-radius: 12px; border: 1px solid #e2e2e2; padding: 10px; box-sizing: border-box;">
+                <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent);"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #cfcfcf;"></span><span style="font-size: 10px; color: #9a9a9a; margin-left: 6px;">{{ page.body.solution.signature.progressLabel }}</span></div>
+                <div style="font-size: 12px; color: #1c1c1c; margin-bottom: 2px;">{{ page.body.solution.signature.name }}</div>
+                <div style="font-size: 11px; color: #6b6b6b; margin-bottom: 10px;">{{ page.body.solution.signature.doc }}</div>
+                <div style="border: 1px dashed #b8b8b8; border-radius: 8px; height: 90px; display: flex; align-items: center; justify-content: center; gap: 5px; color: #9a9a9a; margin-bottom: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c2-5 3-6 5-3s2 5 4 2 2-6 4-3 2 4 5 1"></path></svg><span style="font-size: 11px;">{{ page.body.solution.signature.signHereLabel }}</span></div>
+                <button type="button" style="width: 100%; font-size: 11px; padding: 7px; border: 1px solid #1c1c1c; border-radius: 8px; background: #1c1c1c; color: #fff; box-sizing: border-box;">{{ page.body.solution.signature.signButton }}</button>
+              </div>
+            </div>
+            <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 10px 0 0;">{{ page.body.solution.signature.caption }}</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="{{ page.body.outcome.id }}" data-sec="{{ page.body.outcome.id }}" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.outcome.heading }}</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; max-width: 75ch;">
+{% for item in page.body.outcome.items %}
+          <li data-r="body" style="font-size: var(--case-text-body); line-height: 1.6; color: var(--color-body); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--color-accent);">—</span>{{ item }}</li>
+{% endfor %}
+        </ul>
+        <p style="font-size: var(--text-note); line-height: var(--case-lh-note); font-style: italic; color: var(--color-muted); margin: 14px 0 0; border-top: 1px solid var(--color-rule); padding-top: 12px; max-width: 75ch;">{{ page.body.outcome.note }}</p>
+      </div>
+
+      <div id="{{ page.body.learning.id }}" data-sec="{{ page.body.learning.id }}" style="max-width: 619px; scroll-margin-top: 90px;">
+        <p data-r="closing" style="font-size: 26px; line-height: 1.4; font-weight: 300; color: var(--color-ink); margin: 0; max-width: 34ch; text-wrap: pretty;">{{ page.body.learning.text }}</p>
+      </div>
+{% endblock %}

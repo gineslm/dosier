@@ -29,5 +29,158 @@
       "disclaimer": "Los wireframes de este caso son reconstrucciones fieles a la descripción original — no capturas de producción.",
       "backLabel": "← Volver al profile"
     }
+  },
+  "body": {
+    "cover": {
+      "id": "portada",
+      "titleApp": "APP TAXI",
+      "lead": "Cómo la detección y revisión de fallos críticos de UX evita la pérdida de dinero y tiempo.",
+      "meta": "Design Engineer (UX/UI) · Rediseño completo · Duración 1 mes, de análisis a producción · Sector servicios marítimo-portuario."
+    },
+    "context": {
+      "id": "contexto",
+      "heading": "Contexto",
+      "text": "Una empresa de servicios marítimos y portuarios coordinaba los traslados en taxi de tripulantes en tránsito: desde aeropuertos, instalaciones, hoteles y puertos, hacia hospitales, comisarías, centros de gestión, aeropuertos y hoteles. Una app móvil interna daba soporte a esos servicios, y la compañía se apoyaba en su registro para facturar. La app era utilizada por taxistas para recopilar información de trayectos, pasajeros, horarios, y justificar los servicios de cara a su facturación."
+    },
+    "brief": {
+      "id": "encargo",
+      "heading": "El encargo",
+      "kicker": "Ticket original",
+      "ticket": "La app estaba en producción, había sido puesta en marcha un año antes, nuestra función en aquel momento era ampliar su funcionalidad, incluyendo la opción de adjuntar documentación a través de captura de imágenes.",
+      "note": "El encargo se formuló como una tarea de interfaz. Al hacer el análisis funcional se determinó que cualquier desarrollo no incrementaría valor si existía un problema crítico de usabilidad."
+    },
+    "finding": {
+      "id": "hallazgo",
+      "heading": "Hallazgo",
+      "lead": "La aplicación, que era de gestión de viajes, se había construido sobre la base de una agenda-calendario, por lo que la entidad principal de la interfaz era el día agendado y no el viaje. Todo estaba modelado como un calendario navegable por fecha — en consecuencia: información enterrada, cero jerarquía, ninguna fricción reducida para quien solo necesita saber cuál es su próximo servicio, ahora.",
+      "wrongModel": {
+        "label": "Modelo erróneo",
+        "title": "Día como entidad",
+        "caption": "Navegación mensual por fecha. Cada servicio queda enterrado dentro del día."
+      },
+      "correctModel": {
+        "label": "Modelo correcto",
+        "title": "Viaje como entidad",
+        "items": [
+          { "time": "09:30 · Muelle Santa Catalina", "detail": "Hospital Universitario Insular · 2 pax" },
+          { "time": "12:15 · Muelle León y Castillo", "detail": "Aeropuerto (LPA) · T1 · 1 pax" }
+        ],
+        "caption": "Lista continua. La información relevante está visible de inmediato."
+      }
+    },
+    "validation": {
+      "id": "validacion",
+      "heading": "Validación",
+      "text": "Entrevistas remotas breves con taxistas, moderadas por el product owner, confirmaron el diagnóstico: apenas abrían la app durante la jornada. Procesaban de golpe, por la noche, todas las carreras del día."
+    },
+    "decision": {
+      "id": "reencuadre",
+      "heading": "Decisión",
+      "text": "Con el modelo equivocado confirmado, cualquier mejora incremental —firmas, fotos— habría sido trabajo perdido. Se propuso el rediseño completo del flujo, partiendo del viaje como entidad. La idea se escaló a responsable de equipo y producto, y negocio aprobó la revisión, se bloqueó la tarea del sprint y en su lugar se incluyó la refactorización y el rediseño de la app. Esto inicialmente supuso un punto crítico (aceptar error en diseño legacy y ampliar la tarea inicial a rediseño de la app) aunque posteriormente se confirmó su beneficio."
+    },
+    "solution": {
+      "id": "solucion",
+      "heading": "Solución",
+      "intro": "El viaje como entidad central, agrupado en una lista continua por fecha. Dos pantallas principales: próximos viajes y viajes pasados, y una ventana de proceso para la consulta, edición y cambio de estado de los viajes.",
+      "legendBefore": "Fila superior: pantallas principales. Fila inferior, con etiqueta punteada: ",
+      "legendDashed": "sub-interacciones del estado Activo",
+      "legendAfter": ", no pantallas de nivel propio.",
+      "upcoming": {
+        "tag": "Próximos",
+        "tabActive": "Próximos",
+        "tabInactive": "Pasados",
+        "dateLabel": "Lunes 12 oct 2026",
+        "trips": [
+          { "time": "09:30 · Muelle Sta. Catalina", "status": "Activo", "dest": "Hospital Univ. Insular", "pax": 2 },
+          { "time": "12:15 · M. León y Castillo", "status": "Activo", "dest": "Aeropuerto (LPA) · T1", "pax": 1 }
+        ],
+        "caption": "Lista continua agrupada por fecha. Los viajes de hoy pasan a \"Activo\" automáticamente."
+      },
+      "past": {
+        "tag": "Pasados",
+        "tabInactive": "Próximos",
+        "tabActive": "Pasados",
+        "searchOptions": ["Pasajero", "Destino", "Fecha"],
+        "searchPlaceholder": "García",
+        "searchButton": "Buscar",
+        "resultsLabel": "Resultados · más reciente primero",
+        "results": [
+          { "time": "15:20 · M. Sta. Catalina", "status": "Cerrado", "dest": "Hospital Univ. Insular", "pax": 3 },
+          { "time": "09:10 · M. León y Castillo", "status": "Procesado", "dest": "Hospital Univ. Insular", "pax": 2 }
+        ],
+        "caption": "Misma estructura que próximos, con el filtro de búsqueda añadido. Aquí el estado identifica qué queda pendiente."
+      },
+      "scheduled": {
+        "tag": "Ventana de proceso · Programado",
+        "tripLabel": "Viaje 09:30 · M. Sta. Catalina",
+        "statusLabel": "Programado",
+        "infoLabel": "Información general",
+        "addresses": ["Muelle Santa Catalina, Puerto de La Luz", "Hospital Universitario Insular, Av. Marítima del Sur s/n"],
+        "passengersLabel": "Pasajeros · 2 (solo consulta)",
+        "passengers": [
+          { "name": "J. Álvarez Suárez", "doc": "DNI 45123678X · España" },
+          { "name": "R. Santos Cruz", "doc": "Pasaporte PH1204587 · Filipinas" }
+        ],
+        "actionsLabel": "Acciones",
+        "declineButton": "Rechazar viaje",
+        "caption": "Estado inicial: solo consulta. Única acción posible: rechazar, para que se reasigne a otro conductor."
+      },
+      "active": {
+        "tag": "Ventana de proceso · Activo",
+        "tripLabel": "Viaje 09:30 · M. Sta. Catalina",
+        "statusLabel": "Activo",
+        "infoLabel": "Información general",
+        "addresses": ["Muelle Santa Catalina, Puerto de La Luz", "Hospital Universitario Insular, Av. Marítima del Sur s/n"],
+        "passengersLabel": "Pasajeros · 2",
+        "passengers": [
+          { "name": "J. Álvarez Suárez", "doc": "DNI 45123678X · España" },
+          { "name": "R. Santos Cruz", "doc": "Pasaporte PH1204587 · Filipinas" }
+        ],
+        "addPassengerButton": "Añadir pasajero",
+        "actionsLabel": "Acciones",
+        "startSignaturesButton": "Iniciar firmas",
+        "attachDocsButton": "Adjuntar documentos",
+        "reportIssueButton": "Registrar incidencia",
+        "caption": "Pasajeros editables, firma y documentación — el flujo que cierra el viaje."
+      },
+      "modal": {
+        "tag": "Modal · editar pasajero",
+        "title": "Modificar pasajero",
+        "nameLabel": "Nombre y apellidos",
+        "nameValue": "J. Álvarez Suárez",
+        "docLabel": "Documento de identidad",
+        "docTypes": ["DNI", "NIE", "Pasaporte"],
+        "docValue": "45123678X",
+        "nationalityLabel": "Nacionalidad",
+        "nationalityOptions": ["España", "Filipinas", "Ucrania"],
+        "cancelButton": "Cancelar",
+        "saveButton": "Guardar",
+        "deleteNote": "Eliminar pasajero — pide confirmación",
+        "caption": "Lanzado desde el icono de lápiz. Confirmación explícita para alta y baja de pasajeros."
+      },
+      "signature": {
+        "tag": "Firma secuencial",
+        "progressLabel": "Firma 1 de 2",
+        "name": "J. Álvarez Suárez",
+        "doc": "DNI 45123678X",
+        "signHereLabel": "Firmar aquí",
+        "signButton": "Firmar y continuar",
+        "caption": "Una pantalla por pasajero, hasta completar el grupo — no una firma única por viaje."
+      }
+    },
+    "outcome": {
+      "id": "resultado",
+      "heading": "Resultado",
+      "items": [
+        "Uso en el momento del servicio, no acumulado al final del día",
+        "Más volumen de registros — y más coherencia: firmas reales, no reconstruidas",
+        "Facturación más ágil, menos incidencias por documentación incompleta"
+      ],
+      "note": "Se observó también un ligero descenso de incidencias en viaje — sin relación causal clara con el rediseño; se apunta como observación, no como mérito."
+    },
+    "learning": {
+      "id": "aprendizaje",
+      "text": "La construcción de la aplicación basada en una entidad errónea —día en lugar de viaje— explica la totalidad de los síntomas de uso observados. Corregir esa base, no el acabado visual, es lo que resolvió el problema."
+    }
   }
 }

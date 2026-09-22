@@ -29,5 +29,158 @@
       "disclaimer": "The wireframes in this case study are faithful reconstructions based on the original description — not production screenshots.",
       "backLabel": "← Back to profile"
     }
+  },
+  "body": {
+    "cover": {
+      "id": "cover",
+      "titleApp": "TAXI APP",
+      "lead": "How detecting and addressing critical UX flaws prevents wasted money and time.",
+      "meta": "Design Engineer (UX/UI) · Full redesign · 1 month, from analysis to production · Maritime-port services sector."
+    },
+    "context": {
+      "id": "context",
+      "heading": "Context",
+      "text": "A maritime and port services company coordinated taxi transfers for crew members in transit: from airports, facilities, hotels and ports, to hospitals, police stations, management centres, airports and hotels. An internal mobile app supported these services, and the company relied on its records for invoicing. Taxi drivers used the app to log trip details, passengers and schedules, and to justify services for billing."
+    },
+    "brief": {
+      "id": "brief",
+      "heading": "The brief",
+      "kicker": "Original ticket",
+      "ticket": "The app was already in production, launched a year earlier; our task at the time was to extend its functionality, including the ability to attach documentation via photo capture.",
+      "note": "The request was framed as an interface task. During functional analysis, it became clear that no further development would add value while a critical usability problem remained."
+    },
+    "finding": {
+      "id": "finding",
+      "heading": "Finding",
+      "lead": "The app, meant for trip management, had been built on a calendar-agenda foundation, so the interface's core entity was the scheduled day, not the trip. Everything was modelled as a calendar navigable by date — as a result: buried information, zero hierarchy, and no reduced friction for someone who just needs to know their next job, right now.",
+      "wrongModel": {
+        "label": "Wrong model",
+        "title": "Day as the entity",
+        "caption": "Monthly navigation by date. Each trip is buried inside the day."
+      },
+      "correctModel": {
+        "label": "Correct model",
+        "title": "Trip as the entity",
+        "items": [
+          { "time": "09:30 · Muelle Santa Catalina", "detail": "Hospital Universitario Insular · 2 pax" },
+          { "time": "12:15 · Muelle León y Castillo", "detail": "Aeropuerto (LPA) · T1 · 1 pax" }
+        ],
+        "caption": "Continuous list. Relevant information is visible immediately."
+      }
+    },
+    "validation": {
+      "id": "validation",
+      "heading": "Validation",
+      "text": "Short remote interviews with taxi drivers, moderated by the product owner, confirmed the diagnosis: they barely opened the app during the day. Instead, they processed all of the day's trips at once, at night."
+    },
+    "decision": {
+      "id": "decision",
+      "heading": "Decision",
+      "text": "With the wrong model confirmed, any incremental improvement — signatures, photos — would have been wasted effort. A full redesign of the flow was proposed, starting from the trip as the core entity. The idea was escalated to the team and product leads; the business approved the review, the sprint task was blocked, and the app's refactor and redesign were scheduled in its place. This was initially a critical moment — acknowledging a flaw in the legacy design and expanding the original task into a full redesign — though its value was confirmed later on."
+    },
+    "solution": {
+      "id": "solution",
+      "heading": "Solution",
+      "intro": "The trip as the central entity, grouped in a continuous list by date. Two main screens: upcoming trips and past trips, plus a process window for viewing, editing and changing trip status.",
+      "legendBefore": "Top row: main screens. Bottom row, with a dashed label: ",
+      "legendDashed": "sub-interactions of the Active state",
+      "legendAfter": ", not top-level screens.",
+      "upcoming": {
+        "tag": "Upcoming",
+        "tabActive": "Upcoming",
+        "tabInactive": "Past",
+        "dateLabel": "Monday 12 Oct 2026",
+        "trips": [
+          { "time": "09:30 · Muelle Sta. Catalina", "status": "Active", "dest": "Hospital Univ. Insular", "pax": 2 },
+          { "time": "12:15 · M. León y Castillo", "status": "Active", "dest": "Airport (LPA) · T1", "pax": 1 }
+        ],
+        "caption": "Continuous list grouped by date. Today's trips automatically switch to \"Active\"."
+      },
+      "past": {
+        "tag": "Past",
+        "tabInactive": "Upcoming",
+        "tabActive": "Past",
+        "searchOptions": ["Passenger", "Destination", "Date"],
+        "searchPlaceholder": "Smith",
+        "searchButton": "Search",
+        "resultsLabel": "Results · most recent first",
+        "results": [
+          { "time": "15:20 · M. Sta. Catalina", "status": "Closed", "dest": "Hospital Univ. Insular", "pax": 3 },
+          { "time": "09:10 · M. León y Castillo", "status": "Processed", "dest": "Hospital Univ. Insular", "pax": 2 }
+        ],
+        "caption": "Same structure as upcoming, with the search filter added. Here, status identifies what's still pending."
+      },
+      "scheduled": {
+        "tag": "Process window · Scheduled",
+        "tripLabel": "Trip 09:30 · M. Sta. Catalina",
+        "statusLabel": "Scheduled",
+        "infoLabel": "General information",
+        "addresses": ["Muelle Santa Catalina, Puerto de La Luz", "Hospital Universitario Insular, Av. Marítima del Sur s/n"],
+        "passengersLabel": "Passengers · 2 (view only)",
+        "passengers": [
+          { "name": "J. Álvarez Suárez", "doc": "ID 45123678X · Spain" },
+          { "name": "R. Santos Cruz", "doc": "Passport PH1204587 · Philippines" }
+        ],
+        "actionsLabel": "Actions",
+        "declineButton": "Decline trip",
+        "caption": "Initial state: view only. The only possible action is to decline, so it gets reassigned to another driver."
+      },
+      "active": {
+        "tag": "Process window · Active",
+        "tripLabel": "Trip 09:30 · M. Sta. Catalina",
+        "statusLabel": "Active",
+        "infoLabel": "General information",
+        "addresses": ["Muelle Santa Catalina, Puerto de La Luz", "Hospital Universitario Insular, Av. Marítima del Sur s/n"],
+        "passengersLabel": "Passengers · 2",
+        "passengers": [
+          { "name": "J. Álvarez Suárez", "doc": "ID 45123678X · Spain" },
+          { "name": "R. Santos Cruz", "doc": "Passport PH1204587 · Philippines" }
+        ],
+        "addPassengerButton": "Add passenger",
+        "actionsLabel": "Actions",
+        "startSignaturesButton": "Start signatures",
+        "attachDocsButton": "Attach documents",
+        "reportIssueButton": "Report an issue",
+        "caption": "Editable passengers, signature and documentation — the flow that closes the trip."
+      },
+      "modal": {
+        "tag": "Modal · edit passenger",
+        "title": "Edit passenger",
+        "nameLabel": "Full name",
+        "nameValue": "J. Álvarez Suárez",
+        "docLabel": "ID document",
+        "docTypes": ["National ID", "Foreign ID", "Passport"],
+        "docValue": "45123678X",
+        "nationalityLabel": "Nationality",
+        "nationalityOptions": ["Spain", "Philippines", "Ukraine"],
+        "cancelButton": "Cancel",
+        "saveButton": "Save",
+        "deleteNote": "Delete passenger — asks for confirmation",
+        "caption": "Triggered from the pencil icon. Explicit confirmation for adding and removing passengers."
+      },
+      "signature": {
+        "tag": "Sequential signature",
+        "progressLabel": "Signature 1 of 2",
+        "name": "J. Álvarez Suárez",
+        "doc": "ID 45123678X",
+        "signHereLabel": "Sign here",
+        "signButton": "Sign and continue",
+        "caption": "One screen per passenger, until the group is complete — not a single signature per trip."
+      }
+    },
+    "outcome": {
+      "id": "outcome",
+      "heading": "Outcome",
+      "items": [
+        "Used at the moment of the trip, not batched at the end of the day",
+        "Higher volume of records — and more consistency: real signatures, not reconstructed ones",
+        "Faster invoicing, fewer issues from incomplete documentation"
+      ],
+      "note": "A slight decrease in trip incidents was also observed — with no clear causal link to the redesign; noted as an observation, not a claimed result."
+    },
+    "learning": {
+      "id": "learning",
+      "text": "Building the app around the wrong entity — day instead of trip — accounts for all of the usage symptoms observed. Fixing that foundation, not the visual finish, is what solved the problem."
+    }
   }
 }

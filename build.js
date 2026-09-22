@@ -83,7 +83,7 @@ const pages = [
     page: home.es,
   },
   {
-    template: 'pages/casos/app-taxi-en.njk',
+    template: 'pages/casos/app-taxi.njk',
     out: 'casos/app-taxi/index.html',
     lang: 'en',
     assetsPath: '../../',
@@ -92,7 +92,7 @@ const pages = [
     page: appTaxi.en,
   },
   {
-    template: 'pages/casos/app-taxi-es.njk',
+    template: 'pages/casos/app-taxi.njk',
     out: 'es/casos/app-taxi/index.html',
     lang: 'es',
     assetsPath: '../../../',
