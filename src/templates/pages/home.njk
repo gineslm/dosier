@@ -1,0 +1,145 @@
+{% extends "layouts/home.njk" %}
+{% block body %}
+            <section id="{{ page.body.profile.id }}" class="profile" aria-labelledby="h-{{ page.body.profile.id }}">
+                <h2 id="h-{{ page.body.profile.id }}" class="section-heading section-heading--on-accent">{{ page.body.profile.heading }}</h2>
+                <p class="profile__lead">
+                    {{ page.body.profile.lead }}
+                </p>
+                <div class="chip-row">
+{% for chip in page.body.profile.chips %}
+                    <span class="chip">{{ chip }}</span>
+{% endfor %}
+                </div>
+            </section>
+
+            <section id="{{ page.body.projects.id }}" aria-labelledby="h-{{ page.body.projects.id }}">
+                <h2 id="h-{{ page.body.projects.id }}" class="section-heading section-heading--accent">{{ page.body.projects.heading }}</h2>
+
+                <div class="projects">
+{% for item in page.body.projects.items %}
+                    <article class="project">
+                        <h3 class="project__title">{{ item.title }}</h3>
+                        <p class="project__meta">{{ item.meta }}</p>
+                        <dl class="data-strip">
+{% for d in item.dataStrip %}
+                            <div class="data-strip__item"><dt>{{ d.term }}</dt><dd>{{ d.def }}</dd></div>
+{% endfor %}
+                        </dl>
+{% for para in item.paragraphs %}
+                        <p class="project__text">
+                            {{ para }}
+                        </p>
+{% endfor %}
+{% if item.responsibilities %}
+                        <div class="responsibilities">
+                            <div class="responsibilities__label">{{ item.responsibilities.label }}</div>
+                            <dl class="responsibilities__list">
+{% for r in item.responsibilities.rows %}
+                                <div class="responsibilities__row"><dt>{{ r.term }}</dt><dd>{{ r.def }}</dd></div>
+{% endfor %}
+                            </dl>
+                        </div>
+{% endif %}
+                        <div class="chip-outline-row">
+{% for chip in item.chips %}
+                            <span class="chip-outline">{{ chip }}</span>
+{% endfor %}
+                        </div>
+{% if item.links %}
+                        <div class="project__links">
+{% for link in item.links %}
+                            <a href="{{ link.href }}" target="_blank" rel="noopener noreferrer" class="icon-inline">{{ link.label }}
+                                <svg class="external-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"></path></svg>
+                                <span class="visually-hidden">{{ page.chrome.opensInNewWindow }}</span>
+                            </a>
+{% endfor %}
+                        </div>
+{% endif %}
+                    </article>
+{% endfor %}
+                </div>
+            </section>
+
+            <section id="{{ page.body.caseStudies.id }}" aria-labelledby="h-{{ page.body.caseStudies.id }}">
+                <h2 id="h-{{ page.body.caseStudies.id }}" class="section-heading section-heading--accent">{{ page.body.caseStudies.heading }}</h2>
+
+                <div class="projects">
+{% for item in page.body.caseStudies.items %}
+                    <article class="project">
+                        <h3 class="project__title">{{ item.title }}</h3>
+                        <p class="project__meta">{{ item.meta }}</p>
+                        <dl class="data-strip">
+{% for d in item.dataStrip %}
+                            <div class="data-strip__item"><dt>{{ d.term }}</dt><dd>{{ d.def }}</dd></div>
+{% endfor %}
+                        </dl>
+                        <p class="project__text">
+                            {{ item.text }}
+                        </p>
+                        <div class="project__links">
+                            <a class="icon-inline" href="{{ item.linkHref }}">{{ item.linkLabel }}
+                                <svg class="external-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </article>
+{% endfor %}
+                </div>
+            </section>
+
+            <section id="{{ page.body.portfolio.id }}" aria-labelledby="h-{{ page.body.portfolio.id }}">
+                <h2 id="h-{{ page.body.portfolio.id }}" class="section-heading section-heading--accent">{{ page.body.portfolio.heading }}</h2>
+
+                <div class="portfolio-list">
+{% for item in page.body.portfolio.items %}
+                    <article class="portfolio-item">
+                        <div class="portfolio-item__body">
+                            <h3 class="portfolio-item__title">{{ item.title }}</h3>
+                            <p class="portfolio-item__meta">{{ item.meta }}</p>
+                            <p class="portfolio-item__text">
+                                {{ item.text }}
+                            </p>
+{% if item.links.length == 1 %}
+                            <a class="portfolio-item__link icon-inline" href="{{ item.links[0].href }}" target="_blank" rel="noopener noreferrer">{{ item.links[0].label }}
+                                <svg class="external-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"></path></svg>
+                                <span class="visually-hidden">{{ page.chrome.opensInNewWindow }}</span>
+                            </a>
+{% else %}
+                            <div class="portfolio-item__links">
+{% for link in item.links %}
+                                <a class="icon-inline" href="{{ link.href }}" target="_blank" rel="noopener noreferrer">{{ link.label }}
+                                    <svg class="external-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"></path></svg>
+                                    <span class="visually-hidden">{{ page.chrome.opensInNewWindow }}</span>
+                                </a>
+{% endfor %}
+                            </div>
+{% endif %}
+                        </div>
+                        <figure class="portfolio-item__figure">
+                            <img src="{{ assetsPath }}{{ item.image.src }}" alt="{{ item.image.alt }}" width="300" height="186" loading="lazy">
+                        </figure>
+                    </article>
+{% endfor %}
+                </div>
+            </section>
+
+            <section id="{{ page.body.contact.id }}" class="contact-section" aria-labelledby="h-{{ page.body.contact.id }}">
+                <h2 id="h-{{ page.body.contact.id }}" class="visually-hidden">{{ page.body.contact.heading }}</h2>
+                <p class="contact-note">
+                    {{ page.body.contact.note }}
+                </p>
+                <div class="contact-cta">
+                    <div class="contact-cta__inner">
+                        <p class="contact-cta__heading">{{ page.body.contact.ctaHeading }}</p>
+                        <div class="contact-buttons">
+                            <a class="button button--primary" href="{{ page.body.contact.contactHref }}">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16"></rect><path d="m2 6 10 7 10-7"></path></svg>
+                                <span>{{ page.body.contact.contactButtonLabel }}</span>
+                            </a>
+                            <a class="button button--icon" href="{{ common.site.linkedinUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ page.body.contact.linkedinAriaLabel }}" title="LinkedIn">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM2.75 9.75h4.46V21H2.75V9.75Zm6.9 0h4.27v1.54h.06c.6-1.08 2.05-1.86 3.8-1.86 3.16 0 4.47 1.94 4.47 5.17V21h-4.46v-5.57c0-1.4-.5-2.35-1.74-2.35-1.05 0-1.7.71-1.98 1.4-.1.25-.13.6-.13.94V21H9.65s.06-9.9 0-11.25Z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% endblock %}

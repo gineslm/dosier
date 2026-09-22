@@ -11,6 +11,10 @@
     "hreflangEn": "https://www.dsigncloud.es/dosier/en/",
     "hreflangEs": "https://www.dsigncloud.es/dosier/en/es/",
     "hreflangDefault": "https://www.dsigncloud.es/dosier/en/",
+    "atsPdf": {
+      "file": "cv-ats-en.pdf",
+      "title": "Ginés López Montalbán CV (plain-text version)"
+    },
     "jsonLd": {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -61,5 +65,133 @@
     "cvLabel": "Download CV (PDF)",
     "cvFile": "cv-gines-lopez-en.pdf",
     "opensInNewWindow": "(opens in a new window)"
+  },
+  "body": {
+    "profile": {
+      "id": "profile",
+      "heading": "Profile",
+      "lead": "Designer and Frontend Engineer with 6+ years of experience in digital product, UX/UI and frontend development, building on a longer background of 15+ years in graphic design, identity and visual communication. I work at the intersection of design, technology and systems, translating complex problems into product experiences, design systems and coherent, maintainable frontend implementations. I've worked across UX/UI and development, led frontend architecture and component systems for multiple products and, more recently, researched human-AI collaboration and agent-based work.",
+      "chips": ["Design Systems", "UX/UI", "Frontend Architecture", "Component Systems", "WCAG 2.1 AA Accessibility", "Prototyping", "Human-AI Collaboration"]
+    },
+    "projects": {
+      "id": "projects",
+      "heading": "Recent projects",
+      "items": [
+        {
+          "title": "Design-to-Code and Human-AI Collaboration · Warp",
+          "meta": "Personal project · 2026 · Angular, Knowledge Architecture, AI Agents",
+          "dataStrip": [
+            { "term": "Role", "def": "Design & research" },
+            { "term": "Year", "def": "2026" },
+            { "term": "Status", "def": "Public" },
+            { "term": "Output", "def": "Methodology + repositories" }
+          ],
+          "paragraphs": [
+            "Research into how much of the definition → design/prototyping → frontend implementation flow can be delegated to AI agents, and under what conditions this can be done reliably, traceably and reproducibly. Includes real design-to-code conversion tests on Angular, with agents that had no prior conversation history, to evaluate replicability and context dependency.",
+            "I developed a staged methodology based on traceability, ambiguity reduction, cumulative enrichment, versioning and validation gates, with explicit contracts between layers; the tests identified the design-to-code specification contract as the main bottleneck. Splitting research, documentation, testing and development across multiple agents surfaced a second problem: keeping knowledge, decisions and responsibilities coherent across instances with no shared memory.",
+            "In response I built Warp, a Git-based knowledge architecture for maintaining persistent responsibilities, interchangeable agents, explicit documentary authority and automatic structural validation, critically contrasted against DDD / Bounded Contexts, Data Mesh, ADR/RFC, IBIS, W3C PROV and Team Topologies."
+          ],
+          "chips": ["Angular", "AI Agents", "Knowledge Architecture", "Git", "Design-to-Code"],
+          "links": [
+            { "href": "https://github.com/gineslm/design-to-code", "label": "design-to-code repository" },
+            { "href": "https://github.com/gineslm/warp", "label": "warp repository" }
+          ]
+        },
+        {
+          "title": "Accessible hybrid component library & design system",
+          "meta": "Laberit · 2025—2026 · confidential",
+          "dataStrip": [
+            { "term": "Role", "def": "Lead DS + frontend" },
+            { "term": "Year", "def": "2025—26" },
+            { "term": "Sector", "def": "Healthcare" },
+            { "term": "Status", "def": "Confidential" }
+          ],
+          "paragraphs": [
+            "I led the definition, design and implementation of a design system and a hybrid component library in Angular 18 and Ionic 8, with WCAG 2.1 AA accessibility compliance, for a healthcare application ecosystem."
+          ],
+          "responsibilities": {
+            "label": "Responsibilities",
+            "rows": [
+              { "term": "Architecture", "def": "Primary and semantic token structure, accessibility criteria, component patterns and implementation standards for the whole ecosystem." },
+              { "term": "Client management", "def": "Validation of design criteria, resolution of product decisions and alignment with healthcare-sector requirements." },
+              { "term": "Knowledge transfer", "def": "Technical documentation, component usage guides and team training to ensure adoption of the DS as a shared standard." },
+              { "term": "Governance", "def": "Evolution model: criteria for adding, changing or deprecating components, version control and review process." }
+            ]
+          },
+          "chips": ["Angular 18", "Ionic 8", "Design Tokens", "WCAG 2.1 AA", "Figma", "Angular Signals"]
+        }
+      ]
+    },
+    "caseStudies": {
+      "id": "case-studies",
+      "heading": "Case studies",
+      "items": [
+        {
+          "title": "Redesign of a taxi transfer management app",
+          "meta": "Confidential client · 2026 · UX/UI · Maritime-port services",
+          "dataStrip": [
+            { "term": "Role", "def": "UX/UI" },
+            { "term": "Duration", "def": "1 month" },
+            { "term": "Sector", "def": "Maritime-port" },
+            { "term": "Output", "def": "Redesign in production" }
+          ],
+          "text": "How detecting and addressing critical UX flaws prevents wasted money and time.",
+          "linkHref": "casos/app-taxi/index.html",
+          "linkLabel": "View full case study"
+        }
+      ]
+    },
+    "portfolio": {
+      "id": "portfolio",
+      "heading": "Portfolio",
+      "items": [
+        {
+          "title": "Design system guide in Figma Make",
+          "meta": "Design system · UI · Usability · Accessibility",
+          "text": "End-to-end design system, prototyped in Figma and implemented in React with Tailwind CSS. Covers component scalability, design tokens and responsive patterns, meeting usability and accessibility standards, with a base of guidelines to support future iterations.",
+          "links": [
+            { "href": "https://siren-memo-26565209.figma.site/", "label": "View design system" }
+          ],
+          "image": { "src": "assets/img/dsystem.jpg", "alt": "Preview of the design system's component library" }
+        },
+        {
+          "title": "IMOLES — mobile app for melanoma diagnosis",
+          "meta": "Functional analysis · UX research · Interface · Prototyping",
+          "text": "A mobile app that uses AI to analyse skin images captured with a phone: preliminary diagnosis, tracking of lesion evolution and clear recommendations on when to see a doctor. Focused on simplicity and privacy to support early detection.",
+          "links": [
+            { "href": "https://xd.adobe.com/view/7a0d9054-1b15-411e-aaa2-8f405d152437-2f5e/?hints=off", "label": "UX analysis" },
+            { "href": "https://xd.adobe.com/view/eec9c2bd-5a32-4ee7-8539-052a67816097-bb9a/?fullscreen", "label": "XD prototype" }
+          ],
+          "image": { "src": "assets/img/imoles-app.jpg", "alt": "Screens of the IMOLES mobile app for melanoma detection" }
+        },
+        {
+          "title": "Responsive web design",
+          "meta": "UI design · Layout",
+          "text": "Four responsive website projects following a mobile-first pattern. Responsible for the design and layout in every case.",
+          "links": [
+            { "href": "https://xd.adobe.com/view/0bdee4e2-927e-4d1e-a2bb-c56e1fa8a43e-5e8d/?fullscreen", "label": "View projects" }
+          ],
+          "image": { "src": "assets/img/responsive.jpg", "alt": "Responsive web designs on desktop and mobile" }
+        },
+        {
+          "title": "Graphic design & branding",
+          "meta": "Art direction · Identity · Editorial · 2000—2019",
+          "text": "A sample of earlier work: branding and brand application, editorial graphic design, large-format printing and facade design, vehicle livery. The foundation in composition, hierarchy and typography that underpins the product work.",
+          "links": [
+            { "href": "https://www.dsigncloud.es/glm/dosier-gines-baja.pdf", "label": "Portfolio PDF" }
+          ],
+          "image": { "src": "assets/img/diseno.jpg", "alt": "Sample of branding and editorial graphic design work" }
+        }
+      ]
+    },
+    "contact": {
+      "id": "contact",
+      "heading": "Contact",
+      "note": "Most of my work over the last few years is under confidentiality agreements and can't be shown publicly. I'm happy to discuss decisions, architecture and specific cases in conversation, and I'm open to talking through complex business and development challenges.",
+      "ctaHeading": "A system to design and build? Let's talk.",
+      "contactButtonLabel": "Get in touch",
+      "contactHref": "mailto:gines.lopez@gmail.com?subject=Project%20%E2%80%94%20contact%20from%20portfolio",
+      "linkedinAriaLabel": "LinkedIn profile (opens in a new window)"
+    }
   }
 }

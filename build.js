@@ -65,7 +65,7 @@ const appTaxi = {
 // script.js, assets/...); otherLangHref es el enlace del lang-switch.
 const pages = [
   {
-    template: 'pages/home-en.njk',
+    template: 'pages/home.njk',
     out: 'index.html',
     lang: 'en',
     assetsPath: '',
@@ -74,7 +74,7 @@ const pages = [
     page: home.en,
   },
   {
-    template: 'pages/home-es.njk',
+    template: 'pages/home.njk',
     out: 'es/index.html',
     lang: 'es',
     assetsPath: '../',
