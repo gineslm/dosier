@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Case study · Taxi transfer app — Ginés López Montalbán",
+    "description": "How detecting and addressing critical UX flaws prevents wasted money and time. Redesign of a taxi transfer management app for the maritime-port sector.",
+    "themeColor": "#1E1B22",
+    "canonical": "https://www.dsigncloud.es/dosier/en/casos/app-taxi/",
+    "hreflangEn": "https://www.dsigncloud.es/dosier/en/casos/app-taxi/",
+    "hreflangEs": "https://www.dsigncloud.es/dosier/en/es/casos/app-taxi/",
+    "hreflangDefault": "https://www.dsigncloud.es/dosier/en/casos/app-taxi/"
+  },
+  "chrome": {
+    "backLabel": "Back",
+    "backAriaLabel": "Back to profile",
+    "backHref": "../../index.html#projects",
+    "tag": "Case study · Taxi app",
+    "onThisPageLabel": "On this page",
+    "toc": [
+      { "id": "cover", "label": "Overview" },
+      { "id": "context", "label": "Context" },
+      { "id": "brief", "label": "The brief" },
+      { "id": "finding", "label": "Finding" },
+      { "id": "validation", "label": "Validation" },
+      { "id": "decision", "label": "Decision" },
+      { "id": "solution", "label": "Solution" },
+      { "id": "outcome", "label": "Outcome" },
+      { "id": "learning", "label": "Learning" }
+    ],
+    "foot": {
+      "disclaimer": "The wireframes in this case study are faithful reconstructions based on the original description — not production screenshots.",
+      "backLabel": "← Back to profile"
+    }
+  }
+}

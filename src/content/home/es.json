@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "title": "Ginés López Montalbán — Design Engineer · Product Design & Frontend",
+    "description": "Portfolio de Ginés López Montalbán, Design Engineer especializado en Product Design y Frontend: sistemas de diseño, arquitectura frontend y colaboración humano-IA.",
+    "og": {
+      "title": "Ginés López Montalbán — Design Engineer · Product Design & Frontend",
+      "description": "Design Engineer — Design Systems, UX/UI, Frontend Development y colaboración humano-IA."
+    },
+    "themeColor": "#FF6C54",
+    "canonical": "https://www.dsigncloud.es/dosier/en/es/",
+    "hreflangEn": "https://www.dsigncloud.es/dosier/en/",
+    "hreflangEs": "https://www.dsigncloud.es/dosier/en/es/",
+    "hreflangDefault": "https://www.dsigncloud.es/dosier/en/",
+    "atsPdf": {
+      "file": "cv-ats-es.pdf",
+      "title": "CV de Ginés López Montalbán (versión texto plano)"
+    },
+    "jsonLd": {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ginés López Montalbán",
+      "jobTitle": "Design Engineer",
+      "description": "Designer y Frontend Engineer especializado en Product Design y Frontend: sistemas de diseño, arquitectura frontend y colaboración humano-IA.",
+      "url": "https://www.dsigncloud.es/dosier/en/es/",
+      "inLanguage": "es",
+      "email": "mailto:gines.lopez@gmail.com",
+      "telephone": "+34-658-595-047",
+      "address": { "@type": "PostalAddress", "addressCountry": "ES" },
+      "worksFor": { "@type": "Organization", "name": "Laberit" },
+      "sameAs": [
+        "https://www.linkedin.com/in/gines-lopez-design/",
+        "https://github.com/gineslm"
+      ],
+      "knowsAbout": [
+        "Design Systems",
+        "UX/UI",
+        "Arquitectura Frontend",
+        "Angular",
+        "Accesibilidad WCAG",
+        "Colaboración Humano-IA"
+      ]
+    }
+  },
+  "chrome": {
+    "skipLink": "Saltar al contenido",
+    "topbarNavAriaLabel": "Navegación de secciones",
+    "backToTopLabel": "Volver arriba",
+    "topbarNav": [
+      { "id": "contactar", "label": "Contacto" },
+      { "id": "perfil", "label": "Profile", "current": true },
+      { "id": "proyectos", "label": "Proyectos" },
+      { "id": "casos", "label": "Casos" },
+      { "id": "portfolio", "label": "Portfolio" }
+    ],
+    "indexId": "indice",
+    "menuToggleLabel": "Mostrar u ocultar el índice de secciones",
+    "indexAriaLabel": "Índice de secciones",
+    "indexNav": [
+      { "id": "perfil", "label": "Profile", "current": true },
+      { "id": "proyectos", "label": "Proyectos recientes" },
+      { "id": "casos", "label": "Casos de estudio" },
+      { "id": "portfolio", "label": "Portfolio" }
+    ],
+    "contactKicker": "Contacto",
+    "cvLabel": "Descargar CV (PDF)",
+    "cvFile": "cv-gines-lopez-es.pdf",
+    "opensInNewWindow": "(abre en una ventana nueva)"
+  }
+}

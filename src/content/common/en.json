@@ -1,0 +1,17 @@
+{
+  "site": {
+    "name": "Ginés López Montalbán",
+    "nameLines": ["Ginés", "López", "Montalbán"],
+    "roleLines": ["Design Engineer", "Product Design", "& Frontend"],
+    "email": "gines.lopez@gmail.com",
+    "phone": "+34 658 595 047",
+    "phoneHref": "+34658595047",
+    "linkedinUrl": "https://www.linkedin.com/in/gines-lopez-design/",
+    "linkedinHandle": "linkedin.com/in/gines-lopez-design",
+    "githubUrl": "https://github.com/gineslm",
+    "copyrightYear": 2026
+  },
+  "langSwitch": {
+    "ariaLabel": "Language"
+  }
+}

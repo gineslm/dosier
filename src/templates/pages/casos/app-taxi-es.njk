@@ -1,56 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caso de estudio · App de traslados en taxi — Ginés López Montalbán</title>
-    <meta name="description" content="Cómo la detección y revisión de fallos críticos de UX evita la pérdida de dinero y tiempo. Rediseño de una app de gestión de traslados en taxi en el sector marítimo-portuario.">
-    <meta name="theme-color" content="#1E1B22">
-
-    <link rel="canonical" href="https://www.dsigncloud.es/dosier/en/es/casos/app-taxi/">
-    <link rel="alternate" hreflang="en" href="https://www.dsigncloud.es/dosier/en/casos/app-taxi/">
-    <link rel="alternate" hreflang="es" href="https://www.dsigncloud.es/dosier/en/es/casos/app-taxi/">
-    <link rel="alternate" hreflang="x-default" href="https://www.dsigncloud.es/dosier/en/casos/app-taxi/">
-
-    <link rel="preload" href="../../../fonts/roboto-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../../fonts/roboto-condensed-variable.woff2" as="font" type="font/woff2" crossorigin>
-
-    <link rel="stylesheet" href="../../../tokens.css">
-    <link rel="stylesheet" href="case.css">
-</head>
-<body>
-<div class="ds-theme-dark-casos-estudio" style="width: 100%; display: flex; flex-direction: column;">
-
-  <div data-r="topbar" style="position: sticky; top: 0; z-index: 10; height: 60px; background: var(--color-surface); border-bottom: 1px solid var(--color-rule); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; box-sizing: border-box;">
-    <a href="../../index.html#proyectos" aria-label="Volver al profile" style="display: flex; align-items: center; gap: 6px; font-size: var(--text-ui); font-weight: 500; color: var(--color-ink);">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
-      Volver
-    </a>
-    <span style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; color: var(--color-accent-strong); text-transform: uppercase;">Caso de estudio · App taxi</span>
-<div class="lang-switch" role="group" aria-label="Idioma">
-    <a class="lang-switch__option" href="../../../casos/app-taxi/index.html" hreflang="en" lang="en">EN</a>
-    <span class="lang-switch__option lang-switch__option--active" aria-current="true">ES</span>
-</div>
-  </div>
-
-  <div data-r="shell" style="display: flex; align-items: flex-start; gap: 40px; padding: 48px 40px 100px; max-width: 1180px; margin: 0 auto; width: 100%; box-sizing: border-box;">
-
-    <nav data-r="sidebar" aria-label="En esta página" style="width: 220px; flex-shrink: 0; position: sticky; top: 100px; display: flex; flex-direction: column; gap: 2px; border-right: 1px solid var(--color-rule); padding-right: 20px; box-sizing: border-box;">
-      <div style="font-family: var(--font-condensed); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin-bottom: 10px;">En esta página</div>
-      <a class="case-index__link is-active" href="#portada">Portada</a>
-      <a class="case-index__link" href="#contexto">Contexto</a>
-      <a class="case-index__link" href="#encargo">Encargo</a>
-      <a class="case-index__link" href="#hallazgo">Hallazgo</a>
-      <a class="case-index__link" href="#validacion">Validación</a>
-      <a class="case-index__link" href="#reencuadre">Decisión</a>
-      <a class="case-index__link" href="#solucion">Solución</a>
-      <a class="case-index__link" href="#resultado">Resultado</a>
-      <a class="case-index__link" href="#aprendizaje">Aprendizaje</a>
-    </nav>
-
-    <div data-r="main" style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px;">
-
+{% extends "layouts/case-study.njk" %}
+{% block body %}
       <div id="portada" data-sec="portada" style="padding: 8px 0 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
         
         <h1 data-r="h1-app" style="font-weight: var(--weight-thin); font-size: 72px; line-height: var(--text-name-lh); margin: 0 0 14px; color: var(--color-ink); text-wrap: pretty;">APP TAXI</h1>
@@ -286,31 +235,4 @@
       <div id="aprendizaje" data-sec="aprendizaje" style="max-width: 619px; scroll-margin-top: 90px;">
         <p data-r="closing" style="font-size: 26px; line-height: 1.4; font-weight: 300; color: var(--color-ink); margin: 0; max-width: 34ch; text-wrap: pretty;">La construcción de la aplicación basada en una entidad errónea —día en lugar de viaje— explica la totalidad de los síntomas de uso observados. Corregir esa base, no el acabado visual, es lo que resolvió el problema.</p>
       </div>
-
-      <div data-r="foot" style="max-width: 619px; display: flex; flex-direction: column; gap: 10px;">
-        <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 0;">Los wireframes de este caso son reconstrucciones fieles a la descripción original — no capturas de producción.</p>
-        <a href="../../index.html#proyectos" style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; color: var(--color-accent-strong); text-transform: uppercase; letter-spacing: 0.04em;">← Volver al profile</a>
-      </div>
-
-    </div>
-  </div>
-</div>
-<script>
-(function () {
-  var links = Array.prototype.slice.call(document.querySelectorAll('.case-index__link'));
-  var secs = Array.prototype.slice.call(document.querySelectorAll('[data-sec]'));
-  var raf = null;
-  function spy() {
-    raf = null;
-    var current = secs.length ? secs[0].getAttribute('data-sec') : null;
-    secs.forEach(function (el) { if (el.getBoundingClientRect().top <= 90) current = el.getAttribute('data-sec'); });
-    links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + current); });
-  }
-  function onScroll() { if (!raf) raf = requestAnimationFrame(spy); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  spy();
-})();
-</script>
-</body>
-</html>
+{% endblock %}

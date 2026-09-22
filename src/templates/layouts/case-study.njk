@@ -1,0 +1,54 @@
+{% set stylesheetHref = 'case.css' %}
+{% include "partials/head.njk" %}
+<body>
+<div class="ds-theme-dark-casos-estudio" style="width: 100%; display: flex; flex-direction: column;">
+
+  <div data-r="topbar" style="position: sticky; top: 0; z-index: 10; height: 60px; background: var(--color-surface); border-bottom: 1px solid var(--color-rule); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; box-sizing: border-box;">
+    <a href="{{ page.chrome.backHref }}" aria-label="{{ page.chrome.backAriaLabel }}" style="display: flex; align-items: center; gap: 6px; font-size: var(--text-ui); font-weight: 500; color: var(--color-ink);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+      {{ page.chrome.backLabel }}
+    </a>
+    <span style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; color: var(--color-accent-strong); text-transform: uppercase;">{{ page.chrome.tag }}</span>
+{% include "partials/lang-switch.njk" %}
+  </div>
+
+  <div data-r="shell" style="display: flex; align-items: flex-start; gap: 40px; padding: 48px 40px 100px; max-width: 1180px; margin: 0 auto; width: 100%; box-sizing: border-box;">
+
+    <nav data-r="sidebar" aria-label="{{ page.chrome.onThisPageLabel }}" style="width: 220px; flex-shrink: 0; position: sticky; top: 100px; display: flex; flex-direction: column; gap: 2px; border-right: 1px solid var(--color-rule); padding-right: 20px; box-sizing: border-box;">
+      <div style="font-family: var(--font-condensed); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin-bottom: 10px;">{{ page.chrome.onThisPageLabel }}</div>
+{% for item in page.chrome.toc %}
+      <a class="case-index__link{% if loop.first %} is-active{% endif %}" href="#{{ item.id }}">{{ item.label }}</a>
+{% endfor %}
+    </nav>
+
+    <div data-r="main" style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px;">
+
+{% block body %}{% endblock %}
+
+      <div data-r="foot" style="max-width: 619px; display: flex; flex-direction: column; gap: 10px;">
+        <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 0;">{{ page.chrome.foot.disclaimer }}</p>
+        <a href="{{ page.chrome.backHref }}" style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; color: var(--color-accent-strong); text-transform: uppercase; letter-spacing: 0.04em;">{{ page.chrome.foot.backLabel }}</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.case-index__link'));
+  var secs = Array.prototype.slice.call(document.querySelectorAll('[data-sec]'));
+  var raf = null;
+  function spy() {
+    raf = null;
+    var current = secs.length ? secs[0].getAttribute('data-sec') : null;
+    secs.forEach(function (el) { if (el.getBoundingClientRect().top <= 90) current = el.getAttribute('data-sec'); });
+    links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + current); });
+  }
+  function onScroll() { if (!raf) raf = requestAnimationFrame(spy); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  spy();
+})();
+</script>
+</body>
+</html>

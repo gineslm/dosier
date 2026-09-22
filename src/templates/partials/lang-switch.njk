@@ -1,0 +1,9 @@
+<div class="lang-switch" role="group" aria-label="{{ common.langSwitch.ariaLabel }}">
+{% if lang == 'en' %}
+    <span class="lang-switch__option lang-switch__option--active" aria-current="true">EN</span>
+    <a class="lang-switch__option" href="{{ otherLangHref }}" hreflang="es" lang="es">ES</a>
+{% else %}
+    <a class="lang-switch__option" href="{{ otherLangHref }}" hreflang="en" lang="en">EN</a>
+    <span class="lang-switch__option lang-switch__option--active" aria-current="true">ES</span>
+{% endif %}
+</div>

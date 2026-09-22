@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Caso de estudio · App de traslados en taxi — Ginés López Montalbán",
+    "description": "Cómo la detección y revisión de fallos críticos de UX evita la pérdida de dinero y tiempo. Rediseño de una app de gestión de traslados en taxi en el sector marítimo-portuario.",
+    "themeColor": "#1E1B22",
+    "canonical": "https://www.dsigncloud.es/dosier/en/es/casos/app-taxi/",
+    "hreflangEn": "https://www.dsigncloud.es/dosier/en/casos/app-taxi/",
+    "hreflangEs": "https://www.dsigncloud.es/dosier/en/es/casos/app-taxi/",
+    "hreflangDefault": "https://www.dsigncloud.es/dosier/en/casos/app-taxi/"
+  },
+  "chrome": {
+    "backLabel": "Volver",
+    "backAriaLabel": "Volver al profile",
+    "backHref": "../../index.html#proyectos",
+    "tag": "Caso de estudio · App taxi",
+    "onThisPageLabel": "En esta página",
+    "toc": [
+      { "id": "portada", "label": "Portada" },
+      { "id": "contexto", "label": "Contexto" },
+      { "id": "encargo", "label": "Encargo" },
+      { "id": "hallazgo", "label": "Hallazgo" },
+      { "id": "validacion", "label": "Validación" },
+      { "id": "reencuadre", "label": "Decisión" },
+      { "id": "solucion", "label": "Solución" },
+      { "id": "resultado", "label": "Resultado" },
+      { "id": "aprendizaje", "label": "Aprendizaje" }
+    ],
+    "foot": {
+      "disclaimer": "Los wireframes de este caso son reconstrucciones fieles a la descripción original — no capturas de producción.",
+      "backLabel": "← Volver al profile"
+    }
+  }
+}
