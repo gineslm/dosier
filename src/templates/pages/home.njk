@@ -12,6 +12,32 @@
                 </div>
             </section>
 
+            <section id="{{ page.body.caseStudies.id }}" aria-labelledby="h-{{ page.body.caseStudies.id }}">
+                <h2 id="h-{{ page.body.caseStudies.id }}" class="section-heading section-heading--accent">{{ page.body.caseStudies.heading }}</h2>
+
+                <div class="projects">
+{% for item in page.body.caseStudies.items %}
+                    <article class="project">
+                        <h3 class="project__title">{{ item.title }}</h3>
+                        <p class="project__meta">{{ item.meta }}</p>
+                        <dl class="data-strip">
+{% for d in item.dataStrip %}
+                            <div class="data-strip__item"><dt>{{ d.term }}</dt><dd>{{ d.def }}</dd></div>
+{% endfor %}
+                        </dl>
+                        <p class="project__text">
+                            {{ item.text }}
+                        </p>
+                        <div class="project__links">
+                            <a class="icon-inline" href="{{ item.linkHref }}">{{ item.linkLabel }}
+                                <svg class="external-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </article>
+{% endfor %}
+                </div>
+            </section>
+
             <section id="{{ page.body.projects.id }}" aria-labelledby="h-{{ page.body.projects.id }}">
                 <h2 id="h-{{ page.body.projects.id }}" class="section-heading section-heading--accent">{{ page.body.projects.heading }}</h2>
 
@@ -55,32 +81,6 @@
 {% endfor %}
                         </div>
 {% endif %}
-                    </article>
-{% endfor %}
-                </div>
-            </section>
-
-            <section id="{{ page.body.caseStudies.id }}" aria-labelledby="h-{{ page.body.caseStudies.id }}">
-                <h2 id="h-{{ page.body.caseStudies.id }}" class="section-heading section-heading--accent">{{ page.body.caseStudies.heading }}</h2>
-
-                <div class="projects">
-{% for item in page.body.caseStudies.items %}
-                    <article class="project">
-                        <h3 class="project__title">{{ item.title }}</h3>
-                        <p class="project__meta">{{ item.meta }}</p>
-                        <dl class="data-strip">
-{% for d in item.dataStrip %}
-                            <div class="data-strip__item"><dt>{{ d.term }}</dt><dd>{{ d.def }}</dd></div>
-{% endfor %}
-                        </dl>
-                        <p class="project__text">
-                            {{ item.text }}
-                        </p>
-                        <div class="project__links">
-                            <a class="icon-inline" href="{{ item.linkHref }}">{{ item.linkLabel }}
-                                <svg class="external-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                            </a>
-                        </div>
                     </article>
 {% endfor %}
                 </div>

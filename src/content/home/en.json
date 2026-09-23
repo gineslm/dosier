@@ -48,8 +48,8 @@
     "topbarNav": [
       { "id": "contact", "label": "Contact" },
       { "id": "profile", "label": "Profile", "current": true },
-      { "id": "projects", "label": "Projects" },
       { "id": "case-studies", "label": "Cases" },
+      { "id": "projects", "label": "Projects" },
       { "id": "portfolio", "label": "Portfolio" }
     ],
     "indexId": "index",
@@ -57,8 +57,8 @@
     "indexAriaLabel": "Section index",
     "indexNav": [
       { "id": "profile", "label": "Profile", "current": true },
-      { "id": "projects", "label": "Recent projects" },
       { "id": "case-studies", "label": "Case studies" },
+      { "id": "projects", "label": "Recent projects" },
       { "id": "portfolio", "label": "Portfolio" }
     ],
     "contactKicker": "Contact",

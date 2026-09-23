@@ -48,8 +48,8 @@
     "topbarNav": [
       { "id": "contactar", "label": "Contacto" },
       { "id": "perfil", "label": "Profile", "current": true },
-      { "id": "proyectos", "label": "Proyectos" },
       { "id": "casos", "label": "Casos" },
+      { "id": "proyectos", "label": "Proyectos" },
       { "id": "portfolio", "label": "Portfolio" }
     ],
     "indexId": "indice",
@@ -57,8 +57,8 @@
     "indexAriaLabel": "Índice de secciones",
     "indexNav": [
       { "id": "perfil", "label": "Profile", "current": true },
-      { "id": "proyectos", "label": "Proyectos recientes" },
       { "id": "casos", "label": "Casos de estudio" },
+      { "id": "proyectos", "label": "Proyectos recientes" },
       { "id": "portfolio", "label": "Portfolio" }
     ],
     "contactKicker": "Contacto",
