@@ -135,7 +135,7 @@
             { "term": "Sector", "def": "Maritime-port" },
             { "term": "Output", "def": "Redesign in production" }
           ],
-          "text": "How detecting and addressing critical UX flaws prevents wasted money and time.",
+          "text": "A taxi transfer management app for the maritime-port sector was built on the wrong entity: the day, not the trip. The original brief was to extend functionality, but analysis showed no improvement would add value on top of a broken foundation. Full redesign in one month, from analysis to production: real use at the moment of the trip, faster invoicing and fewer issues from incomplete documentation.",
           "linkHref": "casos/app-taxi/index.html",
           "linkLabel": "View full case study"
         }
