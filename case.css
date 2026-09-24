@@ -1,16 +1,18 @@
-/* Caso de estudio · App de taxi — hoja propia de la página.
-   Consume tokens.css del sitio (nombres --color-*, --text-*, --font-*) y solo
-   redefine aquí: el tema dark-casos-estudio del design system, las tres
-   alturas de línea que el token base no nombra, los dos tokens propios del
-   caso y el bloque responsive. El maquetado va inline en index.html.
-   Las @font-face replican las de styles.css con la ruta de esta subcarpeta. */
+/* Casos de estudio — hoja compartida por todas las páginas de caso
+   (layouts/case-study.njk). Consume tokens.css del sitio (nombres
+   --color-*, --text-*, --font-*) y solo redefine aquí: el tema
+   dark-casos-estudio del design system, las alturas de línea que el token
+   base no nombra, los tokens propios del caso y el bloque responsive.
+   El maquetado va inline en cada plantilla de caso.
+   Vive en la raíz, igual que styles.css/tokens.css, y se referencia con
+   assetsPath — así no hay que duplicarla por cada caso ni por idioma. */
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('../../../fonts/roboto-variable.woff2') format('woff2');
+  src: url('fonts/roboto-variable.woff2') format('woff2');
 }
 
 @font-face {
@@ -18,7 +20,7 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('../../../fonts/roboto-condensed-variable.woff2') format('woff2');
+  src: url('fonts/roboto-condensed-variable.woff2') format('woff2');
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -27,7 +29,10 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 img { display: block; max-width: 100%; }
 button { font: inherit; cursor: pointer; }
 
-/* Tema dark-casos-estudio (design system, tokens.json) sobre los roles del sitio */
+/* Tema dark-casos-estudio (design system, tokens.json) sobre los roles del sitio.
+   El acento por defecto es el magenta original; cada caso puede sobrescribirlo
+   añadiendo un modificador .ds-accent-* (ver más abajo) sin tocar el resto
+   del tema ni duplicar la hoja. */
 .ds-theme-dark-casos-estudio {
   --color-accent: #FF74DA;
   --color-accent-strong: #FF90E1;
@@ -41,6 +46,15 @@ button { font: inherit; cursor: pointer; }
   --color-on-accent: #211C24;
   --color-rule: rgba(255,255,255,0.14);
   --color-chip-border: #4A444C;
+}
+
+/* Modificadores de acento por caso — se añaden junto a .ds-theme-dark-casos-estudio */
+.ds-accent-mustard {
+  --color-accent: #D9A441;
+  --color-accent-strong: #E8B84E;
+  --color-accent-bright: #F3CE7A;
+  --color-accent-soft: #3A2E15;
+  --color-accent-tint: #4A3A1B;
 }
 
 /* Alturas de línea y cuerpo propios del caso.
@@ -137,7 +151,7 @@ a.lang-switch__option:hover { color: var(--color-accent-strong); }
       [data-r="main"] { gap: 0 !important; }
       [data-sec], [data-r="foot"] { max-width: none !important; padding-left: 20px !important; padding-right: 20px !important; }
       [data-sec] { padding-top: 28px !important; padding-bottom: 28px !important; }
-      #portada { padding-top: 32px !important; padding-bottom: 36px !important; }
+      #cover, #portada { padding-top: 32px !important; padding-bottom: 36px !important; }
       [data-r="h1-app"] { font-size: 51px !important; }
       [data-r="h1-lead"] { font-size: var(--text-display) !important; max-width: none !important; }
       [data-r="body"] { font-size: var(--text-body) !important; line-height: var(--lh-body) !important; }

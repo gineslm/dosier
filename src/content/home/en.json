@@ -138,6 +138,19 @@
           "text": "A taxi transfer management app for the maritime-port sector was built on the wrong entity: the day, not the trip. The original brief was to extend functionality, but analysis showed no improvement would add value on top of a broken foundation. Full redesign in one month, from analysis to production: real use at the moment of the trip, faster invoicing and fewer issues from incomplete documentation.",
           "linkHref": "casos/app-taxi/index.html",
           "linkLabel": "View full case study"
+        },
+        {
+          "title": "Evolving the product design of a dermatology pre-diagnosis app",
+          "meta": "Elora · 2026 · Functional analysis · UX/UI · Product Design",
+          "dataStrip": [
+            { "term": "Role", "def": "Product analysis & UX/UI" },
+            { "term": "Origin", "def": "In-house proof of concept" },
+            { "term": "Scope", "def": "3 contributions · 4 decisions" },
+            { "term": "Status", "def": "Exploratory proposal" }
+          ],
+          "text": "A proof of concept for AI melanoma detection worked at a technical level, but had no product definition: no data entity, no defined audience, no fit with the care circuit. I analysed the only competitor with published clinical evidence to understand the category's real limits, and developed three product contributions and four interface decisions: what the app should do, when it should not refer to a professional, and how the result is communicated without creating a false sense of diagnosis.",
+          "linkHref": "casos/imoles/index.html",
+          "linkLabel": "View full case study"
         }
       ]
     },
@@ -145,25 +158,6 @@
       "id": "portfolio",
       "heading": "Portfolio",
       "items": [
-        {
-          "title": "Design system guide in Figma Make",
-          "meta": "Design system · UI · Usability · Accessibility",
-          "text": "End-to-end design system, prototyped in Figma and implemented in React with Tailwind CSS. Covers component scalability, design tokens and responsive patterns, meeting usability and accessibility standards, with a base of guidelines to support future iterations.",
-          "links": [
-            { "href": "https://siren-memo-26565209.figma.site/", "label": "View design system" }
-          ],
-          "image": { "src": "assets/img/dsystem.jpg", "alt": "Preview of the design system's component library" }
-        },
-        {
-          "title": "IMOLES — mobile app for melanoma diagnosis",
-          "meta": "Functional analysis · UX research · Interface · Prototyping",
-          "text": "A mobile app that uses AI to analyse skin images captured with a phone: preliminary diagnosis, tracking of lesion evolution and clear recommendations on when to see a doctor. Focused on simplicity and privacy to support early detection.",
-          "links": [
-            { "href": "https://xd.adobe.com/view/7a0d9054-1b15-411e-aaa2-8f405d152437-2f5e/?hints=off", "label": "UX analysis" },
-            { "href": "https://xd.adobe.com/view/eec9c2bd-5a32-4ee7-8539-052a67816097-bb9a/?fullscreen", "label": "XD prototype" }
-          ],
-          "image": { "src": "assets/img/imoles-app.jpg", "alt": "Screens of the IMOLES mobile app for melanoma detection" }
-        },
         {
           "title": "Responsive web design",
           "meta": "UI design · Layout",

@@ -9,6 +9,7 @@
     "hreflangDefault": "https://www.dsigncloud.es/dosier/en/casos/app-taxi/"
   },
   "chrome": {
+    "accentClass": "ds-accent-mustard",
     "backLabel": "Volver",
     "backAriaLabel": "Volver al profile",
     "backHref": "../../index.html#proyectos",

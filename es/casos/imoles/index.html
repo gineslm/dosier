@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de estudio · iMoles — Ginés López Montalbán</title>
+    <meta name="description" content="Evolución de diseño de producto y definición UX/UI en una app de prediagnóstico dermatológico. Revisión crítica y propuesta de producto sobre una prueba de concepto de detección de melanoma con IA.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#1E1B22">
+
+    <link rel="canonical" href="https://www.dsigncloud.es/dosier/en/es/casos/imoles/">
+    <link rel="alternate" hreflang="en" href="https://www.dsigncloud.es/dosier/en/casos/imoles/">
+    <link rel="alternate" hreflang="es" href="https://www.dsigncloud.es/dosier/en/es/casos/imoles/">
+    <link rel="alternate" hreflang="x-default" href="https://www.dsigncloud.es/dosier/en/casos/imoles/">
+
+    <link rel="preload" href="../../../fonts/roboto-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/roboto-condensed-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="../../../tokens.css">
+    <link rel="stylesheet" href="../../../case.css">
+</head>
+<body>
+<div class="ds-theme-dark-casos-estudio" style="width: 100%; display: flex; flex-direction: column;">
+
+  <div data-r="topbar" style="position: sticky; top: 0; z-index: 10; height: 60px; background: var(--color-surface); border-bottom: 1px solid var(--color-rule); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; box-sizing: border-box;">
+    <a href="../../index.html#proyectos" aria-label="Volver al profile" style="display: flex; align-items: center; gap: 6px; font-size: var(--text-ui); font-weight: 500; color: var(--color-ink);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+      Volver
+    </a>
+    <span style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; color: var(--color-accent-strong); text-transform: uppercase;">Caso de estudio · iMoles</span>
+<div class="lang-switch" role="group" aria-label="Idioma">
+    <a class="lang-switch__option" href="../../../casos/imoles/index.html" hreflang="en" lang="en">EN</a>
+    <span class="lang-switch__option lang-switch__option--active" aria-current="true">ES</span>
+</div>
+  </div>
+
+  <div data-r="shell" style="display: flex; align-items: flex-start; gap: 40px; padding: 48px 40px 100px; max-width: 1180px; margin: 0 auto; width: 100%; box-sizing: border-box;">
+
+    <nav data-r="sidebar" aria-label="En esta página" style="width: 220px; flex-shrink: 0; position: sticky; top: 100px; display: flex; flex-direction: column; gap: 2px; border-right: 1px solid var(--color-rule); padding-right: 20px; box-sizing: border-box;">
+      <div style="font-family: var(--font-condensed); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin-bottom: 10px;">En esta página</div>
+      <a class="case-index__link is-active" href="#portada">Portada</a>
+      <a class="case-index__link" href="#punto-de-partida">Punto de partida</a>
+      <a class="case-index__link" href="#benchmark">Benchmark</a>
+      <a class="case-index__link" href="#producto">Producto</a>
+      <a class="case-index__link" href="#decisiones">Decisiones</a>
+      <a class="case-index__link" href="#prototipo">Prototipo</a>
+      <a class="case-index__link" href="#supuestos">Supuestos</a>
+      <a class="case-index__link" href="#cierre">Temas pendientes</a>
+    </nav>
+
+    <div data-r="main" style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px;">
+
+      <div id="cover" data-sec="cover" style="padding: 8px 0 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <div style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 10px;">Caso de estudio · Análisis funcional y diseño de producto</div>
+        <h1 data-r="h1-lead" style="font-weight: var(--weight-thin); font-size: var(--text-name); line-height: var(--text-name-lh); margin: 0 0 14px; color: var(--color-ink); max-width: 20ch; text-wrap: pretty;">Evolución de diseño de producto y definición UX UI en una app de prediagnóstico dermatológico</h1>
+        <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0 0 10px; max-width: 70ch;">Aplicación para evaluar el riesgo y seguir la evolución de lesiones cutáneas integrada en el proceso de diagnóstico médico. La propuesta parte de una prueba de concepto de análisis de imagen con IA. El producto parte de una prueba de concepto sobre la que se desarrollan varias iteraciones, enfocadas tanto a la definición de producto como a la de UX y UI.</p>
+        <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 20px; font-weight: 300; max-width: 75ch;">Unos compañeros de la startup Elora desarrollaron el núcleo técnico en 2019. Desde entonces el producto ha pasado por una serie de ajustes y revisiones, y en ese proceso he participado en la definición de producto. Lo que sigue expone ese trabajo: de dónde partimos, qué aprendimos al analizar al único competidor con evidencia clínica publicada, qué decisiones de producto se derivan de ese análisis y cómo hemos definido la estrategia de UX/UI.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 24px;">
+          <a href="#prototipo" style="border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 9px 14px; border-radius: 999px; text-decoration: none; font-size: var(--text-ui);">Ir al prototipo</a>
+          <a href="#decisiones" style="border: 1px solid var(--color-chip-border); color: var(--color-body); padding: 9px 14px; border-radius: 999px; text-decoration: none; font-size: var(--text-ui);">Ver las decisiones</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule);">
+          <div style="background: var(--color-surface); padding: 17px 16px; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Rol</div>
+            <div style="font-size: var(--text-ui); color: var(--color-ink);">Análisis funcional y de producto, UX/UI y prototipado</div>
+          </div>
+          <div style="background: var(--color-surface); padding: 17px 16px; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Origen</div>
+            <div style="font-size: var(--text-ui); color: var(--color-ink);">Prueba de concepto propia, revisada y reformulada</div>
+          </div>
+          <div style="background: var(--color-surface); padding: 17px 16px; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Alcance</div>
+            <div style="font-size: var(--text-ui); color: var(--color-ink);">3 aportaciones de producto · 4 decisiones de interfaz · prototipo navegable de 41 pantallas</div>
+          </div>
+          <div style="background: var(--color-surface); padding: 17px 16px; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Estado</div>
+            <div style="font-size: var(--text-ui); color: var(--color-ink);">Propuesta exploratoria, sin pruebas con usuarios</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="punto-de-partida" data-sec="punto-de-partida" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 10px;">01 · Punto de partida</div>
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-accent);">El proyecto parte de una prueba de concepto que cumplía su objetivo</h2>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 30px; font-weight: 300; max-width: 74ch; text-wrap: pretty;">La prueba demostraba que el modelo clasificaba imágenes de piel con suficiente fiabilidad. Las cuestiones de producto —a quién se dirige, en qué momento se usa, qué ocurre después del resultado y cómo se comunica— estaban en una fase inicial. El trabajo se planteó como una auditoría de ese modelo inicial, orientada a desarrollar un producto con un encaje definido en el ecosistema sanitario y con una experiencia de uso coherente. El punto de partida se describe por tanto en dos planos: lo que existía y lo que había que construir.</p>
+
+        <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 32px; margin-bottom: 36px; align-items: start;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Vista de resultado original</div>
+            <img src="../../../assets/img/casos/imoles/diagnosis-page-1.png" alt="Pantalla de resultado de la prueba de concepto" style="width: 100%; max-width: 212px; border: 1px solid var(--color-rule); display: block;">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">1.1 · Lo que había</div>
+            <div style="display: flex; flex-direction: column; gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule);">
+              <div style="background: var(--color-surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;">
+                <div style="font-size: var(--text-ui); color: var(--color-ink);">Un modelo entrenado y verificado</div>
+                <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">El núcleo técnico funcionaba: clasificaba una fotografía de piel en tres clases y devolvía una probabilidad para cada una. Ese desarrollo corresponde al equipo técnico y queda fuera del alcance de esta revisión.</p>
+              </div>
+              <div style="background: var(--color-surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;">
+                <div style="font-size: var(--text-ui); color: var(--color-ink);">Cuatro pantallas de verificación</div>
+                <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">Seleccionar imagen, analizar, resultado y lista de análisis. Su función era comprobar que el modelo respondía, y la cumplían.</p>
+              </div>
+              <div style="background: var(--color-surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;">
+                <div style="font-size: var(--text-ui); color: var(--color-ink);">Una definición de producto todavía por hacer</div>
+                <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">No existían documento de alcance, modelo de datos, destinatario definido, recorrido de uso previsto ni criterio de éxito distinto del acierto del modelo. Una prueba de concepto no necesita esos elementos; un producto en desarrollo sí.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px;">
+          <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Punto de partida · situación de origen</div>
+          <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-ink); margin: 0; max-width: 76ch; font-weight: 300;">El reto, convertir una prueba de concepto técnica en un producto funcional requiere trabajo en dos capas. Una es el diseño de las pantallas y del recorrido de uso. La otra, previa, es la definición de producto: decidir qué entidad organiza los datos, a quién se dirige la aplicación, qué se compromete a hacer y cómo encaja en el circuito asistencial. Esta segunda capa determina buena parte de la primera, porque las decisiones estratégicas de producto son las que después se traducen en la aplicación de los principios de UX/UI.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule);">
+            <div style="background: var(--color-surface); padding: 22px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="font-size: var(--text-ui); color: var(--color-accent-strong);">1.2.1 · EL producto ORIGINAL</div>
+              <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 9px;">
+                <li style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); max-width: 46ch;">No hay entidad ni modelo de datos: se guardan análisis sueltos, sin noción de seguimiento ni de continuidad entre dos fotos de la misma marca.</li>
+                <li style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); max-width: 46ch;">No hay destinatario ni momento de uso definidos. La aplicación podría dirigirse a quien tiene una duda puntual, a quien está en seguimiento tras una extirpación o a quien nunca se ha revisado la piel, y cada caso pide un producto distinto.</li>
+                <li style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); max-width: 46ch;">No hay encaje asistencial: el resultado no indica quién actúa después, en qué plazo ni con qué responsabilidad.</li>
+                <li style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); max-width: 46ch;">No hay criterio de éxito más allá del acierto del modelo. Falta definir qué significaría que el producto funciona y qué coste generaría un funcionamiento deficiente.</li>
+              </ul>
+            </div>
+            <div style="background: var(--color-surface); padding: 22px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="font-size: var(--text-ui); color: var(--color-accent-strong);">1.2.2 · LA EXPERIENCIA UX UI INICIAL</div>
+              <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 9px;">
+                <li style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); max-width: 46ch;">La pantalla muestra la salida cruda del modelo: tres clases con la nomenclatura del dataset y tres cifras sin unidad ni escala. Es información adecuada para verificar el modelo e insuficiente para que una persona la interprete.</li>
+                <li style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); max-width: 46ch;">No hay jerarquía de lectura ni acción asociada. La pantalla no indica qué hacer, en qué plazo, ni qué relación guarda con una captura anterior de la misma lesión.</li>
+                <li style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); max-width: 46ch;">No hay estados definidos para el fallo técnico, la imagen no válida o la imposibilidad de estimar. Todos los recorridos terminan en un resultado.</li>
+                <li style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); max-width: 46ch;">No hay flujo de captura. Se elige una fotografía y se analiza, sin comprobación previa de que la imagen sea utilizable, y el modelo devuelve un resultado con el mismo formato tanto si la imagen es buena como si no.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-left: 2px solid var(--color-accent); padding-left: 16px;">
+          <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-ink); margin: 0; max-width: 76ch; font-weight: 300;">Los dos planos estructuran el resto del documento. El primero se responde en la sección 3, con las decisiones de definición de producto y de encaje asistencial. El segundo, en la sección 4, con las decisiones de interfaz. La sección 2 se sitúa entre ambos porque el análisis del competidor aporta información que condiciona las decisiones de producto.</p>
+        </div>
+      </div>
+
+      <div id="benchmark" data-sec="benchmark" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 10px;">02 · Benchmark</div>
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-accent);">SkinVision, el referente del sector</h2>
+        <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 28px; font-weight: 300; max-width: 72ch;">SkinVision es la única app de cribado de melanoma con evidencia clínica publicada y revisión independiente. La analizamos como banco de pruebas más que como competidora comercial: comparte núcleo con nuestro proyecto —detección de melanoma a partir de imágenes—, está en producción y los resultados de sus ensayos son públicos. Su evaluación permite estimar la viabilidad y el alcance realistas de un producto de esta categoría.</p>
+
+        <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 32px; margin-bottom: 36px;">
+          <div>
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong); margin-bottom: 10px;">2.1 · Cómo funciona</div>
+            <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300;">Así construye su resultado, según su documentación de producto y los estudios publicados. La unidad de entrada del modelo es una fotografía.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule);">
+            <div style="background: var(--color-surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;">
+              <div style="font-size: var(--text-ui); color: var(--color-ink);">Localización y captura con puerta de calidad</div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">El usuario marca la lesión en un mapa corporal y la app permite disparar solo si la imagen está centrada, sin pelo y nítida. Es el único filtro previo al modelo.</p>
+            </div>
+            <div style="background: var(--color-surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;">
+              <div style="font-size: var(--text-ui); color: var(--color-ink);">Clasificación de la imagen individual</div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">Una red neuronal evalúa cada fotografía macroscópica por separado y la sitúa en riesgo bajo, medio o alto. La comparación con capturas anteriores de la misma lesión no forma parte del análisis.</p>
+            </div>
+            <div style="background: var(--color-surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;">
+              <div style="font-size: var(--text-ui); color: var(--color-ink);">Mensaje binario al usuario</div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">El resultado se traduce en dos salidas: acudir al médico o no hacer nada. El producto no define niveles intermedios ni plazos propios.</p>
+            </div>
+            <div style="background: var(--color-surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;">
+              <div style="font-size: var(--text-ui); color: var(--color-ink);">Revisión humana posterior</div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">Un panel de dermatólogos revisa las imágenes en 48 h. En el ensayo bajaron el riesgo asignado por el algoritmo en el 9,9 % de los casos y lo subieron en el 0,7 %. La revisión humana corrige sobre todo falsos positivos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;">
+          <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">2.2 · Qué dejan los estudios clínicos independientes</div>
+          <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 72ch;">Se han publicado dos trabajos: un ensayo aleatorizado sobre el impacto en el sistema sanitario y una validación prospectiva hospitalaria sobre el rendimiento diagnóstico. Sus resultados son la información pública disponible para estimar el alcance de un producto de esta categoría, incluido el nuestro.</p>
+          <div style="font-size: var(--text-ui); color: var(--color-ink); margin-top: 4px;">2.2.1 · Lo que midieron, y qué decisión nos obliga a tomar</div>
+          <div style="border: 1px solid var(--color-rule); overflow-x: auto;">
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule-strong); min-width: 520px;">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-muted);">Lo que midieron</div>
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-accent-strong);">Qué decisión nos obliga a tomar</div>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px;">
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">El rendimiento real quedó por debajo del anunciado: sensibilidad 41–83 % y especificidad 60–83 % sobre 1.204 lesiones, frente al 95 % / 78 % declarado. Esa diferencia depende en parte de la resolución técnica del análisis de imagen y en parte del estado actual de la tecnología.</p>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">El margen de mejora está en la unidad de análisis antes que en la interfaz. Un clasificador que evalúa una fotografía aislada tiene un límite de precisión que el diseño no modifica, de modo que nuestra aportación debe situarse en qué información recibe el modelo.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px;">
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">Marcó como sospechosas 224 de 1.204 lesiones; los dermatólogos, 9. El número necesario a tratar extrapolado fue de 259 escisiones por melanoma, frente a 9,6.</p>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">Cada derivación tiene un coste asistencial. Un producto que deriva siempre que duda traslada su incertidumbre al sistema sanitario, y el resultado son consultas y biopsias sobre lesiones benignas. Esto obliga a definir en qué casos el producto resuelve sin derivar.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px;">
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">En el ensayo aleatorizado (19.009 participantes) no se detectó el melanoma en estadio más temprano, y aumentaron las consultas y biopsias por lesiones benignas.</p>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">La métrica de éxito debe incluir el coste por hallazgo además del número de casos detectados. Con solo la segunda cifra, un producto puede mostrar buenos resultados mientras aumenta la carga del circuito asistencial.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px; border-bottom: 0;">
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">El uso sostenido cayó del 53,9 % el primer año al 16,2 % el segundo.</p>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">Este dato afecta directamente a nuestro planteamiento, porque el producto se apoya en la comparación entre capturas sucesivas. La adherencia es un requisito de funcionamiento y no solo una métrica de negocio.</p>
+            </div>
+          </div>
+          <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 4px 0 0; max-width: 78ch;">Fuentes: Jahn, Navarini, Cerminara et al., Cancers 14(15):3829, 2022 (estudio prospectivo, Hospital Universitario de Basilea); Smak Gregoor et al., ensayo aleatorizado SPOT, 2025, y npj Digital Medicine 6:90, 2023; documentación pública de producto. Los datos corresponden a SkinVision y se emplean aquí como referencia del estado del arte.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">2.2.2 · Las tres problemáticas que se derivan</div>
+          <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-ink); margin: 0; max-width: 76ch; font-weight: 300;">Son problemas abiertos de la categoría, aplicables a cualquier producto de detección de melanoma por imagen, incluido el nuestro. Cada uno recibe respuesta en la sección siguiente.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule);">
+            <div style="background: var(--color-surface); padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+              <span style="align-self: flex-start; border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 4px 10px; border-radius: 999px; font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">Problemática 01</span>
+              <h3 style="margin: 0; color: var(--color-ink); font-size: 15px; max-width: 24ch;">La imagen aislada no sostiene un diagnóstico fiable</h3>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0;">Medida de forma independiente, una clasificación basada en una sola fotografía se queda por debajo de la precisión necesaria para decidir sobre una lesión. El límite está en la unidad de análisis. Una fotografía única no contiene el dato que un dermatólogo valora en primer lugar, que es la evolución de la lesión.</p>
+            </div>
+            <div style="background: var(--color-surface); padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+              <span style="align-self: flex-start; border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 4px 10px; border-radius: 999px; font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">Problemática 02</span>
+              <h3 style="margin: 0; color: var(--color-ink); font-size: 15px; max-width: 24ch;">Asumir el papel de diagnosticador es un problema de gestión del riesgo</h3>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0;">Un producto de consumo que se comporta como si diagnosticara puede fallar de dos maneras, y ambas tienen coste. Si deriva ante cualquier duda, traslada su incertidumbre al sistema sanitario y genera consultas y biopsias sobre lesiones benignas. Si tranquiliza, produce un pseudodiagnóstico que el usuario puede tomar por una valoración médica. El diseño debe fijar una posición entre esos dos extremos y hacerla explícita.</p>
+            </div>
+            <div style="background: var(--color-surface); padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+              <span style="align-self: flex-start; border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 4px 10px; border-radius: 999px; font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">Problemática 03</span>
+              <h3 style="margin: 0; color: var(--color-ink); font-size: 15px; max-width: 24ch;">Sin adherencia no hay sistema que retroalimentar</h3>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0;">El uso sostenido desciende de forma acusada pasado el primer año. En un producto de uso puntual eso afecta al negocio. En un producto que compara capturas sucesivas afecta al funcionamiento: sin retorno del usuario no se acumula la serie de imágenes que el análisis necesita. La adherencia pasa a ser una condición de funcionamiento.</p>
+            </div>
+          </div>
+          <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 4px 0 0; max-width: 76ch;">Las tres aportaciones de la sección 3 responden a estas tres problemáticas, en el mismo orden.</p>
+        </div>
+      </div>
+
+      <div id="producto" data-sec="producto" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 10px;">03 · Producto</div>
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-accent);">Aportaciones a la definición de producto</h2>
+        <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 30px; font-weight: 300; max-width: 72ch;">Tres decisiones de producto que responden, una a una, a las tres problemáticas del benchmark. Definen qué es el producto, qué se compromete a hacer y dónde encaja en el circuito asistencial.</p>
+
+        <div style="padding-bottom: 32px; border-bottom: 1px solid var(--color-rule); margin-bottom: 32px;">
+          <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.5fr); gap: 32px; align-items: start;">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">3.1 · Aportación 01</div>
+              <span style="align-self: flex-start; border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 4px 10px; border-radius: 999px; font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">Responde a la problemática 01</span>
+              <h3 style="margin: 0; color: var(--color-ink); font-size: 15px;">La entidad central es el seguimiento en el tiempo, no la fotografía</h3>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 56ch;">La prueba de concepto guardaba análisis sueltos, sin ninguna forma de registrar que dos fotografías corresponden al mismo lunar. En dermatología el criterio de alarma principal es la evolución de la lesión, la «E» del ABCDE, y es el primer factor que valora un especialista.</p>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 56ch;">El cambio de modelo consiste en dejar de almacenar análisis y pasar a mantener seguimientos, cada uno con su serie de capturas. Es una modificación de la estructura de datos con efecto en toda la aplicación: reorganiza la lista, el detalle, el informe y el flujo de captura.</p>
+              <div style="border-left: 2px solid var(--color-accent); padding-left: 16px;">
+                <div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Coste</div>
+                <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 54ch;">El usuario asume una tarea nueva: indicar a qué seguimiento pertenece cada fotografía. Un error en esa asignación invalida la comparación. Conviene precisar también el alcance: almacenar y comparar capturas aporta contexto a quien revisa las imágenes, pero no mide los cambios de forma automática. Un análisis longitudinal automatizado es un desarrollo aparte y depende del equipo técnico.</p>
+              </div>
+            </div>
+            <div style="border: 1px solid var(--color-accent); padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Modelo conceptual</div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="border: 1px solid var(--color-chip-border); padding: 10px 12px;">
+                  <div style="font-size: var(--text-ui); color: var(--color-ink);">Seguimiento</div>
+                  <div style="font-size: var(--text-note); color: var(--color-muted);">registra una marca y agrupa su serie de capturas</div>
+                </div>
+                <div style="font-size: var(--text-note); color: var(--color-muted); text-align: center;">1 · n</div>
+                <div style="border: 1px solid var(--color-chip-border); padding: 10px 12px;">
+                  <div style="font-size: var(--text-ui); color: var(--color-ink);">Captura</div>
+                  <div style="font-size: var(--text-note); color: var(--color-muted);">una foto del seguimiento, con su fecha</div>
+                </div>
+                <div style="font-size: var(--text-note); color: var(--color-muted); text-align: center;">1 · n</div>
+                <div style="border: 1px solid var(--color-chip-border); padding: 10px 12px;">
+                  <div style="font-size: var(--text-ui); color: var(--color-ink);">Análisis</div>
+                  <div style="font-size: var(--text-note); color: var(--color-muted);">procesa la captura y emite una evaluación de riesgo con acciones recomendadas</div>
+                </div>
+                <div style="font-size: var(--text-note); color: var(--color-muted); text-align: center;">1 · n</div>
+                <div style="border: 1px solid var(--color-chip-border); padding: 10px 12px;">
+                  <div style="font-size: var(--text-ui); color: var(--color-ink);">Acción</div>
+                  <div style="font-size: var(--text-note); color: var(--color-muted);">aísla cada recomendación: qué hacer, quién y para cuándo. Organiza la evolución del seguimiento y la derivación de consultas a especialistas</div>
+                </div>
+              </div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0;">La evaluación emite una indicación: qué conviene hacer, quién debe hacerlo y en qué plazo. La acción es la actuación operativa que materializa esa indicación, o el plan de un seguimiento, o una regla preventiva del perfil de la persona. Registra el responsable, el estado, el criterio por el que se cierra y una referencia a la entidad desde la que se originó: el análisis, el seguimiento o la regla del perfil contiene la información que sostiene el enunciado y el plazo, de modo que la acción no duplica esos hechos. Los avisos y las notificaciones se asocian a la acción y no la sustituyen: una notificación puede desaparecer al leerse sin que la acción quede resuelta. Una evaluación posterior puede mantener, adelantar, sustituir o cancelar la acción anterior.</p>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">Una captura admite varias evaluaciones versionadas, lo que permite reanalizar el histórico cuando el modelo mejore sin pedir fotografías nuevas. Es una alternativa de modelado, no una arquitectura a implementar ahora.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding-bottom: 32px; border-bottom: 1px solid var(--color-rule); margin-bottom: 32px;">
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">3.2 · Aportación 02</div>
+            <span style="align-self: flex-start; border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 4px 10px; border-radius: 999px; font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">Responde a la problemática 02</span>
+            <h3 style="margin: 0; color: var(--color-ink); font-size: 15px; max-width: 44ch;">El producto define en qué casos no deriva</h3>
+            <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 74ch;">El planteamiento inicial repetía en cada resultado la indicación de consultar con un profesional. Esa política produce el mismo efecto que describe la sección anterior: traslada el coste al sistema sanitario, deja al usuario sin una indicación que pueda aplicar y reduce la utilidad del producto a la de un intermediario.</p>
+            <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 74ch;">La alternativa consiste en acotar la pregunta que el producto responde. iMoles determina en qué plazo conviene revisar una lesión y quién debe hacerlo, y se hace responsable de esa afirmación. El producto no sustituye el diagnóstico de un profesional, y esa es la formulación que emplea la interfaz: describe el alcance de lo que sí hace en lugar de negar una capacidad. Cada resultado incorpora una fecha de revisión y un responsable.</p>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 6px;">Cuatro salidas: quién se ocupa de cada caso y en qué plazo</div>
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--color-rule); align-items: start;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="color: var(--color-ink); font-size: 14px; font-weight: 600;">Línea base</div>
+                <div style="font-size: var(--text-ui); color: var(--color-muted);">Primera captura de un seguimiento</div>
+                <span style="align-self: flex-start; margin-top: 4px; border: 1px solid var(--color-chip-border); color: var(--color-accent-strong); padding: 4px 9px; border-radius: 999px; font-size: var(--text-legal);">La app</span>
+              </div>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 62ch;">La primera captura registra el seguimiento, fija el patrón de referencia y programa una segunda captura a corto plazo. Con una sola imagen se valoran forma y color, sin el criterio de evolución, de modo que la fiabilidad es menor que en una serie y la política de comunicación cambia: el resultado declara ese límite y la salida por defecto es la segunda captura, con independencia del nivel estimado. La derivación a consulta queda reservada a las señales muy altas, por encima de un umbral fijado clínicamente. Los plazos escalonados por nivel se aplican a partir de la segunda captura.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--color-rule); align-items: start;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="color: var(--color-ink); font-size: 14px; font-weight: 600;">Vigilancia</div>
+                <div style="font-size: var(--text-ui); color: var(--color-muted);">Serie sin cambio relevante</div>
+                <span style="align-self: flex-start; margin-top: 4px; border: 1px solid var(--color-chip-border); color: var(--color-accent-strong); padding: 4px 9px; border-radius: 999px; font-size: var(--text-legal);">La app</span>
+              </div>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 62ch;">La gestiona el producto: recaptura programada, encuadre guardado y recordatorio con fecha. Una lesión atípica que se mantiene estable no requiere consulta inmediata, y la valoración profesional será más útil dentro de tres meses con dos imágenes comparables que ahora con una.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--color-rule); align-items: start;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="color: var(--color-ink); font-size: 14px; font-weight: 600;">Segunda lectura</div>
+                <div style="font-size: var(--text-ui); color: var(--color-muted);">Cambio dudoso o imagen atípica</div>
+                <span style="align-self: flex-start; margin-top: 4px; border: 1px solid var(--color-chip-border); color: var(--color-accent-strong); padding: 4px 9px; border-radius: 999px; font-size: var(--text-legal);">Profesional, en diferido</span>
+              </div>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 62ch;">Un profesional revisa la serie de forma asíncrona, sin presencia del paciente. Este nivel intermedio no existe hoy en los productos de esta categoría y permite resolver la mayor parte de los casos ambiguos sin ocupar una cita presencial.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 24px; padding: 16px 0; align-items: start;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="color: var(--color-ink); font-size: 14px; font-weight: 600;">Consulta preferente</div>
+                <div style="font-size: var(--text-ui); color: var(--color-muted);">Cambio confirmado o señal alta</div>
+                <span style="align-self: flex-start; margin-top: 4px; border: 1px solid var(--color-chip-border); color: var(--color-accent-strong); padding: 4px 9px; border-radius: 999px; font-size: var(--text-legal);">Sistema sanitario</span>
+              </div>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 62ch;">Interviene el sistema sanitario, y lo hace con material previo: la serie fechada, los intervalos entre capturas y el informe. La consulta parte de un cambio documentado y el profesional dispone del histórico desde el inicio.</p>
+            </div>
+          </div>
+          <div style="border: 1px solid var(--color-accent); padding: 20px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">La red de seguridad</div>
+            <h3 style="margin: 0; color: var(--color-ink); font-size: 15px; max-width: 38ch;">Revisión periódica de todo lo que no se escaló</h3>
+            <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 74ch;">Cada cierto tiempo, un profesional revisa en diferido la serie acumulada de los casos que el sistema no elevó. La frecuencia no la decide el producto: el intervalo lo fija el criterio clínico según el riesgo de cada persona —fototipo, antecedentes, número de nevus, inmunosupresión—, igual que ocurre con los controles dermatológicos. El diseño aporta el mecanismo y la periodicidad queda como parámetro configurable. Revisar cuatro imágenes fechadas de la misma lesión requiere poco tiempo profesional, lo que convierte esta operación en la más eficiente del circuito. Su función es mantener una supervisión sobre los casos que el producto resuelve sin derivar, de modo que la decisión de no derivar no recaiga por completo en el usuario. Cuando la revisión detecta algo, el sistema adelanta el control ya programado.</p>
+          </div>
+          <div style="border: 1px solid var(--color-rule-strong); padding: 20px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">La acción como entidad del modelo</div>
+            <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 74ch;">El retorno de la persona se gestiona mediante acciones con estado, no solo mediante recordatorios. Cada resultado o plan de seguimiento genera una acción con su fecha objetivo, y esa acción recorre los estados de programada, pendiente, vencida, en curso y completada, o queda cancelada cuando una acción posterior ocupa su lugar. Próxima, pendiente y vencida son vistas temporales de la misma entidad. Las acciones pueden proceder de un seguimiento concreto, y también de la historia clínica del perfil de la persona; este segundo origen queda como capacidad pendiente mientras no exista la evaluación de riesgo personal validada. Cada acción muestra su motivo: la referencia a la entidad que la originó, con el tipo de esa entidad indicado junto a la etiqueta, y un acceso a ella. La interfaz presenta la acción con un único componente en tres formatos, igual para cualquier tipo: lista, contexto y detalle. El formato contexto añade la información del seguimiento y del último análisis en las vistas donde no está en pantalla, como el inicio. La actuación del detalle abre un proceso distinto según el tipo: hacer una nueva foto abre la captura, que la aplicación resuelve por sí misma; la consulta tiene dos modalidades. La consulta telemática la resuelve un profesional dentro de la aplicación revisando la serie, y su informe queda asociado al seguimiento. La cita presencial la resuelve la persona fuera de la aplicación: pide la cita en su red sanitaria, registra la fecha y confirma después que ha acudido. Todas las acciones que se originan en un resultado se crean automáticamente, sin paso de activación, y la interfaz las agrupa por quién actúa: la persona, la aplicación o un profesional. El ciclo de vida de la acción más allá de este circuito —posponer, anular— no se desarrolla en esta iteración.</p>
+          </div>
+          <div style="border-left: 2px solid var(--color-accent); padding-left: 16px;">
+            <div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Coste</div>
+            <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 72ch;">El producto asume la responsabilidad de no derivar. Mientras la indicación era consultar siempre, el riesgo recaía en el usuario y en el sistema sanitario; al indicar que la consulta puede esperar, el riesgo pasa a ser nuestro. Además, el circuito depende de una capacidad profesional que hoy no está disponible, por lo que no puede anunciarse en la interfaz mientras no exista. Y la posición de los umbrales entre vigilancia, segunda lectura y consulta es una decisión clínica pendiente de validar con dermatología.</p>
+          </div>
+        </div>
+
+        <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 32px;">
+          <div>
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong); margin-bottom: 10px;">3.3 · Aportación 03</div>
+            <span style="align-self: flex-start; border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 4px 10px; border-radius: 999px; font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">Responde a la problemática 03</span>
+            <h3 style="margin: 10px 0 0; color: var(--color-ink); font-size: 15px;">El producto funciona como agenda de vigilancia, y el retorno forma parte del mecanismo</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 68ch;">Si el análisis depende de la serie de imágenes, el retorno del usuario es una condición de funcionamiento y debe diseñarse como tal. Cada resultado se cierra con una fecha de revisión, la aplicación conserva el encuadre para que la siguiente fotografía sea comparable y la revisión periódica queda programada en lugar de depender de que el usuario la recuerde. El producto aporta valor también en los casos sin sospecha: con independencia del resultado, genera una serie fechada y encuadrada de la misma lesión con sus intervalos, un material del que hoy no dispone la consulta.</p>
+            <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 68ch;">Esto sitúa el producto dentro de una estrategia de salud ya definida clínicamente. Los calendarios de control dermatológico existen y están estratificados por riesgo —fototipo, antecedentes, número de nevus, inmunosupresión—. iMoles se acopla a ellos y aporta tres cosas: que el control programado llegue a cumplirse, que llegue acompañado de material y que el intervalo entre controles quede cubierto.</p>
+            <div style="border-left: 2px solid var(--color-accent); padding-left: 16px;">
+              <div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Coste</div>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 66ch;">El envío al profesional requiere que alguien lo reciba y responda. Mientras esa operación no esté disponible, el prototipo distingue entre enviado y valorado. Por otra parte, la serie solo resulta útil si las capturas son comparables entre sí, lo que convierte la calidad de captura en un requisito del circuito.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <div style="margin-bottom: 8px;">
+          <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 10px;">04 · Análisis de la interfaz y decisiones de UX</div>
+          <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 72ch;">La sección anterior define el producto; esta define cómo se usa. Cuatro bloques: las cuatro decisiones de interfaz con su punto de partida, el contrato del componente que las sostiene, dos comprobaciones de accesibilidad y el prototipo navegable.</p>
+        </div>
+
+        <div id="decisiones" style="padding: 32px 0 0;">
+          <div style="margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-ink);">4.1 · Cuatro decisiones de interfaz</h2>
+            <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 70ch;">Cada una con el problema observado, la decisión elegida, su coste y el modo de comprobarla.</p>
+          </div>
+
+          <div style="padding-bottom: 32px; border-bottom: 1px solid var(--color-rule); margin-bottom: 32px;">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(280px,464px) minmax(0,1fr); gap: 32px; align-items: start;">
+              <div data-r="pair" style="display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Prueba de concepto</div>
+                  <img src="../../../assets/img/casos/imoles/diagnosis-page-1.png" alt="Resultado en la prueba de concepto" style="width: 180px; height: 330px; object-fit: cover; object-position: top; border: 1px solid var(--color-rule); display: block;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Propuesta</div>
+                  <img src="../../../assets/img/casos/imoles/v3-d01-5.2-resultado.png" alt="Vista 5.2 del prototipo final: resultado de riesgo estimado intermedio" style="width: 180px; height: auto; border: 1px solid var(--color-rule); display: block;">
+                  <div style="font-size: var(--text-note); color: var(--color-muted); max-width: 180px;">Prototipo final · vista 5.2, riesgo estimado intermedio.</div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Decisión 01</div>
+                <h3 style="margin: 0; color: var(--color-ink); font-size: 15px;">Organizar el resultado para que pueda interpretarse</h3>
+                <div><div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 4px;">Problema</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">La pantalla mostraba nomenclatura técnica y cifras sin unidad. La observación es verificable en la captura original. Su efecto sobre una persona real es una hipótesis que no hemos comprobado.</p></div>
+                <div><div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Elección</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-ink); margin: 0; max-width: 60ch;">La síntesis con detalle desplegable. La insignia de riesgo y la acción con su fecha ocupan el primer nivel de lectura. «Ampliar información» muestra la lesión, las fotos comparadas y el cambio registrado.</p></div>
+                <div><div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 4px;">Coste</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">Una síntesis puede transmitir más seguridad de la que el dato respalda. Se compensa declarando el alcance en el propio titular y reservando un estado explícito para la confianza insuficiente, aunque el riesgo se mantiene.</p></div>
+                <div style="border-left: 2px solid var(--color-accent); padding-left: 16px;"><div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Cómo se comprobaría</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">Preguntar a un participante qué entiende del resultado y qué haría a continuación. La decisión funciona si describe la acción y el plazo sin necesidad de abrir el detalle.</p></div>
+              </div>
+            </div>
+          </div>
+          <div style="padding-bottom: 32px; border-bottom: 1px solid var(--color-rule); margin-bottom: 32px;">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(280px,464px) minmax(0,1fr); gap: 32px; align-items: start;">
+              <div data-r="pair" style="display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Prueba de concepto</div>
+                  <img src="../../../assets/img/casos/imoles/diagnosis-list.png" alt="Lista de análisis en la prueba de concepto" style="width: 180px; height: 330px; object-fit: cover; object-position: top; border: 1px solid var(--color-rule); display: block;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Propuesta</div>
+                  <img src="../../../assets/img/casos/imoles/v3-d02-6.1-seguimiento.png" alt="Vista 6.1 del prototipo final: detalle del seguimiento con su serie de fotos" style="width: 180px; height: auto; border: 1px solid var(--color-rule); display: block;">
+                  <div style="font-size: var(--text-note); color: var(--color-muted); max-width: 180px;">Prototipo final · vista 6.1, detalle del seguimiento con su serie.</div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Decisión 02</div>
+                <h3 style="margin: 0; color: var(--color-ink); font-size: 15px;">Organizar el historial alrededor del seguimiento</h3>
+                <div><div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 4px;">Problema</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">La prueba de concepto guardaba análisis sueltos, sin forma de registrar que dos fotografías corresponden al mismo lunar. El criterio de alarma en dermatología es la evolución en el tiempo.</p></div>
+                <div><div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Elección</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-ink); margin: 0; max-width: 60ch;">El archivo por seguimiento. Es la traducción a interfaz de la aportación 01: la entidad nueva organiza la lista de seguimientos, el detalle con su serie de fotos y la asignación de cada foto nueva a su lesión.</p></div>
+                <div><div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 4px;">Coste</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">El usuario asume la tarea de indicar a qué seguimiento pertenece cada fotografía, y un error invalida la comparación. Por eso el prototipo convierte esa elección en una pantalla propia en lugar de un desplegable.</p></div>
+                <div style="border-left: 2px solid var(--color-accent); padding-left: 16px;"><div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Cómo se comprobaría</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">Conviene delimitar el alcance en la propia interfaz: almacenar y comparar capturas aporta contexto a quien revisa, sin medir los cambios de forma automática ni mejorar la precisión clínica del modelo.</p></div>
+              </div>
+            </div>
+          </div>
+          <div style="padding-bottom: 32px; border-bottom: 1px solid var(--color-rule); margin-bottom: 32px;">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(280px,464px) minmax(0,1fr); gap: 32px; align-items: start;">
+              <div data-r="pair" style="display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Prueba de concepto</div>
+                  <img src="../../../assets/img/casos/imoles/new-diagnosis.png" alt="Captura en la prueba de concepto" style="width: 180px; height: 330px; object-fit: cover; object-position: top; border: 1px solid var(--color-rule); display: block;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Propuesta</div>
+                  <img src="../../../assets/img/casos/imoles/v3-d03-5.4-no-evaluable.png" alt="Vista 5.4 del prototipo final: foto no evaluable" style="width: 180px; height: auto; border: 1px solid var(--color-rule); display: block;">
+                  <div style="font-size: var(--text-note); color: var(--color-muted); max-width: 180px;">Prototipo final · vista 5.4, foto no evaluable.</div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Decisión 03</div>
+                <h3 style="margin: 0; color: var(--color-ink); font-size: 15px;">Ayudar a hacer la foto y recuperarse del fallo</h3>
+                <div><div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 4px;">Problema</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">El flujo pasaba de seleccionar fotografía a analizar sin comprobación intermedia. Fotografiar un lunar propio se hace a menudo sin ver la pantalla y con luz deficiente, y el modelo devuelve un resultado con el mismo formato aunque la imagen no sea utilizable.</p></div>
+                <div><div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Elección</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-ink); margin: 0; max-width: 60ch;">Asistencia durante la toma y un estado propio para la foto que no se puede evaluar. El visor comprueba enfoque, distancia y luz, y la persona revisa la foto antes de analizarla. Si el análisis no puede evaluarla, la pantalla explica qué ajustar, permite repetirla y no la guarda.</p></div>
+                <div><div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 4px;">Coste</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">Una comprobación mal calibrada impide completar la tarea a quien más ayuda necesita. Por eso el rechazo explica qué corregir, la acción de hacer la foto sigue abierta y el visor ofrece la galería para cuando la foto la hace otra persona.</p></div>
+                <div style="border-left: 2px solid var(--color-accent); padding-left: 16px;"><div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Cómo se comprobaría</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">La guía por voz y vibración está especificada y no implementada. Es la vía prevista para fotografiar zonas que el usuario no ve, y confirmar que resuelve ese caso requiere probarla con personas.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding-top: 8px;">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(280px,464px) minmax(0,1fr); gap: 32px; align-items: start;">
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Propuesta</div>
+                <img src="../../../assets/img/casos/imoles/v3-d04-3.6-ubicacion.png" alt="Vista 3.6 del prototipo final: revisión de la ubicación antes de iniciar el seguimiento" style="width: 180px; height: auto; border: 1px solid var(--color-rule); display: block;">
+                <div style="font-size: var(--text-note); color: var(--color-muted); max-width: 180px;">Prototipo final · vista 3.6, revisión de la ubicación.</div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Decisión 04</div>
+                <h3 style="margin: 0; color: var(--color-ink); font-size: 15px;">Registrar la marca antes de fotografiarla</h3>
+                <div><div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 4px;">Problema</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">La prueba de concepto no pedía ningún dato sobre la lesión: se seleccionaba una foto y se analizaba. Sin una zona registrada, la aplicación no puede presentar dos capturas como pertenecientes al mismo lunar, que es la condición de la aportación 01.</p></div>
+                <div><div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Elección</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-ink); margin: 0; max-width: 60ch;">Un alta en pasos de una sola elección: zona, subzona, lado y superficie, más una referencia personal opcional. Cada paso ocupa una pantalla con una lista de opciones grandes y un resumen de lo elegido hasta ese momento. El perfil previsto incluye personas mayores, y una lista de opciones grandes se maneja mejor que un punto sobre una silueta, que exige precisión de puntero y buena visión de detalle. Antes de iniciar el seguimiento, una pantalla de revisión muestra cada dato como una fila editable y el nombre con el que aparecerá en la lista.</p></div>
+                <div><div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 4px;">Coste</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">Una lista de zonas es menos precisa que un mapa. Dos lesiones en la misma subzona y superficie se distinguen por un ordinal y por la referencia personal, que es texto libre y depende de que la persona la escriba. El mapa del cuerpo queda para una fase posterior.</p></div>
+                <div style="border-left: 2px solid var(--color-accent); padding-left: 16px;"><div style="font-size: var(--text-ui); color: var(--color-accent-strong); margin-bottom: 4px;">Cómo se comprobaría</div><p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 60ch;">Pedir a un participante que añada dos marcas cercanas y que, dos semanas después, identifique cuál es cuál. La prueba indica si zona, subzona, lado, superficie y referencia personal bastan para reencontrar la lesión correcta.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 32px 0 0;">
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 10px; color: var(--color-ink);">4.2 · De la decisión al comportamiento</h3>
+            <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 70ch;">Ejemplo de cómo se especificaría la decisión 01 para que un equipo pudiera construirla. Es una propuesta de esta revisión, no una biblioteca existente.</p>
+          </div>
+          <div style="border: 1px solid var(--color-rule); overflow-x: auto;">
+            <div style="padding: 16px 18px; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Contrato del componente</div>
+              <div style="color: var(--color-ink); margin-top: 4px; font-size: 14px; font-weight: 600;">Resumen del análisis</div>
+            </div>
+            <table style="width: 100%; min-width: 460px; border-collapse: collapse;">
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Entradas</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Identificador del seguimiento con su nombre completo —subzona con lado, ordinal, superficie y referencia personal—, fecha, estado de evaluación, enunciado de la acción con su fecha objetivo y su estado, motivo con el tipo de entidad de origen, y origen del dato.</td></tr>
+                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Estados</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Pendiente, resultado disponible, primera foto, no evaluable y fallo técnico. El nivel de actuación solo existe cuando hay resultado.</td></tr>
+                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Regla</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Un fallo técnico o una confianza insuficiente se representan con su propio estado y nunca como resultado sin indicios.</td></tr>
+                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Accesibilidad</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Señal no dependiente del color, etiquetas comprensibles sin el icono y foco movido al resultado cuando aparece.</td></tr>
+                <tr style=""><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Prueba</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Al fallar el análisis no aparece ninguna cifra ni mensaje de éxito, y la persona puede reintentar o salir conservando el seguimiento en curso.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="padding: 32px 0 0;">
+          <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 32px;">
+            <div>
+              <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-ink);">4.3 · Accesibilidad: dos comprobaciones</h2>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0;">Se detallan dos aspectos verificables en esta misma página y se indica el estado de los demás.</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule);">
+              <div style="background: var(--color-surface); padding: 18px 20px;">
+                <div style="font-size: var(--text-ui); color: var(--color-ink);">Comprobado · la señal no depende del color</div>
+                <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 5px 0 0;">El nivel se comunica por tres canales: el color, la forma del icono (triángulo para alto, rombo para intermedio, círculo para bajo) y la etiqueta de texto de la insignia. Puede comprobarse en las capturas del prototipo de esta página.</p>
+              </div>
+              <div style="background: var(--color-surface); padding: 18px 20px;">
+                <div style="font-size: var(--text-ui); color: var(--color-ink);">Comprobado · el prototipo se recorre con teclado</div>
+                <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 5px 0 0;">Controles enfocables con contorno visible y activación con Enter o barra espaciadora. El recorrido esencial se completa sin ratón.</p>
+              </div>
+              <div style="background: var(--color-surface); padding: 18px 20px;">
+                <div style="font-size: var(--text-ui); color: var(--color-ink);">Especificado · cuerpo y objetivo táctil</div>
+                <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 5px 0 0;">Mínimo de 16 px de cuerpo, 18 px en las pantallas de resultado y objetivos táctiles de 44 px. Aplicado en el prototipo y no auditado con herramientas en todas las vistas.</p>
+              </div>
+              <div style="background: var(--color-surface); padding: 18px 20px; border-left: 3px solid var(--color-accent);">
+                <div style="font-size: var(--text-ui); color: var(--color-accent-strong);">No comprobado · lectores de pantalla y guía por voz</div>
+                <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 5px 0 0;">Los anuncios de estado y la asistencia sonora durante la captura están descritos en la especificación. No hay implementación ni prueba con tecnología de apoyo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="prototipo" style="padding: 32px 0 0;">
+          <div style="margin-bottom: 20px;">
+            <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-ink);">4.4 · El prototipo</h2>
+            <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 70ch;">El prototipo conecta las pantallas de alta fidelidad en seis recorridos: primera visita, inicio, inicio sin seguimientos, lista de seguimientos, nuevo seguimiento y nueva foto. Autenticación, análisis, notificaciones y envío están simulados. La navegación, los estados y las transiciones son reales.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
+            <span style="border: 1px solid var(--color-chip-border); padding: 6px 11px; color: var(--color-body); font-size: var(--text-note);">Toca las pantallas para navegar</span>
+            <span style="border: 1px solid var(--color-chip-border); padding: 6px 11px; color: var(--color-body); font-size: var(--text-note);">Recorridos y resultados en el índice lateral</span>
+            <span style="border: 1px solid var(--color-chip-border); padding: 6px 11px; color: var(--color-body); font-size: var(--text-note);">Datos de ejemplo, no salidas del modelo</span>
+          </div>
+          <div style="border: 1px solid var(--color-rule-strong); background: var(--color-surface); padding: 28px; text-align: center;">
+            <a href="https://claude.ai/artifact/XvFJd81XgYRYwGESxnAFVb" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 11px 18px; border-radius: 999px; text-decoration: none; font-family: var(--font-condensed); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: var(--text-legal);">Ver prototipo navegable
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"></path></svg>
+              <span class="visually-hidden">(abre en una ventana nueva)</span>
+            </a>
+          </div>
+          <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 12px 0 0; max-width: 74ch;">El control «Resultado del próximo análisis» pertenece a la demostración y no a la interfaz. Elige en qué resultado termina el análisis después de «Analizar esta foto». Por defecto el recorrido termina en el riesgo estimado intermedio, que completa el circuito de esta iteración. El prototipo guarda en el navegador la última pantalla visitada.</p>
+          <div style="margin-top: 24px; border: 1px solid var(--color-rule);">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong); padding: 14px 18px; border-bottom: 1px solid var(--color-rule);">Ficha técnica del prototipo</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--color-rule);">
+              <div style="background: var(--color-surface); padding: 14px 18px; display: flex; flex-direction: column; gap: 5px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Pantallas</div>
+                <div style="font-size: var(--text-note); color: var(--color-ink);">41 pantallas: 33 vistas y 8 variantes de estado, numeradas por bloque del 1 al 9.</div>
+              </div>
+              <div style="background: var(--color-surface); padding: 14px 18px; display: flex; flex-direction: column; gap: 5px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Componentes</div>
+                <div style="font-size: var(--text-note); color: var(--color-ink);">15 componentes base y 6 de entidad. Alta fidelidad y el prototipo usan las mismas pantallas, así que un cambio aparece en los dos documentos.</div>
+              </div>
+              <div style="background: var(--color-surface); padding: 14px 18px; display: flex; flex-direction: column; gap: 5px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Documentación</div>
+                <div style="font-size: var(--text-note); color: var(--color-ink);">Alta fidelidad, componentes base, componentes complejos, modelo de datos y guía de terminología y UX copy.</div>
+              </div>
+              <div style="background: var(--color-surface); padding: 14px 18px; display: flex; flex-direction: column; gap: 5px;">
+                <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted);">Simulado</div>
+                <div style="font-size: var(--text-note); color: var(--color-ink);">Autenticación, análisis, notificaciones, envío de la consulta telemática y persistencia de los datos.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="supuestos" data-sec="supuestos" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 32px;">
+          <div>
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 10px;">05 · Supuestos</div>
+            <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-accent);">Supuestos y dependencias</h2>
+            <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0;">Cuatro condicionantes del diseño que dependen de decisiones ajenas al equipo de producto.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule);">
+            <div style="background: var(--color-surface); padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: var(--text-ui); color: var(--color-ink);">Dónde se procesa la imagen</div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">Una fotografía de piel es dato de salud. El análisis se hace en el dispositivo. La imagen solo sale del dispositivo para una consulta telemática, y esa salida depende de una opción de compartir datos en el perfil de la persona. Con la opción activa, las consultas telemáticas se crean y se envían automáticamente. Con la opción desactivada, cada envío pide confirmación. El prototipo presenta el primer caso. La definición de esta opción depende del modelo de negocio de la consulta telemática y de si el análisis se ejecuta también fuera del dispositivo, y queda pendiente.</p>
+            </div>
+            <div style="background: var(--color-surface); padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: var(--text-ui); color: var(--color-ink);">El tono no es una elección estética</div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">Un software que señala una lesión como sospechosa entra previsiblemente en el ámbito de los productos sanitarios. Sin asesoría regulatoria no afirmamos una clasificación concreta, y el diseño se plantea como si fuera a evaluarse: lenguaje acotado, límites declarados y decisiones registradas.</p>
+            </div>
+            <div style="background: var(--color-surface); padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: var(--text-ui); color: var(--color-ink);">Dónde caen los umbrales</div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">Traducir una probabilidad continua a niveles de actuación es una decisión clínica que hemos tomado de forma provisional desde el diseño, pendiente de revisión con dermatología.</p>
+            </div>
+            <div style="background: var(--color-surface); padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: var(--text-ui); color: var(--color-ink);">Quién atiende el otro lado</div>
+              <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0;">El envío a un profesional requiere que alguien lo reciba y responda. El prototipo distingue entre enviado y valorado porque esa operación no está disponible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cierre" data-sec="cierre" style="max-width: 900px; scroll-margin-top: 90px;">
+        <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 32px;">
+          <div>
+            <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 10px;">06 · Temas pendientes</div>
+            <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0; color: var(--color-accent);">Temas pendientes</h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+              <div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 8px;">Lo que haría a continuación, en este orden</div>
+              <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px;">
+                <li style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); max-width: 66ch;">Probar la pantalla de resultado con unas pocas personas, preguntando qué entienden del resultado y qué harían. Requiere poco esfuerzo y puede invalidar la decisión 01, y por eso va en primer lugar.</li>
+                <li style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); max-width: 66ch;">Revisar lenguaje y umbrales con un dermatólogo, dado que la traducción de probabilidad a nivel de actuación es una decisión clínica.</li>
+                <li style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); max-width: 66ch;">Validar con el equipo técnico la viabilidad y la fiabilidad de la comparación entre capturas. La aportación 01 se sostiene sin análisis longitudinal automático, y ese desarrollo ampliaría su alcance.</li>
+                <li style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); max-width: 66ch;">Contrastar el circuito de la aportación 02 con un dermatólogo y con un perfil de gestión sanitaria: coste de una segunda lectura, quién asume la revisión periódica y viabilidad del modelo fuera de un ejercicio de diseño. Incluye decidir si la consulta telemática es un servicio incluido o de pago y cómo se autoriza que los datos salgan del dispositivo. Es la cuestión de mayor impacto y hoy no tiene respuesta.</li>
+                <li style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); max-width: 66ch;">Establecer con el equipo médico la periodicidad de las revisiones, que hoy el diseño fija de forma provisional. El intervalo depende de dos parámetros que no corresponde decidir al producto: el perfil de riesgo del paciente —fototipo, antecedentes familiares, número de nevus, inmunosupresión— y el perfil de riesgo que el análisis atribuye a cada lesión. Esa tabla condiciona el volumen de capturas, la carga de la revisión periódica y los avisos que la aplicación programa.</li>
+                <li style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); max-width: 66ch;">Definir el ciclo de vida completo de la acción: posponerla, anularla y sustituirla por otra, que en esta iteración queda fuera de alcance más allá del circuito de solicitud de consulta ya resuelto. Definir también cómo el perfil personal genera un plan preventivo, sin que las preferencias de la persona modifiquen un plazo clínico. Validar las reglas con dermatología y comprobar su comprensión con usuarios.</li>
+                <li style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); max-width: 66ch;">Revisar la marca y la definición de producto. El nombre, la identidad visual y la propuesta de valor se heredan de la prueba de concepto y no se han revisado en esta iteración.</li>
+                <li style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); max-width: 66ch;">Revisar el proceso de localización de los seguimientos. Se valoró un mapa corporal para situar cada lesión. En esta primera iteración se incluyó solo el formulario por áreas (zona, lado y superficie), porque se puede usar con lector de pantalla y teclado sin una alternativa adicional. El mapa corporal queda pendiente de evaluar como complemento del formulario.</li>
+              </ul>
+            </div>
+            <div>
+              <div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 8px;">Lo producido hasta aquí</div>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 70ch;">Un modelo funcional del producto con su entidad central, tres aportaciones de producto y cuatro decisiones de interfaz documentadas con alternativas y costes, un sistema de interfaz con estados y reglas de uso, un contrato de componente y un prototipo navegable de veintiséis vistas que incluye los estados de fallo.</p>
+            </div>
+            <div style="border: 1px solid var(--color-accent); padding: 22px;">
+              <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong); margin-bottom: 9px;">Lo que me llevo</div>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-ink); margin: 0; max-width: 70ch;">La parte más exigente del trabajo no estuvo en rediseñar las pantallas sino en decidir qué información mostrar y cuál dejar en segundo plano. Un modelo que devuelve tres probabilidades tiene justificación técnica para mostrarlas, y mostrarlas no ayudaba a decidir. Diseñar para la incertidumbre consiste en seleccionar qué parte de la información disponible permite tomar una decisión.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-r="foot" style="max-width: 619px; display: flex; flex-direction: column; gap: 10px;">
+        <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 0;">Las maquetas de este caso son reconstrucciones fieles de la propuesta de diseño — no capturas de producción.</p>
+        <a href="../../index.html#proyectos" style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; color: var(--color-accent-strong); text-transform: uppercase; letter-spacing: 0.04em;">← Volver al profile</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.case-index__link'));
+  var secs = Array.prototype.slice.call(document.querySelectorAll('[data-sec]'));
+  var raf = null;
+  function spy() {
+    raf = null;
+    var current = secs.length ? secs[0].getAttribute('data-sec') : null;
+    secs.forEach(function (el) { if (el.getBoundingClientRect().top <= 90) current = el.getAttribute('data-sec'); });
+    links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + current); });
+  }
+  function onScroll() { if (!raf) raf = requestAnimationFrame(spy); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  spy();
+})();
+</script>
+</body>
+</html>

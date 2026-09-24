@@ -60,6 +60,11 @@ const appTaxi = {
   es: loadJSON('casos', 'app-taxi', 'es.json'),
 };
 
+const imoles = {
+  en: loadJSON('casos', 'imoles', 'en.json'),
+  es: loadJSON('casos', 'imoles', 'es.json'),
+};
+
 // Cada entrada = una ruta de salida real. assetsPath es la profundidad
 // relativa desde esa ruta hasta la raíz del repo (fonts/, tokens.css,
 // script.js, assets/...); otherLangHref es el enlace del lang-switch.
@@ -99,6 +104,24 @@ const pages = [
     otherLangHref: '../../../casos/app-taxi/index.html',
     common: common.es,
     page: appTaxi.es,
+  },
+  {
+    template: 'pages/casos/imoles.njk',
+    out: 'casos/imoles/index.html',
+    lang: 'en',
+    assetsPath: '../../',
+    otherLangHref: '../../es/casos/imoles/index.html',
+    common: common.en,
+    page: imoles.en,
+  },
+  {
+    template: 'pages/casos/imoles.njk',
+    out: 'es/casos/imoles/index.html',
+    lang: 'es',
+    assetsPath: '../../../',
+    otherLangHref: '../../../casos/imoles/index.html',
+    common: common.es,
+    page: imoles.es,
   },
 ];
 

@@ -490,6 +490,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
+  margin-top: 2rem;
 }
 
 .project {
@@ -703,6 +704,12 @@ main {
   border: 1px solid var(--color-accent);
 }
 .button--icon:hover { background: var(--color-accent-soft); color: var(--color-accent-strong); }
+.button--sm {
+  height: 30px;
+  padding: 0 14px;
+  font-size: var(--text-legal);
+  letter-spacing: 0.06em;
+}
 
 /* ---------- Footer ---------- */
 .site-footer {

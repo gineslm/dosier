@@ -29,8 +29,8 @@
                             {{ item.text }}
                         </p>
                         <div class="project__links">
-                            <a class="icon-inline" href="{{ item.linkHref }}">{{ item.linkLabel }}
-                                <svg class="external-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            <a class="button button--primary button--sm" href="{{ item.linkHref }}">{{ item.linkLabel }}
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                             </a>
                         </div>
                     </article>
@@ -74,8 +74,8 @@
 {% if item.links %}
                         <div class="project__links">
 {% for link in item.links %}
-                            <a href="{{ link.href }}" target="_blank" rel="noopener noreferrer" class="icon-inline">{{ link.label }}
-                                <svg class="external-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"></path></svg>
+                            <a href="{{ link.href }}" target="_blank" rel="noopener noreferrer" class="button button--primary button--sm">{{ link.label }}
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"></path></svg>
                                 <span class="visually-hidden">{{ page.chrome.opensInNewWindow }}</span>
                             </a>
 {% endfor %}
