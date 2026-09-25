@@ -277,18 +277,17 @@
             <h3 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 10px; color: var(--color-ink);">{{ page.body.ux.behavior.heading }}</h3>
             <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 70ch;">{{ page.body.ux.behavior.lead }}</p>
           </div>
-          <div style="border: 1px solid var(--color-rule); overflow-x: auto;">
+          <div style="border: 1px solid var(--color-rule);">
             <div style="padding: 16px 18px; border-bottom: 1px solid var(--color-rule);">
               <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">{{ page.body.ux.behavior.contractLabel }}</div>
               <div style="color: var(--color-ink); margin-top: 4px; font-size: 14px; font-weight: 600;">{{ page.body.ux.behavior.contractTitle }}</div>
             </div>
-            <table style="width: 100%; min-width: 460px; border-collapse: collapse;">
-              <tbody>
 {% for row in page.body.ux.behavior.rows %}
-                <tr style="{% if not loop.last %}border-bottom: 1px solid var(--color-rule);{% endif %}"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">{{ row.k }}</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">{{ row.v }}</td></tr>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start;{% if not loop.last %} border-bottom: 1px solid var(--color-rule);{% endif %}">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">{{ row.k }}</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">{{ row.v }}</p>
+            </div>
 {% endfor %}
-              </tbody>
-            </table>
           </div>
         </div>
 

@@ -459,20 +459,31 @@
             <h3 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 10px; color: var(--color-ink);">4.2 · De la decisión al comportamiento</h3>
             <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 70ch;">Ejemplo de cómo se especificaría la decisión 01 para que un equipo pudiera construirla. Es una propuesta de esta revisión, no una biblioteca existente.</p>
           </div>
-          <div style="border: 1px solid var(--color-rule); overflow-x: auto;">
+          <div style="border: 1px solid var(--color-rule);">
             <div style="padding: 16px 18px; border-bottom: 1px solid var(--color-rule);">
               <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Contrato del componente</div>
               <div style="color: var(--color-ink); margin-top: 4px; font-size: 14px; font-weight: 600;">Resumen del análisis</div>
             </div>
-            <table style="width: 100%; min-width: 460px; border-collapse: collapse;">
-              <tbody>
-                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Entradas</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Identificador del seguimiento con su nombre completo —subzona con lado, ordinal, superficie y referencia personal—, fecha, estado de evaluación, enunciado de la acción con su fecha objetivo y su estado, motivo con el tipo de entidad de origen, y origen del dato.</td></tr>
-                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Estados</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Pendiente, resultado disponible, primera foto, no evaluable y fallo técnico. El nivel de actuación solo existe cuando hay resultado.</td></tr>
-                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Regla</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Un fallo técnico o una confianza insuficiente se representan con su propio estado y nunca como resultado sin indicios.</td></tr>
-                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Accesibilidad</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Señal no dependiente del color, etiquetas comprensibles sin el icono y foco movido al resultado cuando aparece.</td></tr>
-                <tr style=""><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Prueba</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Al fallar el análisis no aparece ninguna cifra ni mensaje de éxito, y la persona puede reintentar o salir conservando el seguimiento en curso.</td></tr>
-              </tbody>
-            </table>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Entradas</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">Identificador del seguimiento con su nombre completo —subzona con lado, ordinal, superficie y referencia personal—, fecha, estado de evaluación, enunciado de la acción con su fecha objetivo y su estado, motivo con el tipo de entidad de origen, y origen del dato.</p>
+            </div>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Estados</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">Pendiente, resultado disponible, primera foto, no evaluable y fallo técnico. El nivel de actuación solo existe cuando hay resultado.</p>
+            </div>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Regla</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">Un fallo técnico o una confianza insuficiente se representan con su propio estado y nunca como resultado sin indicios.</p>
+            </div>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Accesibilidad</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">Señal no dependiente del color, etiquetas comprensibles sin el icono y foco movido al resultado cuando aparece.</p>
+            </div>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start;">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Prueba</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">Al fallar el análisis no aparece ninguna cifra ni mensaje de éxito, y la persona puede reintentar o salir conservando el seguimiento en curso.</p>
+            </div>
           </div>
         </div>
 

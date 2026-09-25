@@ -459,20 +459,31 @@
             <h3 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 10px; color: var(--color-ink);">4.2 · From decision to behaviour</h3>
             <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 70ch;">An example of how decision 01 would be specified so a team could build it. It&#39;s a proposal from this review, not an existing library.</p>
           </div>
-          <div style="border: 1px solid var(--color-rule); overflow-x: auto;">
+          <div style="border: 1px solid var(--color-rule);">
             <div style="padding: 16px 18px; border-bottom: 1px solid var(--color-rule);">
               <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">Component contract</div>
               <div style="color: var(--color-ink); margin-top: 4px; font-size: 14px; font-weight: 600;">Analysis summary</div>
             </div>
-            <table style="width: 100%; min-width: 460px; border-collapse: collapse;">
-              <tbody>
-                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Inputs</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Follow-up identifier with its full name — sub-area with side, ordinal, surface and personal reference —, date, evaluation state, action statement with its target date and state, grounds with the origin entity type, and data provenance.</td></tr>
-                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">States</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Pending, result available, first photo, cannot be assessed and technical failure. The level of action only exists when there is a result.</td></tr>
-                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Rule</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">A technical failure or insufficient confidence is represented by its own state and never as a no-signs result.</td></tr>
-                <tr style="border-bottom: 1px solid var(--color-rule);"><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Accessibility</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">Signal not dependent on colour, labels understandable without the icon, and focus moved to the result when it appears.</td></tr>
-                <tr style=""><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); vertical-align: top; white-space: nowrap;">Test</td><td style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body);">When analysis fails, no figure and no success message appears, and the person can retry or leave without losing the follow-up in progress.</td></tr>
-              </tbody>
-            </table>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Inputs</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">Follow-up identifier with its full name — sub-area with side, ordinal, surface and personal reference —, date, evaluation state, action statement with its target date and state, grounds with the origin entity type, and data provenance.</p>
+            </div>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">States</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">Pending, result available, first photo, cannot be assessed and technical failure. The level of action only exists when there is a result.</p>
+            </div>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Rule</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">A technical failure or insufficient confidence is represented by its own state and never as a no-signs result.</p>
+            </div>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start; border-bottom: 1px solid var(--color-rule);">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Accessibility</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">Signal not dependent on colour, labels understandable without the icon, and focus moved to the result when it appears.</p>
+            </div>
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); align-items: start;">
+              <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-ink); white-space: nowrap;">Test</div>
+              <p style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-body); margin: 0;">When analysis fails, no figure and no success message appears, and the person can retry or leave without losing the follow-up in progress.</p>
+            </div>
           </div>
         </div>
 
