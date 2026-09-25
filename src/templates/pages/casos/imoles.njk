@@ -94,13 +94,13 @@
           <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">{{ page.body.benchmark.evidenceLabel }}</div>
           <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 72ch;">{{ page.body.benchmark.evidenceLead }}</p>
           <div style="font-size: var(--text-ui); color: var(--color-ink); margin-top: 4px;">{{ page.body.benchmark.tableLabel }}</div>
-          <div style="border: 1px solid var(--color-rule); overflow-x: auto;">
-            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule-strong); min-width: 520px;">
+          <div style="border: 1px solid var(--color-rule);">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule-strong);">
               <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-muted);">{{ page.body.benchmark.colA }}</div>
               <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-accent-strong);">{{ page.body.benchmark.colB }}</div>
             </div>
 {% for row in page.body.benchmark.rows %}
-            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px;{% if loop.last %} border-bottom: 0;{% endif %}">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule);{% if loop.last %} border-bottom: 0;{% endif %}">
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">{{ row.finding }}</p>
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">{{ row.implication }}</p>
             </div>
@@ -215,7 +215,7 @@
         </div>
       </div>
 
-      <div style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+      <div data-sec="ux" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
         <div style="margin-bottom: 8px;">
           <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 10px;">{{ page.body.ux.num }} · {{ page.body.ux.heading }}</div>
           <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 72ch;">{{ page.body.ux.lead }}</p>

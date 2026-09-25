@@ -182,24 +182,24 @@
           <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong);">2.2 · What the independent clinical studies show</div>
           <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 72ch;">Two studies have been published: a randomised trial on the impact on the health system, and a prospective hospital validation of diagnostic performance. Their results are the public information available to estimate the scope of a product in this category, ours included.</p>
           <div style="font-size: var(--text-ui); color: var(--color-ink); margin-top: 4px;">2.2.1 · What they measured, and the decision it forces on us</div>
-          <div style="border: 1px solid var(--color-rule); overflow-x: auto;">
-            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule-strong); min-width: 520px;">
+          <div style="border: 1px solid var(--color-rule);">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule-strong);">
               <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-muted);">What they measured</div>
               <div style="font-size: var(--text-ui); padding: 12px 20px; color: var(--color-accent-strong);">The decision it forces on us</div>
             </div>
-            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px;">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule);">
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">Real-world performance came in below the advertised figures: sensitivity 41–83% and specificity 60–83% across 1,204 lesions, against the stated 95% / 78%. That gap depends partly on the technical resolution of the image analysis and partly on the current state of the technology.</p>
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">The room for improvement is in the unit of analysis rather than the interface. A classifier that evaluates a single isolated photograph has an accuracy ceiling design doesn&#39;t move, so our contribution has to sit in what information the model is given.</p>
             </div>
-            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px;">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule);">
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">It flagged 224 of 1,204 lesions as suspicious; dermatologists flagged 9. The extrapolated number needed to treat was 259 excisions per melanoma, against 9.6.</p>
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">Every referral has a cost to the health system. A product that refers whenever it&#39;s unsure pushes its uncertainty onto the health system, resulting in appointments and biopsies of benign lesions. This forces us to define the cases where the product resolves without referring.</p>
             </div>
-            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px;">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule);">
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">In the randomised trial (19,009 participants) melanoma was not detected at an earlier stage, and appointments and biopsies for benign lesions increased.</p>
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">The success metric has to include cost per finding alongside the number of cases detected. With only the second figure, a product can look effective while it increases the load on the care circuit.</p>
             </div>
-            <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); min-width: 520px; border-bottom: 0;">
+            <div data-r="grid2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid var(--color-rule); border-bottom: 0;">
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-body); margin: 0; padding: 14px 20px;">Sustained use fell from 53.9% in the first year to 16.2% in the second.</p>
               <p style="font-size: var(--text-note); line-height: 1.5; color: var(--color-ink); margin: 0; padding: 14px 20px;">This figure affects our approach directly, because the product rests on comparing successive captures. Adherence is a functional requirement, not only a business metric.</p>
             </div>
@@ -353,7 +353,7 @@
         </div>
       </div>
 
-      <div style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+      <div data-sec="ux" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
         <div style="margin-bottom: 8px;">
           <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 10px;">04 · Interface analysis and UX decisions</div>
           <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 72ch;">The previous section defines the product; this one defines how it&#39;s used. Four blocks: the four interface decisions with their starting point, the component contract behind them, two accessibility checks and the navigable prototype.</p>
