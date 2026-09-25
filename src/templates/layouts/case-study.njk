@@ -6,11 +6,6 @@
 {% set robots = 'noindex, nofollow' %}
 {% include "partials/head.njk" %}
 <body>
-{% if common.site.gtmId %}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ common.site.gtmId }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-{% endif %}
 <div class="ds-theme-dark-casos-estudio{% if page.chrome.accentClass %} {{ page.chrome.accentClass }}{% endif %}" style="width: 100%; display: flex; flex-direction: column;">
 
   <div data-r="topbar" style="position: sticky; top: 0; z-index: 10; height: 60px; background: var(--color-surface); border-bottom: 1px solid var(--color-rule); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; box-sizing: border-box;">

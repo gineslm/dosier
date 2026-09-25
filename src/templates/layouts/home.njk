@@ -2,11 +2,6 @@
 {% include "partials/head.njk" %}
 
 <body id="top">
-{% if common.site.gtmId %}
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ common.site.gtmId }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-{% endif %}
     <a class="skip-link" href="#main">{{ page.chrome.skipLink }}</a>
 
     <div class="topbar" data-topbar>
