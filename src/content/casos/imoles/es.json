@@ -33,13 +33,12 @@
     "hero": {
       "kicker": "Caso de estudio · Análisis funcional y diseño de producto",
       "title": "Evolución de diseño de producto y definición UX UI en una app de prediagnóstico dermatológico",
-      "sub": "Aplicación para evaluar el riesgo y seguir la evolución de lesiones cutáneas integrada en el proceso de diagnóstico médico. La propuesta parte de una prueba de concepto de análisis de imagen con IA. El producto parte de una prueba de concepto sobre la que se desarrollan varias iteraciones, enfocadas tanto a la definición de producto como a la de UX y UI.",
+      "sub": "iMoles es una aplicación para evaluar el riesgo y seguir la evolución de lesiones cutáneas, integrada en el proceso de diagnóstico médico. Esta propuesta es la concreción en diseño de una primera fase, construida sobre una prueba de concepto de análisis de imagen con IA: entrega a negocio un producto y un prototipo evaluables, sobre los que validar, medir e iterar.",
       "lead": "Unos compañeros de la startup Elora desarrollaron el núcleo técnico en 2019. Desde entonces el producto ha pasado por una serie de ajustes y revisiones, y en ese proceso he participado en la definición de producto. Lo que sigue expone ese trabajo: de dónde partimos, qué aprendimos al analizar al único competidor con evidencia clínica publicada, qué decisiones de producto se derivan de ese análisis y cómo hemos definido la estrategia de UX/UI.",
       "ctaPrimary": "Ir al prototipo",
       "ctaSecondary": "Ver las decisiones",
       "facts": [
         { "k": "Rol", "v": "Análisis funcional y de producto, UX/UI y prototipado" },
-        { "k": "Origen", "v": "Prueba de concepto propia, revisada y reformulada" },
         { "k": "Alcance", "v": "3 aportaciones de producto · 4 decisiones de interfaz · prototipo navegable de 41 pantallas" },
         { "k": "Estado", "v": "Propuesta exploratoria, sin pruebas con usuarios" }
       ]
@@ -91,7 +90,7 @@
       ],
       "evidenceLabel": "2.2 · Qué dejan los estudios clínicos independientes",
       "evidenceLead": "Se han publicado dos trabajos: un ensayo aleatorizado sobre el impacto en el sistema sanitario y una validación prospectiva hospitalaria sobre el rendimiento diagnóstico. Sus resultados son la información pública disponible para estimar el alcance de un producto de esta categoría, incluido el nuestro.",
-      "tableLabel": "2.2.1 · Lo que midieron, y qué decisión nos obliga a tomar",
+      "tableLabel": "2.2.1 · Lo que midieron y qué decisión nos obliga a tomar",
       "colA": "Lo que midieron",
       "colB": "Qué decisión nos obliga a tomar",
       "rows": [
@@ -114,11 +113,11 @@
       "id": "producto",
       "num": "03",
       "heading": "Aportaciones a la definición de producto",
-      "lead": "Tres decisiones de producto que responden, una a una, a las tres problemáticas del benchmark. Definen qué es el producto, qué se compromete a hacer y dónde encaja en el circuito asistencial.",
+      "lead": "Tres decisiones de producto que responden, una a una, a las tres problemáticas del benchmark. Definen qué es el producto, qué se compromete a hacer y dónde encaja en el circuito asistencial. El producto se dirige a personas ya diagnosticadas o de alto riesgo, dentro de una estrategia de prevención, documentación y diagnóstico precoz; esa definición determina las tres aportaciones que siguen.",
       "costLabel": "Coste",
       "c1": {
         "label": "3.1 · Aportación 01",
-        "ref": "Responde a la problemática 01",
+        "ref": "Aborda la problemática 01",
         "title": "La entidad central es el seguimiento en el tiempo, no la fotografía",
         "p1": "La prueba de concepto guardaba análisis sueltos, sin ninguna forma de registrar que dos fotografías corresponden al mismo lunar. En dermatología el criterio de alarma principal es la evolución de la lesión, la «E» del ABCDE, y es el primer factor que valora un especialista.",
         "p2": "El cambio de modelo consiste en dejar de almacenar análisis y pasar a mantener seguimientos, cada uno con su serie de capturas. Es una modificación de la estructura de datos con efecto en toda la aplicación: reorganiza la lista, el detalle, el informe y el flujo de captura.",
@@ -148,7 +147,7 @@
           "p2": "De ahí se deriva un criterio de derivación distinto al de una serie. Con una sola foto, la salida por defecto es una segunda captura a corto plazo, también cuando no hay hallazgos, porque esa segunda foto permite confirmar la evaluación con más datos. La consulta se indica solo cuando la señal es muy alta, y ese umbral lo fija el equipo clínico. Con ello, el primer uso de la aplicación entrega una indicación aplicable en lugar de un aviso de que el producto todavía no puede pronunciarse."
         },
         "routes": [
-          { "t": "Línea base", "c": "Primera captura de un seguimiento", "owner": "La app", "d": "La primera captura registra el seguimiento, fija el patrón de referencia y programa una segunda captura a corto plazo. Con una sola imagen se valoran forma y color, sin el criterio de evolución, de modo que la fiabilidad es menor que en una serie y la política de comunicación cambia: el resultado declara ese límite y la salida por defecto es la segunda captura, con independencia del nivel estimado. La derivación a consulta queda reservada a las señales muy altas, por encima de un umbral fijado clínicamente. Los plazos escalonados por nivel se aplican a partir de la segunda captura." },
+          { "t": "Línea base", "c": "Primera captura de un seguimiento", "owner": "La app", "d": "Registra el seguimiento y programa por defecto una segunda captura a corto plazo, con independencia del nivel estimado. La derivación a consulta queda reservada a las señales muy altas. Los plazos escalonados por nivel se aplican a partir de la segunda captura." },
           { "t": "Vigilancia", "c": "Serie sin cambio relevante", "owner": "La app", "d": "La gestiona el producto: recaptura programada, encuadre guardado y recordatorio con fecha. Una lesión atípica que se mantiene estable no requiere consulta inmediata, y la valoración profesional será más útil dentro de tres meses con dos imágenes comparables que ahora con una." },
           { "t": "Segunda lectura", "c": "Cambio dudoso o imagen atípica", "owner": "Profesional, en diferido", "d": "Un profesional revisa la serie de forma asíncrona, sin presencia del paciente. Este nivel intermedio no existe hoy en los productos de esta categoría y permite resolver la mayor parte de los casos ambiguos sin ocupar una cita presencial." },
           { "t": "Consulta preferente", "c": "Cambio confirmado o señal alta", "owner": "Sistema sanitario", "d": "Interviene el sistema sanitario, y lo hace con material previo: la serie fechada, los intervalos entre capturas y el informe. La consulta parte de un cambio documentado y el profesional dispone del histórico desde el inicio." }
@@ -225,17 +224,7 @@
       },
       "behavior": {
         "heading": "4.2 · De la decisión al comportamiento",
-        "lead": "Ejemplo de cómo se especificaría la decisión 01 para que un equipo pudiera construirla. Es una propuesta de esta revisión, no una biblioteca existente.",
-        "modelLabel": "Modelo conceptual",
-        "entities": [
-          { "t": "Seguimiento", "d": "registra una marca y agrupa su serie de capturas" },
-          { "t": "Captura", "d": "una foto del seguimiento, con su fecha" },
-          { "t": "Análisis", "d": "procesa la captura y emite una evaluación de riesgo con acciones recomendadas" },
-          { "t": "Acción", "d": "aísla cada recomendación: qué hacer, quién y para cuándo. Organiza la evolución del seguimiento y la derivación de consultas a especialistas" }
-        ],
-        "rels": ["1 · n", "1 · n", "1 · n"],
-        "note2": "La evaluación emite una indicación: qué conviene hacer, quién debe hacerlo y en qué plazo. La acción es la actuación operativa que materializa esa indicación, o el plan de un seguimiento, o una regla preventiva del perfil de la persona. Registra el responsable, el estado, el criterio por el que se cierra y una referencia a la entidad desde la que se originó: el análisis, el seguimiento o la regla del perfil contiene la información que sostiene el enunciado y el plazo, de modo que la acción no duplica esos hechos. Los avisos y las notificaciones se asocian a la acción y no la sustituyen: una notificación puede desaparecer al leerse sin que la acción quede resuelta. Una evaluación posterior puede mantener, adelantar, sustituir o cancelar la acción anterior.",
-        "note": "Una captura admite varias evaluaciones versionadas, lo que permite reanalizar el histórico cuando el modelo mejore sin pedir fotografías nuevas. Es una alternativa de modelado, no una arquitectura a implementar ahora.",
+        "lead": "Ejemplo de cómo se especificaría la decisión 01 para que un equipo pudiera construirla, sobre el modelo conceptual definido en 3.1 (seguimiento, captura, análisis, acción). Es una propuesta de esta revisión, no una biblioteca existente.",
         "contractLabel": "Contrato del componente",
         "contractTitle": "Resumen del análisis",
         "rows": [
@@ -247,11 +236,11 @@
         ]
       },
       "accessibility": {
-        "heading": "4.3 · Accesibilidad: dos comprobaciones",
+        "heading": "4.3 · Accesibilidad: qué se ha comprobado y qué no",
         "lead": "Se detallan dos aspectos verificables en esta misma página y se indica el estado de los demás.",
         "items": [
           { "t": "Comprobado · la señal no depende del color", "d": "El nivel se comunica por tres canales: el color, la forma del icono (triángulo para alto, rombo para intermedio, círculo para bajo) y la etiqueta de texto de la insignia. Puede comprobarse en las capturas del prototipo de esta página." },
-          { "t": "Comprobado · el prototipo se recorre con teclado", "d": "Controles enfocables con contorno visible y activación con Enter o barra espaciadora. El recorrido esencial se completa sin ratón." },
+          { "t": "Comprobado · el artefacto del prototipo se recorre con teclado en navegador", "d": "Verificación de foco y orden de tabulación sobre el prototipo publicado, navegado en escritorio. Es una comprobación del diseño de la interfaz, no una funcionalidad de la app móvil final." },
           { "t": "Especificado · cuerpo y objetivo táctil", "d": "Mínimo de 16 px de cuerpo, 18 px en las pantallas de resultado y objetivos táctiles de 44 px. Aplicado en el prototipo y no auditado con herramientas en todas las vistas." },
           { "t": "No comprobado · lectores de pantalla y guía por voz", "d": "Los anuncios de estado y la asistencia sonora durante la captura están descritos en la especificación. No hay implementación ni prueba con tecnología de apoyo." }
         ]
@@ -299,12 +288,10 @@
         "Establecer con el equipo médico la periodicidad de las revisiones, que hoy el diseño fija de forma provisional. El intervalo depende de dos parámetros que no corresponde decidir al producto: el perfil de riesgo del paciente —fototipo, antecedentes familiares, número de nevus, inmunosupresión— y el perfil de riesgo que el análisis atribuye a cada lesión. Esa tabla condiciona el volumen de capturas, la carga de la revisión periódica y los avisos que la aplicación programa.",
         "Definir el ciclo de vida completo de la acción: posponerla, anularla y sustituirla por otra, que en esta iteración queda fuera de alcance más allá del circuito de solicitud de consulta ya resuelto. Definir también cómo el perfil personal genera un plan preventivo, sin que las preferencias de la persona modifiquen un plazo clínico. Validar las reglas con dermatología y comprobar su comprensión con usuarios.",
         "Revisar la marca y la definición de producto. El nombre, la identidad visual y la propuesta de valor se heredan de la prueba de concepto y no se han revisado en esta iteración.",
-        "Revisar el proceso de localización de los seguimientos. Se valoró un mapa corporal para situar cada lesión. En esta primera iteración se incluyó solo el formulario por áreas (zona, lado y superficie), porque se puede usar con lector de pantalla y teclado sin una alternativa adicional. El mapa corporal queda pendiente de evaluar como complemento del formulario."
+        "Revisar el proceso de localización de los seguimientos. Se valoró un mapa corporal para situar cada lesión. En esta primera iteración se incluyó solo el formulario por áreas (zona, lado y superficie), porque el formulario es un patrón compatible por diseño con lector de pantalla y teclado, a diferencia de un mapa corporal interactivo, que exigiría un desarrollo de accesibilidad específico y no probado. El mapa corporal queda pendiente de evaluar como complemento del formulario."
       ],
       "producedLabel": "Lo producido hasta aquí",
-      "produced": "Un modelo funcional del producto con su entidad central, tres aportaciones de producto y cuatro decisiones de interfaz documentadas con alternativas y costes, un sistema de interfaz con estados y reglas de uso, un contrato de componente y un prototipo navegable de veintiséis vistas que incluye los estados de fallo.",
-      "takeawayLabel": "Lo que me llevo",
-      "takeaway": "La parte más exigente del trabajo no estuvo en rediseñar las pantallas sino en decidir qué información mostrar y cuál dejar en segundo plano. Un modelo que devuelve tres probabilidades tiene justificación técnica para mostrarlas, y mostrarlas no ayudaba a decidir. Diseñar para la incertidumbre consiste en seleccionar qué parte de la información disponible permite tomar una decisión."
+      "produced": "Este trabajo entrega la concreción en diseño de una primera fase de iMoles como producto: su encaje en un ecosistema asistencial concreto y un prototipo que traduce esa propuesta en algo evaluable. No cierra el producto, sino que le da a negocio algo sobre lo que trabajar, medir e iterar — un modelo funcional con su entidad central, tres aportaciones de producto y cuatro decisiones de interfaz documentadas con alternativas y costes, un sistema de interfaz con estados y reglas de uso, un contrato de componente y un prototipo navegable de 41 pantallas que incluye los estados de fallo."
     }
   }
 }

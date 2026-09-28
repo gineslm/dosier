@@ -33,13 +33,12 @@
     "hero": {
       "kicker": "Case study · Functional analysis and product design",
       "title": "Evolving the product design and UX/UI definition of a dermatology pre-diagnosis app",
-      "sub": "An app to assess risk and track the evolution of skin lesions, integrated into the medical diagnosis process. The proposal builds on a proof of concept for AI-based image analysis, developed through several iterations focused on both product definition and UX/UI.",
+      "sub": "iMoles is an app to assess risk and track the evolution of skin lesions, integrated into the medical diagnosis process. This proposal is the design concretion of a first phase, built on a proof of concept for AI-based image analysis: it hands the business a product and a prototype that can be evaluated, validated, measured and iterated on.",
       "lead": "Colleagues at the startup Elora built the technical core in 2019. Since then the product has gone through a series of adjustments and revisions, and I've taken part in defining the product through that process. What follows sets out that work: where we started, what we learned analysing the only competitor with published clinical evidence, which product decisions follow from that analysis, and how we defined the UX/UI strategy.",
       "ctaPrimary": "Go to the prototype",
       "ctaSecondary": "See the decisions",
       "facts": [
         { "k": "Role", "v": "Functional and product analysis, UX/UI and prototyping" },
-        { "k": "Origin", "v": "In-house proof of concept, reviewed and reframed" },
         { "k": "Scope", "v": "3 product contributions · 4 interface decisions · 41-screen navigable prototype" },
         { "k": "Status", "v": "Exploratory proposal, no user testing" }
       ]
@@ -91,7 +90,7 @@
       ],
       "evidenceLabel": "2.2 · What the independent clinical studies show",
       "evidenceLead": "Two studies have been published: a randomised trial on the impact on the health system, and a prospective hospital validation of diagnostic performance. Their results are the public information available to estimate the scope of a product in this category, ours included.",
-      "tableLabel": "2.2.1 · What they measured, and the decision it forces on us",
+      "tableLabel": "2.2.1 · What they measured and the decision it forces on us",
       "colA": "What they measured",
       "colB": "The decision it forces on us",
       "rows": [
@@ -114,11 +113,11 @@
       "id": "product",
       "num": "03",
       "heading": "Contributions to the product definition",
-      "lead": "Three product decisions that answer, one by one, the three problems from the benchmark. They define what the product is, what it commits to doing and where it fits in the care circuit.",
+      "lead": "Three product decisions that answer, one by one, the three problems from the benchmark. They define what the product is, what it commits to doing and where it fits in the care circuit. The product is aimed at people already diagnosed or at high risk, as part of a strategy of prevention, documentation and early diagnosis; that definition drives the three contributions that follow.",
       "costLabel": "Cost",
       "c1": {
         "label": "3.1 · Contribution 01",
-        "ref": "Answers problem 01",
+        "ref": "Addresses problem 01",
         "title": "The central entity is the follow-up over time, not the photograph",
         "p1": "The proof of concept stored loose analyses, with no way to record that two photographs correspond to the same mole. In dermatology the main warning sign is the lesion's evolution — the “E” in ABCDE — and it's the first factor a specialist weighs.",
         "p2": "The shift is to stop storing analyses and start maintaining follow-ups, each with its own series of captures. It's a change to the data structure with an effect across the whole app: it reorganises the list, the detail, the report and the capture flow.",
@@ -148,7 +147,7 @@
           "p2": "From that follows a referral criterion that differs from the one used for a series. With a single photo, the default outcome is a second capture at short notice, even when there are no findings, because that second photo allows the assessment to be confirmed with more data. A consultation is indicated only when the signal is very high, and that threshold is set by the clinical team. With this, the first use of the app delivers an actionable instruction rather than a notice that the product can't yet comment."
         },
         "routes": [
-          { "t": "Baseline", "c": "First capture of a follow-up", "owner": "The app", "d": "The first capture registers the follow-up, sets the reference pattern and schedules a second capture at short notice. With a single image, shape and colour are assessed without the evolution criterion, so reliability is lower than in a series and the communication policy changes: the result states that limit and the default outcome is the second capture, whatever the estimated level. Referral to a consultation is reserved for very high signals, above a clinically set threshold. The level-based staggered time frames apply from the second capture onward." },
+          { "t": "Baseline", "c": "First capture of a follow-up", "owner": "The app", "d": "Registers the follow-up and schedules a second capture at short notice by default, whatever the estimated level. Referral to a consultation is reserved for very high signals. The level-based staggered time frames apply from the second capture onward." },
           { "t": "Surveillance", "c": "Series with no relevant change", "owner": "The app", "d": "The product manages it: scheduled recapture, stored framing and a dated reminder. An atypical but stable lesion doesn't need an immediate consultation, and a professional assessment will be more useful in three months with two comparable images than right now with one." },
           { "t": "Second reading", "c": "Ambiguous change or atypical image", "owner": "Professional, asynchronous", "d": "A professional reviews the series asynchronously, without the patient present. This middle tier doesn't exist today in products of this category and lets most ambiguous cases be resolved without taking up an in-person slot." },
           { "t": "Priority consultation", "c": "Confirmed change or high signal", "owner": "Health system", "d": "The health system gets involved, and it does so with material already in hand: the dated series, the intervals between captures and the report. The consultation starts from a documented change and the professional has the history from the outset." }
@@ -225,17 +224,7 @@
       },
       "behavior": {
         "heading": "4.2 · From decision to behaviour",
-        "lead": "An example of how decision 01 would be specified so a team could build it. It's a proposal from this review, not an existing library.",
-        "modelLabel": "Conceptual model",
-        "entities": [
-          { "t": "Follow-up", "d": "records a mark and groups its series of captures" },
-          { "t": "Capture", "d": "one photo of the follow-up, with its date" },
-          { "t": "Analysis", "d": "processes the capture and issues a risk evaluation with recommended actions" },
-          { "t": "Action", "d": "isolates each recommendation: what to do, who, and by when. Organises the follow-up's evolution and referrals to specialists" }
-        ],
-        "rels": ["1 · n", "1 · n", "1 · n"],
-        "note2": "An evaluation issues an indication: what should be done, who should do it and within what deadline. The action is the operational commitment that materialises that indication, or a follow-up plan, or a preventive rule from the person's profile. It records the owner, the state, the criterion by which it closes and a reference to the entity it originated from: the analysis, the follow-up or the profile rule holds the information that supports the statement and the deadline, so the action does not duplicate those facts. Reminders and notifications attach to the action and do not replace it: a notification can disappear once read while the action stays open. A later evaluation can keep, bring forward, replace or cancel the previous action.",
-        "note": "A capture can hold several versioned evaluations, which allows the history to be re-analysed when the model improves without asking for new photos. It's a modelling alternative, not architecture to implement now.",
+        "lead": "An example of how decision 01 would be specified so a team could build it, building on the conceptual model defined in 3.1 (follow-up, capture, analysis, action). It's a proposal from this review, not an existing library.",
         "contractLabel": "Component contract",
         "contractTitle": "Analysis summary",
         "rows": [
@@ -247,11 +236,11 @@
         ]
       },
       "accessibility": {
-        "heading": "4.3 · Accessibility: two verifiable checks",
+        "heading": "4.3 · Accessibility: what's been checked and what hasn't",
         "lead": "Two verifiable aspects are detailed here, on this same page, and the status of the others is stated.",
         "items": [
           { "t": "Verified · the signal does not depend on colour", "d": "The level is conveyed through three channels: colour, icon shape (triangle for high, diamond for intermediate, circle for low) and the badge's text label. You can check it in the prototype captures on this page." },
-          { "t": "Verified · the prototype runs on a keyboard", "d": "Focusable controls with a visible outline and activation via Enter or space. The essential journey completes without a mouse." },
+          { "t": "Verified · the published prototype runs on a keyboard in the browser", "d": "Focus and tab-order check on the published prototype, navigated on desktop. It verifies the interface design, not a capability of the final mobile app." },
           { "t": "Specified · body and touch target size", "d": "Minimum 16 px body, 18 px on result screens and 44 px touch targets. Applied in the prototype, not tool-audited across every view." },
           { "t": "Unverified · screen readers and voice guidance", "d": "Status announcements and audio assistance during capture are described in the specification. There is no implementation and no testing with assistive technology." }
         ]
@@ -299,12 +288,10 @@
         "Set the review intervals with the medical team, which the design currently fixes provisionally. The interval depends on two parameters that aren't the product's to decide: the patient's risk profile — skin type, family history, nevus count, immunosuppression — and the risk profile the analysis assigns to each lesion. That table drives capture volume, the load of the periodic review and the reminders the app schedules.",
         "Define the action's full life cycle: postponing it, cancelling it and replacing it with another, which stays out of scope in this iteration beyond the consultation-request circuit already resolved. Also define how the personal profile produces a preventive plan, without the person's preferences altering a clinical deadline. Validate the rules with dermatology and test comprehension with users.",
         "Review the brand and the product definition. The name, the visual identity and the value proposition are inherited from the proof of concept and haven't been reviewed in this iteration.",
-        "Review how follow-ups are located on the body. A body map was considered for placing each lesion. This first iteration includes only the area form (zone, side and surface), because it works with a screen reader and a keyboard with no extra alternative needed. The body map remains to be evaluated as a complement to the form."
+        "Review how follow-ups are located on the body. A body map was considered for placing each lesion. This first iteration includes only the area form (zone, side and surface), because a form is a pattern that's accessible by design — compatible with a screen reader and a keyboard — unlike an interactive body map, which would require specific accessibility work of its own, untested here. The body map remains to be evaluated as a complement to the form."
       ],
       "producedLabel": "What was produced",
-      "produced": "A functional model of the product with its central entity, three product contributions and four interface decisions documented with alternatives and costs, an interface system with states and usage rules, a component contract, and a twenty-six-view navigable prototype that includes the failure states.",
-      "takeawayLabel": "What I take from it",
-      "takeaway": "The hard part wasn't redesigning the screens: it was deciding what information to show and what to keep in the background. A model that returns three probabilities has every technical reason to display them, and displaying them didn't help decide. Designing for uncertainty is mostly about choosing which part of the available information lets someone decide."
+      "produced": "This work delivers the design concretion of a first phase of iMoles as a product: its fit within a specific care ecosystem and a prototype that turns that proposal into something evaluable. It doesn't close the product — it hands the business something to work on, measure and iterate on: a functional model with its central entity, three product contributions and four interface decisions documented with alternatives and costs, an interface system with states and usage rules, a component contract, and a 41-screen navigable prototype that includes the failure states."
     }
   }
 }
