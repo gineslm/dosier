@@ -221,7 +221,7 @@
           <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 72ch;">{{ page.body.ux.lead }}</p>
         </div>
 
-        <div id="{{ page.body.ux.decisions.id }}" style="padding: 32px 0 0;">
+        <div id="{{ page.body.ux.decisions.id }}" data-sec="{{ page.body.ux.decisions.id }}" style="padding: 32px 0 0;">
           <div style="margin-bottom: 30px;">
             <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-ink);">{{ page.body.ux.decisions.heading }}</h2>
             <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 70ch;">{{ page.body.ux.decisions.lead }}</p>
@@ -308,7 +308,7 @@
           </div>
         </div>
 
-        <div id="{{ page.body.ux.prototype.id }}" style="padding: 32px 0 0;">
+        <div id="{{ page.body.ux.prototype.id }}" data-sec="{{ page.body.ux.prototype.id }}" style="padding: 32px 0 0;">
           <div style="margin-bottom: 20px;">
             <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 12px; color: var(--color-ink);">{{ page.body.ux.prototype.heading }}</h2>
             <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0; font-weight: 300; max-width: 70ch;">{{ page.body.ux.prototype.lead }}</p>
@@ -372,13 +372,9 @@
 {% endfor %}
               </ul>
             </div>
-            <div>
-              <div style="font-size: var(--text-ui); color: var(--color-muted); margin-bottom: 8px;">{{ page.body.closing.producedLabel }}</div>
-              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 70ch;">{{ page.body.closing.produced }}</p>
-            </div>
             <div style="border: 1px solid var(--color-accent); padding: 22px;">
-              <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong); margin-bottom: 9px;">{{ page.body.closing.takeawayLabel }}</div>
-              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-ink); margin: 0; max-width: 70ch;">{{ page.body.closing.takeaway }}</p>
+              <div style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-strong); margin-bottom: 9px;">{{ page.body.closing.producedLabel }}</div>
+              <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-ink); margin: 0; max-width: 70ch;">{{ page.body.closing.produced }}</p>
             </div>
           </div>
         </div>
