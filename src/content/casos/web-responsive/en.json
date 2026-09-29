@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "title": "Case study · Responsive web — Ginés López Montalbán",
+    "description": "An archive of interface design for multiple devices: an application component, a corporate portal and four websites, each presented by the responsive pattern it solves.",
+    "themeColor": "#1E1B22",
+    "canonical": "https://www.dsigncloud.es/dosier/en/casos/web-responsive/",
+    "hreflangEn": "https://www.dsigncloud.es/dosier/en/casos/web-responsive/",
+    "hreflangEs": "https://www.dsigncloud.es/dosier/en/es/casos/web-responsive/",
+    "hreflangDefault": "https://www.dsigncloud.es/dosier/en/casos/web-responsive/"
+  },
+  "chrome": {
+    "backLabel": "Back",
+    "backAriaLabel": "Back to profile",
+    "backHref": "../../index.html#portfolio",
+    "tag": "Archive · Responsive web",
+    "onThisPageLabel": "On this page",
+    "toc": [
+      { "id": "cover", "label": "Cover" },
+      { "id": "approach", "label": "Approach and methods" },
+      { "id": "component", "label": "Component design" },
+      { "id": "portal", "label": "Corporate web" },
+      { "id": "websites", "label": "Websites" },
+      { "id": "experience", "label": "Experience" }
+    ],
+    "foot": {
+      "disclaimer": "Screenshots are exports of the original designs. The toolbar and the portal mobile views are HTML reconstructions, not production captures.",
+      "backLabel": "← Back to profile"
+    }
+  },
+  "body": {
+    "hero": {
+      "h1": "RESPONSIVE WEB",
+      "lead": "Interface design for multiple devices.",
+      "meta": "UI design and front-end build · Mobile-first · 2019–2024 · 1 corporate portal, 1 application component and 4 websites.",
+      "archKicker": "Archive note",
+      "archText": "Projects built between 2019 and 2024, shown from the original designs. Several sites have changed since or are no longer online, so they are not linked. Client names are omitted.",
+      "archNote": "What is shown is the adaptation logic across widths, not the current state of each site."
+    },
+    "criteria": {
+      "id": "approach",
+      "heading": "Approach and methods",
+      "text": "I design and build starting from the mobile column: first deciding which content goes first and what can wait; each wider breakpoint adds columns, enlarges images or exposes navigation that is collapsed on mobile. Adaptation is defined in the design, not left to the build: each component has its breakpoints and behaviour documented. Three reference widths:",
+      "breakpoints": [
+        { "w": "375", "name": "Mobile", "desc": "single column, navigation collapsed into a menu" },
+        { "w": "768", "name": "Tablet", "desc": "two columns where the content allows it" },
+        { "w": "1440", "name": "Desktop", "desc": "full grid and visible navigation" }
+      ],
+      "methodsHeading": "Core technologies",
+      "methods": [
+        { "name": "Design tokens", "desc": "CSS variables for colour, type, spacing and radii. A brand or theme change is made in one place and reaches every component." },
+        { "name": "Media queries", "desc": "Breakpoints set by the content, not by specific devices. Written from narrow to wide (min-width), in mobile-first order." },
+        { "name": "Container queries", "desc": "The component responds to its container width, not the screen: the same block works in a sidebar or at full width." },
+        { "name": "CSS Grid", "desc": "Page and gallery grids with flexible columns (fr, minmax, auto-fit) that rearrange without duplicating markup." },
+        { "name": "Flexbox", "desc": "Alignment and distribution of bars, menus, forms and control groups, using gap instead of loose margins." },
+        { "name": "Fluid scale", "desc": "clamp() and relative units (rem, %, vw) so text and margins grow between breakpoints without abrupt jumps." },
+        { "name": "Adaptive images", "desc": "srcset, picture and object-fit to serve the right crop and weight for each width and screen density." },
+        { "name": "Touch use", "desc": "Tap targets of at least 44 px, 16 px text in form fields and sufficient contrast at every width." }
+      ],
+      "methodsNote": "Tested in browser developer tools and on real devices, in both orientations."
+    },
+    "component": {
+      "id": "component",
+      "heading": "Component design",
+      "text": "Toolbar with customisable options for corporate software: a web application with high complexity and data density. The exercise shows how a component is designed with its responsive behaviour in mind from the start: one structure with three views —desktop, tablet and mobile— triggered at set width breakpoints.",
+      "anatomyText": "The structure has three blocks. A and C have fixed widths; B takes the centre and grows as needed. B groups actions, shortcuts and notifications, separated from each other, and is customisable: from the user menu each person adds or removes shortcuts and subscribes to the general channel or to specific notification channels. Its length is not predictable. The logo sits on its own top row: as the bar narrows, the icons move under the logo up to the menu before being grouped.",
+      "blockA": "Menu · fixed",
+      "blockB": "Actions · shortcuts · notifications · flexible",
+      "blockC": "User · fixed",
+      "modeDesktop": "Desktop",
+      "modeTablet": "Tablet",
+      "modeMobile": "Mobile",
+      "desktopView": { "title": "Desktop · ≥ 1280 px", "note": "Base view. All icons visible, 40 px per icon (24 px + 8 px margin). The user icon repeats the menu icon style and opens the user menu." },
+      "tabletView": { "title": "Tablet · 768–1279 px", "note": "The A–B–C scheme is kept. Each group in B becomes a single icon that opens a vertical pop-up menu with all its items. A new alert changes the group icon background and can play a sound, per user settings." },
+      "mobileView": { "title": "Mobile · < 768 px", "note": "User and branch disappear as text: the user icon already holds that information. The bar is reduced to five 44 px controls." },
+      "dragHint": "Or drag the bottom-right corner to change the width.",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search reference, customer…",
+      "user": "User",
+      "branch": "Branch",
+      "links": ["Bookings", "Tariffs", "Documents", "Invoicing", "Calendar", "Files", "Reports", "Favourites"],
+      "qaKicker": "Quality control",
+      "qaText": "Shrinking the bar does not make mobile suitable for everything. Some business operations and procedures need a wide interface; which tasks are offered on each device is reviewed as a control and quality measure within the design workflow.",
+      "close": "Close"
+    },
+    "portal": {
+      "id": "portal",
+      "heading": "Corporate web · Customer portal",
+      "text": "Customer portal for container tracking and booking management, with forms and data tables. Three screens are shown on desktop alongside their mobile version, with the same content and features.",
+      "proposalTag": "Later proposal, not published. Rebuilt in HTML.",
+      "desktopLabel": "Desktop · 1920 px",
+      "mobileLabel": "Mobile · 375 px",
+      "scrollHint": "Scroll inside the screen",
+      "seeFull": "See full screenshot",
+      "close": "Close",
+      "screens": [
+        { "phase": "Home", "img": "cb-home.jpg", "note": "The image stays as background. Three blocks: welcome, tracking and schedules; the two forms lead to different processes and sit in separate panels. In tracking the search button becomes an icon next to the field." },
+        { "phase": "Tracking result", "img": "cb-tracking.png", "note": "The 5-column movements table becomes a timeline: date and description on top, location and terminal below." },
+        { "phase": "Booking list", "img": "cb-bookings.png", "note": "Each row becomes a card: reference, route, date and state. State is highlighted because it is what users check first." }
+      ]
+    },
+    "projects": {
+      "id": "websites",
+      "heading": "Websites",
+      "text": "Four public sites. Each is presented by the responsive pattern it solves. Click the screenshots to see them in full.",
+      "desktopLabel": "Desktop",
+      "mobileLabel": "Mobile",
+      "seeFull": "See full screenshot",
+      "close": "Close",
+      "items": [
+        { "title": "Graphic and web design studio", "year": "2019–2024 · own project", "pattern": "Tabs → section selector", "text": "On desktop, tab navigation under the logo. On mobile, the active section shows as a label next to a menu button, and the three service cards move to a single column.", "img": "estudio.jpg", "cropDesktop": { "x": 93.1, "y": 113.8, "w": 1733.8, "h": 1562.1 }, "cropMobile": { "x": 99.3, "y": 2803.4, "w": 397.2, "h": 794.5 } },
+        { "title": "Sculptor's website", "year": "2019", "pattern": "Thumbnail strip → grid", "text": "The horizontal thumbnail strip under the artwork becomes a 4-column grid. The main image takes the full width with overlaid arrows.", "img": "escultora.jpg", "cropDesktop": { "x": 116.2, "y": 1314.3, "w": 1142.9, "h": 800.0 }, "cropMobile": { "x": 1350.5, "y": 1085.7, "w": 411.4, "h": 822.9 } },
+        { "title": "Photographer's website", "year": "2023", "pattern": "Project row → full-bleed stack", "text": "The three projects in a row under the text stack at full width. The bio and exhibition list stay in a single reading column.", "img": "fotografa.jpg", "cropDesktop": { "x": 114.2, "y": 85.7, "w": 1244.3, "h": 1332.3 }, "cropMobile": { "x": 1408.5, "y": 85.7, "w": 411.6, "h": 823.2 } },
+        { "title": "Circus school", "year": "2024", "pattern": "Text over photo → text below photo", "text": "On desktop the text sits over the photograph, on the side the figure leaves free. On mobile the photo is cropped at the top and the text continues below on the same background tone.", "img": "circo.jpg", "cropDesktop": { "x": 72, "y": 86, "w": 1774, "h": 882 }, "cropMobile": { "x": 78, "y": 3796, "w": 414, "h": 828 } }
+      ]
+    },
+    "experience": {
+      "id": "experience",
+      "heading": "Experience",
+      "text": "I design and build responsive layouts for applications and websites in three working contexts:",
+      "items": [
+        { "name": "Frameworks", "tech": "Angular", "desc": "Application layouts with bars, side panels, forms and data tables; components with encapsulated styles that adapt across desktop, tablet and mobile." },
+        { "name": "Vanilla", "tech": "HTML, CSS and JavaScript", "desc": "Dependency-free sites and prototypes built on tokens, grid and flex, with lightweight scripts only for specific behaviours." },
+        { "name": "CMS", "tech": "Joomla, Drupal and WordPress", "desc": "Responsive templates and themes, adaptation of existing themes and layout of content edited by the client." }
+      ]
+    },
+    "closing": "In every case the responsive decision was about content before layout: what is seen first, what collapses and what changes shape."
+  }
+}

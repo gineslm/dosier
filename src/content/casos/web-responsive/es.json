@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "title": "Caso de estudio · Web responsive — Ginés López Montalbán",
+    "description": "Archivo de diseño de interfaces para múltiples dispositivos: un componente de aplicación, un portal corporativo y cuatro sitios web, cada uno presentado por el patrón responsive que resuelve.",
+    "themeColor": "#1E1B22",
+    "canonical": "https://www.dsigncloud.es/dosier/en/es/casos/web-responsive/",
+    "hreflangEn": "https://www.dsigncloud.es/dosier/en/casos/web-responsive/",
+    "hreflangEs": "https://www.dsigncloud.es/dosier/en/es/casos/web-responsive/",
+    "hreflangDefault": "https://www.dsigncloud.es/dosier/en/casos/web-responsive/"
+  },
+  "chrome": {
+    "backLabel": "Volver",
+    "backAriaLabel": "Volver al profile",
+    "backHref": "../../index.html#portfolio",
+    "tag": "Archivo · Web responsive",
+    "onThisPageLabel": "En esta página",
+    "toc": [
+      { "id": "portada", "label": "Portada" },
+      { "id": "criterio", "label": "Criterios y métodos" },
+      { "id": "componente", "label": "Diseño de componentes" },
+      { "id": "portal", "label": "Web corporativa" },
+      { "id": "proyectos", "label": "Páginas web" },
+      { "id": "experiencia", "label": "Experiencia" }
+    ],
+    "foot": {
+      "disclaimer": "Las capturas son exportaciones de los diseños originales. La barra de herramientas y las vistas móviles del portal son reconstrucciones en HTML, no capturas de producción.",
+      "backLabel": "← Volver al profile"
+    }
+  },
+  "body": {
+    "hero": {
+      "h1": "WEB RESPONSIVE",
+      "lead": "Diseño de interfaces para múltiples dispositivos.",
+      "meta": "Diseño UI y maquetación · Mobile-first · 2019–2024 · 1 portal corporativo, 1 componente de aplicación y 4 sitios web.",
+      "archKicker": "Nota de archivo",
+      "archText": "Proyectos realizados entre 2019 y 2024, mostrados a partir de los diseños originales. Varios sitios han cambiado desde entonces o ya no están publicados, por eso no se enlazan. Los nombres de clientes se omiten.",
+      "archNote": "Lo que se muestra es el criterio de adaptación entre anchos, no el estado actual de cada web."
+    },
+    "criteria": {
+      "id": "criterio",
+      "heading": "Criterios y métodos",
+      "text": "Diseño y maqueto partiendo de la columna móvil: primero se decide qué contenido va delante y qué puede esperar; cada ancho mayor añade columnas, amplía imágenes o muestra navegación que en móvil está plegada. La adaptación se define en el diseño, no se deja a la maquetación: cada componente tiene sus saltos y su comportamiento documentados. Tres anchos de referencia:",
+      "breakpoints": [
+        { "w": "375", "name": "Móvil", "desc": "una columna, navegación plegada en menú" },
+        { "w": "768", "name": "Tablet", "desc": "dos columnas donde el contenido lo admite" },
+        { "w": "1440", "name": "Escritorio", "desc": "rejilla completa y navegación visible" }
+      ],
+      "methodsHeading": "Tecnologías base",
+      "methods": [
+        { "name": "Tokens de diseño", "desc": "Variables CSS para color, tipografía, espaciado y radios. Un cambio de marca o de tema se hace en un solo sitio y llega a todos los componentes." },
+        { "name": "Media queries", "desc": "Saltos definidos por el contenido, no por dispositivos concretos. Escritas de menor a mayor ancho (min-width), en orden mobile-first." },
+        { "name": "Container queries", "desc": "El componente responde al ancho de su contenedor, no al de la pantalla: el mismo bloque funciona en una columna lateral o a ancho completo." },
+        { "name": "CSS Grid", "desc": "Rejillas de página y de galería con columnas flexibles (fr, minmax, auto-fit) que se reorganizan sin duplicar marcado." },
+        { "name": "Flexbox", "desc": "Alineación y reparto de barras, menús, formularios y grupos de controles, con gap en lugar de márgenes sueltos." },
+        { "name": "Escala fluida", "desc": "clamp() y unidades relativas (rem, %, vw) para que texto y márgenes crezcan entre saltos sin cambios bruscos." },
+        { "name": "Imágenes adaptativas", "desc": "srcset, picture y object-fit para servir el recorte y el peso adecuados a cada ancho y densidad de pantalla." },
+        { "name": "Uso táctil", "desc": "Zonas de pulsación de 44 px como mínimo, 16 px de texto en campos de formulario y contraste suficiente en todos los anchos." }
+      ],
+      "methodsNote": "Validación en las herramientas de desarrollo del navegador y en dispositivos reales, en ambas orientaciones."
+    },
+    "component": {
+      "id": "componente",
+      "heading": "Diseño de componentes",
+      "text": "Barra de herramientas con opciones personalizables para software corporativo: una aplicación web de alta complejidad y densidad de datos. El ejercicio muestra cómo se diseña un componente teniendo en cuenta desde el inicio su comportamiento responsive: una sola estructura con tres vistas —escritorio, tablet y móvil— que se activan en saltos de ancho establecidos.",
+      "anatomyText": "La estructura tiene tres bloques. A y C tienen ancho fijo; B ocupa el centro y crece según lo necesita. B agrupa acciones, accesos directos y notificaciones, separados entre sí, y es personalizable: desde el menú de usuario cada persona añade o quita accesos y se suscribe al canal general o a canales concretos de notificación. Su longitud no es predecible. El logo ocupa una fila superior propia: al estrecharse la barra, los iconos avanzan bajo el logo hasta el menú antes de agruparse.",
+      "blockA": "Menú · fijo",
+      "blockB": "Acciones · accesos directos · notificaciones · flexible",
+      "blockC": "Usuario · fijo",
+      "modeDesktop": "Escritorio",
+      "modeTablet": "Tablet",
+      "modeMobile": "Móvil",
+      "desktopView": { "title": "Escritorio · ≥ 1280 px", "note": "Vista base. Todos los iconos visibles, 40 px por icono (24 px + 8 px de margen). El icono de usuario repite el estilo del menú y abre el menú de usuario." },
+      "tabletView": { "title": "Tablet · 768–1279 px", "note": "Se mantiene el esquema A–B–C. Cada grupo de B pasa a un único icono que abre un menú emergente vertical con todos sus elementos. Un aviso nuevo cambia el fondo del icono del grupo y puede sonar, según configuración." },
+      "mobileView": { "title": "Móvil · < 768 px", "note": "Usuario y delegación desaparecen como texto: el icono de usuario ya contiene esa información. La barra queda en cinco controles de 44 px." },
+      "dragHint": "O arrastra la esquina inferior derecha para cambiar el ancho.",
+      "searchLabel": "Buscar",
+      "searchPlaceholder": "Buscar referencia, cliente…",
+      "user": "Usuario",
+      "branch": "Delegación",
+      "links": ["Reservas", "Tarifas", "Documentos", "Facturación", "Calendario", "Expedientes", "Informes", "Favoritos"],
+      "qaKicker": "Control de calidad",
+      "qaText": "Reducir la barra no convierte el móvil en un dispositivo apto para todo. Algunas operaciones y procedimientos de negocio necesitan una interfaz amplia; qué tareas se ofrecen en cada dispositivo se revisa como medida de control y calidad dentro del flujo de diseño.",
+      "close": "Cerrar"
+    },
+    "portal": {
+      "id": "portal",
+      "heading": "Web corporativa · Portal de clientes",
+      "text": "Portal de clientes para seguimiento de contenedores y gestión de reservas, con formularios y tablas de datos. Se muestran tres pantallas en escritorio y su versión móvil, con el mismo contenido y las mismas funciones.",
+      "proposalTag": "Propuesta posterior, no publicada. Reconstrucción en HTML.",
+      "desktopLabel": "Escritorio · 1920 px",
+      "mobileLabel": "Móvil · 375 px",
+      "scrollHint": "Desplaza dentro de la pantalla",
+      "seeFull": "Ver captura completa",
+      "close": "Cerrar",
+      "screens": [
+        { "phase": "Inicio", "img": "cb-home.jpg", "note": "La imagen se mantiene como fondo. Tres bloques: bienvenida, tracking y schedules; los dos formularios llevan a procesos distintos y se separan en paneles propios. En tracking el botón de búsqueda pasa a icono junto al campo." },
+        { "phase": "Resultado de tracking", "img": "cb-tracking.png", "note": "La tabla de movimientos de 5 columnas pasa a línea de tiempo: fecha y descripción arriba, ubicación y terminal debajo." },
+        { "phase": "Lista de reservas", "img": "cb-bookings.png", "note": "Cada fila pasa a tarjeta: referencia, ruta, fecha y estado. El estado se destaca porque es lo primero que se consulta." }
+      ]
+    },
+    "projects": {
+      "id": "proyectos",
+      "heading": "Páginas web",
+      "text": "Cuatro sitios públicos. Cada uno se presenta por el patrón responsive que resuelve. Pulsa las capturas para verlas completas.",
+      "desktopLabel": "Escritorio",
+      "mobileLabel": "Móvil",
+      "seeFull": "Ver captura completa",
+      "close": "Cerrar",
+      "items": [
+        { "title": "Estudio de diseño gráfico y web", "year": "2019–2024 · proyecto propio", "pattern": "Pestañas → selector de sección", "text": "En escritorio, navegación en pestañas bajo el logo. En móvil, la sección activa aparece como etiqueta junto a un botón de menú, y las tres tarjetas de servicio pasan a una columna.", "img": "estudio.jpg", "cropDesktop": { "x": 93.1, "y": 113.8, "w": 1733.8, "h": 1562.1 }, "cropMobile": { "x": 99.3, "y": 2803.4, "w": 397.2, "h": 794.5 } },
+        { "title": "Web de escultora", "year": "2019", "pattern": "Tira de miniaturas → rejilla", "text": "La tira horizontal de miniaturas bajo la obra pasa a una rejilla de 4 columnas. La imagen principal ocupa el ancho completo con las flechas superpuestas.", "img": "escultora.jpg", "cropDesktop": { "x": 116.2, "y": 1314.3, "w": 1142.9, "h": 800.0 }, "cropMobile": { "x": 1350.5, "y": 1085.7, "w": 411.4, "h": 822.9 } },
+        { "title": "Web de fotógrafa", "year": "2023", "pattern": "Fila de proyectos → pila a sangre", "text": "Los tres proyectos en fila bajo el texto se apilan a ancho completo. La biografía y la lista de exposiciones se mantienen en una sola columna de lectura.", "img": "fotografa.jpg", "cropDesktop": { "x": 114.2, "y": 85.7, "w": 1244.3, "h": 1332.3 }, "cropMobile": { "x": 1408.5, "y": 85.7, "w": 411.6, "h": 823.2 } },
+        { "title": "Escuela de circo", "year": "2024", "pattern": "Texto sobre foto → texto bajo foto", "text": "En escritorio el texto va sobre la fotografía, en el lado que deja libre la figura. En móvil la foto se recorta arriba y el texto continúa debajo, sobre el mismo tono de fondo.", "img": "circo.jpg", "cropDesktop": { "x": 72, "y": 86, "w": 1774, "h": 882 }, "cropMobile": { "x": 78, "y": 3796, "w": 414, "h": 828 } }
+      ]
+    },
+    "experience": {
+      "id": "experiencia",
+      "heading": "Experiencia",
+      "text": "Diseño y construyo layouts responsive para aplicaciones y sitios web en tres contextos de trabajo:",
+      "items": [
+        { "name": "Frameworks", "tech": "Angular", "desc": "Layouts de aplicación con barras, paneles laterales, formularios y tablas de datos; componentes con estilos encapsulados que se adaptan entre escritorio, tablet y móvil." },
+        { "name": "Vanilla", "tech": "HTML, CSS y JavaScript", "desc": "Sitios y prototipos sin dependencias, a partir de tokens, grid y flex, con scripts ligeros solo para comportamientos concretos." },
+        { "name": "CMS", "tech": "Joomla, Drupal y WordPress", "desc": "Plantillas y temas responsive, adaptación de temas existentes y maquetación de contenidos que edita el propio cliente." }
+      ]
+    },
+    "closing": "En todos los casos la decisión responsive fue de contenido antes que de maquetación: qué se ve primero, qué se pliega y qué cambia de forma."
+  }
+}
