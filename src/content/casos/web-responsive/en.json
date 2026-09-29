@@ -93,7 +93,7 @@
       "seeFull": "See full screenshot",
       "close": "Close",
       "screens": [
-        { "phase": "Home", "img": "cb-home.png", "note": "The image stays as background. Three blocks: welcome, tracking and schedules; the two forms lead to different processes and sit in separate panels. In tracking the search button becomes an icon next to the field." },
+        { "phase": "Home", "img": "cb-home.jpg", "note": "The image stays as background. Three blocks: welcome, tracking and schedules; the two forms lead to different processes and sit in separate panels. In tracking the search button becomes an icon next to the field." },
         { "phase": "Tracking result", "img": "cb-tracking.png", "note": "The 5-column movements table becomes a timeline: date and description on top, location and terminal below." },
         { "phase": "Booking list", "img": "cb-bookings.png", "note": "Each row becomes a card: reference, route, date and state. State is highlighted because it is what users check first." }
       ]
@@ -107,10 +107,10 @@
       "seeFull": "See full screenshot",
       "close": "Close",
       "items": [
-        { "title": "Graphic and web design studio", "year": "2019–2024 · own project", "pattern": "Tabs → section selector", "text": "On desktop, tab navigation under the logo. On mobile, the active section shows as a label next to a menu button, and the three service cards move to a single column.", "img": "estudio.png", "cropDesktop": { "x": 93.1, "y": 113.8, "w": 1733.8, "h": 1562.1 }, "cropMobile": { "x": 99.3, "y": 2803.4, "w": 397.2, "h": 794.5 } },
-        { "title": "Sculptor's website", "year": "2019", "pattern": "Thumbnail strip → grid", "text": "The horizontal thumbnail strip under the artwork becomes a 4-column grid. The main image takes the full width with overlaid arrows.", "img": "escultora.png", "cropDesktop": { "x": 116.2, "y": 1314.3, "w": 1142.9, "h": 800.0 }, "cropMobile": { "x": 1350.5, "y": 1085.7, "w": 411.4, "h": 822.9 } },
-        { "title": "Photographer's website", "year": "2023", "pattern": "Project row → full-bleed stack", "text": "The three projects in a row under the text stack at full width. The bio and exhibition list stay in a single reading column.", "img": "fotografa.png", "cropDesktop": { "x": 114.2, "y": 85.7, "w": 1244.3, "h": 1332.3 }, "cropMobile": { "x": 1408.5, "y": 85.7, "w": 411.6, "h": 823.2 } },
-        { "title": "Circus school", "year": "2024", "pattern": "Text over photo → text below photo", "text": "On desktop the text sits over the photograph, on the side the figure leaves free. On mobile the photo is cropped at the top and the text continues below on the same background tone.", "img": "circo.png", "cropDesktop": { "x": 72, "y": 86, "w": 1774, "h": 882 }, "cropMobile": { "x": 78, "y": 3796, "w": 414, "h": 828 } }
+        { "title": "Graphic and web design studio", "year": "2019–2024 · own project", "pattern": "Tabs → section selector", "text": "On desktop, tab navigation under the logo. On mobile, the active section shows as a label next to a menu button, and the three service cards move to a single column.", "img": "estudio.jpg", "cropDesktop": { "x": 93.1, "y": 113.8, "w": 1733.8, "h": 1562.1 }, "cropMobile": { "x": 99.3, "y": 2803.4, "w": 397.2, "h": 794.5 } },
+        { "title": "Sculptor's website", "year": "2019", "pattern": "Thumbnail strip → grid", "text": "The horizontal thumbnail strip under the artwork becomes a 4-column grid. The main image takes the full width with overlaid arrows.", "img": "escultora.jpg", "cropDesktop": { "x": 116.2, "y": 1314.3, "w": 1142.9, "h": 800.0 }, "cropMobile": { "x": 1350.5, "y": 1085.7, "w": 411.4, "h": 822.9 } },
+        { "title": "Photographer's website", "year": "2023", "pattern": "Project row → full-bleed stack", "text": "The three projects in a row under the text stack at full width. The bio and exhibition list stay in a single reading column.", "img": "fotografa.jpg", "cropDesktop": { "x": 114.2, "y": 85.7, "w": 1244.3, "h": 1332.3 }, "cropMobile": { "x": 1408.5, "y": 85.7, "w": 411.6, "h": 823.2 } },
+        { "title": "Circus school", "year": "2024", "pattern": "Text over photo → text below photo", "text": "On desktop the text sits over the photograph, on the side the figure leaves free. On mobile the photo is cropped at the top and the text continues below on the same background tone.", "img": "circo.jpg", "cropDesktop": { "x": 72, "y": 86, "w": 1774, "h": 882 }, "cropMobile": { "x": 78, "y": 3796, "w": 414, "h": 828 } }
       ]
     },
     "experience": {

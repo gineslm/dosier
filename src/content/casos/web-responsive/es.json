@@ -93,7 +93,7 @@
       "seeFull": "Ver captura completa",
       "close": "Cerrar",
       "screens": [
-        { "phase": "Inicio", "img": "cb-home.png", "note": "La imagen se mantiene como fondo. Tres bloques: bienvenida, tracking y schedules; los dos formularios llevan a procesos distintos y se separan en paneles propios. En tracking el botón de búsqueda pasa a icono junto al campo." },
+        { "phase": "Inicio", "img": "cb-home.jpg", "note": "La imagen se mantiene como fondo. Tres bloques: bienvenida, tracking y schedules; los dos formularios llevan a procesos distintos y se separan en paneles propios. En tracking el botón de búsqueda pasa a icono junto al campo." },
         { "phase": "Resultado de tracking", "img": "cb-tracking.png", "note": "La tabla de movimientos de 5 columnas pasa a línea de tiempo: fecha y descripción arriba, ubicación y terminal debajo." },
         { "phase": "Lista de reservas", "img": "cb-bookings.png", "note": "Cada fila pasa a tarjeta: referencia, ruta, fecha y estado. El estado se destaca porque es lo primero que se consulta." }
       ]
@@ -107,10 +107,10 @@
       "seeFull": "Ver captura completa",
       "close": "Cerrar",
       "items": [
-        { "title": "Estudio de diseño gráfico y web", "year": "2019–2024 · proyecto propio", "pattern": "Pestañas → selector de sección", "text": "En escritorio, navegación en pestañas bajo el logo. En móvil, la sección activa aparece como etiqueta junto a un botón de menú, y las tres tarjetas de servicio pasan a una columna.", "img": "estudio.png", "cropDesktop": { "x": 93.1, "y": 113.8, "w": 1733.8, "h": 1562.1 }, "cropMobile": { "x": 99.3, "y": 2803.4, "w": 397.2, "h": 794.5 } },
-        { "title": "Web de escultora", "year": "2019", "pattern": "Tira de miniaturas → rejilla", "text": "La tira horizontal de miniaturas bajo la obra pasa a una rejilla de 4 columnas. La imagen principal ocupa el ancho completo con las flechas superpuestas.", "img": "escultora.png", "cropDesktop": { "x": 116.2, "y": 1314.3, "w": 1142.9, "h": 800.0 }, "cropMobile": { "x": 1350.5, "y": 1085.7, "w": 411.4, "h": 822.9 } },
-        { "title": "Web de fotógrafa", "year": "2023", "pattern": "Fila de proyectos → pila a sangre", "text": "Los tres proyectos en fila bajo el texto se apilan a ancho completo. La biografía y la lista de exposiciones se mantienen en una sola columna de lectura.", "img": "fotografa.png", "cropDesktop": { "x": 114.2, "y": 85.7, "w": 1244.3, "h": 1332.3 }, "cropMobile": { "x": 1408.5, "y": 85.7, "w": 411.6, "h": 823.2 } },
-        { "title": "Escuela de circo", "year": "2024", "pattern": "Texto sobre foto → texto bajo foto", "text": "En escritorio el texto va sobre la fotografía, en el lado que deja libre la figura. En móvil la foto se recorta arriba y el texto continúa debajo, sobre el mismo tono de fondo.", "img": "circo.png", "cropDesktop": { "x": 72, "y": 86, "w": 1774, "h": 882 }, "cropMobile": { "x": 78, "y": 3796, "w": 414, "h": 828 } }
+        { "title": "Estudio de diseño gráfico y web", "year": "2019–2024 · proyecto propio", "pattern": "Pestañas → selector de sección", "text": "En escritorio, navegación en pestañas bajo el logo. En móvil, la sección activa aparece como etiqueta junto a un botón de menú, y las tres tarjetas de servicio pasan a una columna.", "img": "estudio.jpg", "cropDesktop": { "x": 93.1, "y": 113.8, "w": 1733.8, "h": 1562.1 }, "cropMobile": { "x": 99.3, "y": 2803.4, "w": 397.2, "h": 794.5 } },
+        { "title": "Web de escultora", "year": "2019", "pattern": "Tira de miniaturas → rejilla", "text": "La tira horizontal de miniaturas bajo la obra pasa a una rejilla de 4 columnas. La imagen principal ocupa el ancho completo con las flechas superpuestas.", "img": "escultora.jpg", "cropDesktop": { "x": 116.2, "y": 1314.3, "w": 1142.9, "h": 800.0 }, "cropMobile": { "x": 1350.5, "y": 1085.7, "w": 411.4, "h": 822.9 } },
+        { "title": "Web de fotógrafa", "year": "2023", "pattern": "Fila de proyectos → pila a sangre", "text": "Los tres proyectos en fila bajo el texto se apilan a ancho completo. La biografía y la lista de exposiciones se mantienen en una sola columna de lectura.", "img": "fotografa.jpg", "cropDesktop": { "x": 114.2, "y": 85.7, "w": 1244.3, "h": 1332.3 }, "cropMobile": { "x": 1408.5, "y": 85.7, "w": 411.6, "h": 823.2 } },
+        { "title": "Escuela de circo", "year": "2024", "pattern": "Texto sobre foto → texto bajo foto", "text": "En escritorio el texto va sobre la fotografía, en el lado que deja libre la figura. En móvil la foto se recorta arriba y el texto continúa debajo, sobre el mismo tono de fondo.", "img": "circo.jpg", "cropDesktop": { "x": 72, "y": 86, "w": 1774, "h": 882 }, "cropMobile": { "x": 78, "y": 3796, "w": 414, "h": 828 } }
       ]
     },
     "experience": {
