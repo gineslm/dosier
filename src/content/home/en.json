@@ -160,10 +160,10 @@
       "items": [
         {
           "title": "Responsive web design",
-          "meta": "UI design · Layout",
-          "text": "Four responsive website projects following a mobile-first pattern. Responsible for the design and layout in every case.",
+          "meta": "UI design · Front-end build · Archive 2019—2024",
+          "text": "Four websites and one application component, presented by the responsive pattern each one solves, plus a later mobile adaptation of a desktop-only logistics portal.",
           "links": [
-            { "href": "https://xd.adobe.com/view/0bdee4e2-927e-4d1e-a2bb-c56e1fa8a43e-5e8d/?fullscreen", "label": "View projects" }
+            { "href": "casos/web-responsive/index.html", "label": "See projects" }
           ],
           "image": { "src": "assets/img/responsive.jpg", "alt": "Responsive web designs on desktop and mobile" }
         },

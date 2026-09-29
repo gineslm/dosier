@@ -1,0 +1,550 @@
+{% extends "layouts/case-study.njk" %}
+{% block body %}
+<style>
+  /* Estilos propios de esta página (widget de componente, portal y galería).
+     Van aquí, no en case.css, porque son específicos de este caso — case.css
+     documenta que el maquetado compartido va inline y solo lo realmente
+     transversal (tema, índice, responsive) vive en la hoja compartida. */
+  /* ---------- Componente toolbar (fuente: handoff/toolbar/toolbar-responsive.html) ---------- */
+  .tb-demo { display: flex; flex-direction: column; gap: 12px; }
+  .tb-demo__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  .tb-demo__controls .lang-switch__option { height: 26px; padding: 0 12px; cursor: pointer; }
+  .tb-demo__hint { font-size: var(--text-note); color: var(--color-muted); }
+  .tb-stage { resize: horizontal; overflow: hidden; width: 100%; max-width: 100%; min-width: 240px; height: 400px; border: 1px dashed var(--color-chip-border); border-radius: 6px; padding: 14px; box-sizing: border-box; position: relative; background-image: repeating-linear-gradient(45deg,rgba(255,255,255,0.07) 0 1px,transparent 1px 8px,rgba(0,0,0,0.28) 8px 9px,transparent 9px 16px); }
+  .tb-stage__badge { position: absolute; right: 10px; bottom: 8px; font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-strong); }
+  .tb-mode { display: flex; flex-direction: column; gap: 6px; max-width: 619px; }
+  .tb-mode__chip { align-self: flex-start; background: var(--color-accent); color: var(--color-on-accent); font-family: var(--font-condensed); font-size: var(--text-legal); padding: 4px 10px; border-radius: 8px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  .tb-mode__note { font-size: var(--text-note); line-height: 1.5; color: var(--color-muted); margin: 0; }
+
+  .tb { --tb-line: #e2e2e2; --tb-ink: #4a4a4a; --tb-icon: #6b6b6b; --tb-row2: 28px; --tb-lift: 8px; display: grid; grid-template-columns: minmax(44px,150px) max-content minmax(0,1fr) max-content; transform-origin: 0 0; }
+  .tb button { font: inherit; }
+  .tb__logo { grid-column: 1 / -1; height: 12px; background: #fff; border: 1px solid var(--tb-line); border-bottom: 0; display: flex; gap: 3px; padding-left: 52px; }
+  .tb__logo span { width: 22px; height: 5px; }
+  .tb__logo span:nth-child(1) { background: #6b6b6b; } .tb__logo span:nth-child(2) { background: #9a9a9a; }
+  .tb__logo span:nth-child(3) { background: #b8b8b8; } .tb__logo span:nth-child(4) { background: #cfcfcf; }
+  .tb__row { grid-column: 1 / -1; position: relative; display: grid; grid-template-columns: subgrid; height: var(--tb-row2); background: #fff; border-bottom: 1px solid var(--tb-line); box-sizing: border-box; }
+  .tb__cell { box-sizing: border-box; min-height: 0; border-left: 1px solid var(--tb-line); display: flex; align-items: center; }
+  .tb__a { padding-bottom: var(--tb-lift); }
+  .tb__a .tb__ico { width: 44px; }
+  .tb__b { align-items: stretch; }
+  .tb__b > .tb__pop--links, .tb__b > .tb__pop--ntf { margin-left: 44px; }
+  .tb__c { border-right: 1px solid var(--tb-line); justify-content: flex-end; padding-bottom: var(--tb-lift); }
+  .tb__ico { display: flex; align-items: center; justify-content: center; }
+  .i-sq { width: 14px; height: 14px; border: 1px solid var(--tb-icon); border-radius: 2px; box-sizing: border-box; flex-shrink: 0; }
+  .i-bell { position: relative; width: 14px; height: 14px; border: 1px solid var(--tb-icon); border-radius: 7px 7px 2px 2px; box-sizing: border-box; flex-shrink: 0; }
+  .i-bell.has-badge::after { content: ""; position: absolute; right: -5px; top: -5px; width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent); }
+  .tb__groups { display: flex; align-items: stretch; position: relative; }
+  .tb__grp { display: flex; align-items: center; gap: 8px; padding: 0 10px var(--tb-lift); border-left: 1px solid var(--tb-line); }
+  .tb__grp:first-child { border-left: 0; }
+  .tb__search-btn { width: 35px; padding: 0 0 var(--tb-lift); border: 0; background: transparent; cursor: pointer; justify-content: center; }
+  .tb__search-btn.is-open { background: #f2f2f1; }
+  .tb__search-btn .i-close { display: none; }
+  .tb__search-btn.is-open .i-lupa { display: none; }
+  .tb__search-btn.is-open .i-close { display: block; }
+  .tb__search { position: absolute; top: -2px; bottom: 0; left: 35px; right: 0; z-index: 2; background: #fff; border-left: 1px solid var(--tb-line); display: none; align-items: center; gap: 6px; padding: 2px 6px var(--tb-lift) 8px; box-sizing: border-box; }
+  .tb__search.is-open { display: flex; }
+  .tb__input { flex: 1; min-width: 0; height: 18px; font-size: 10px; border: 1px solid #cfcfcf; border-radius: 2px; background: #fff; padding: 0 6px; color: #1c1c1c; font-family: var(--font-body); box-sizing: border-box; outline: none; }
+  .tb__go { width: 22px; height: 18px; flex-shrink: 0; border: 0; border-radius: 2px; background: var(--tb-ink); display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; }
+  .tb__compact { display: none; align-items: stretch; margin-left: -1px; }
+  .tb__gicon { width: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0 0 var(--tb-lift); box-sizing: border-box; border: 0; border-left: 1px solid var(--tb-line); background: transparent; }
+  .tb__gicon[aria-expanded="true"] { background: var(--color-accent); }
+  .tb__gicon > span { position: relative; display: flex; }
+  .tb__gicon > span::after { content: "▾"; position: absolute; right: -9px; bottom: -6px; font-size: 8px; color: var(--tb-icon); }
+  .tb__pop { position: absolute; top: 100%; margin-top: 1px; background: #fff; border: 1px solid var(--tb-line); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.5); z-index: 3; display: none; flex-direction: column; }
+  .tb__pop.is-open { display: flex; }
+  .tb__pop--search { left: 0; right: 0; width: auto; flex-direction: row; align-items: center; gap: 6px; padding: 6px; box-sizing: border-box; }
+  .tb__pop--search.is-open { display: flex; }
+  .tb__pop--search .tb__input { height: 28px; font-size: 11px; padding: 0 8px; }
+  .tb__pop--search .tb__go { width: 28px; height: 28px; }
+  .tb__pop-close { width: 28px; height: 28px; flex-shrink: 0; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; }
+  .tb__pop--links { left: 0; min-width: 170px; }
+  .tb__pop--ntf { left: 88px; min-width: 92px; }
+  .tb__pop-row { height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-top: 1px solid #f0f0f0; }
+  .tb__pop-row:first-child { border-top: 0; }
+  .tb__pop-row span.lbl { font-size: 11px; color: #1c1c1c; white-space: nowrap; }
+  .tb__pop--ntf .tb__pop-row { justify-content: space-between; padding: 0 10px; }
+  .tb__pop--ntf .ch { font-size: 10px; color: var(--tb-icon); width: 10px; }
+  .tb__pop--ntf .n { font-size: 9px; color: var(--tb-icon); min-width: 14px; text-align: right; }
+  .tb__user-txt { display: flex; flex-direction: column; justify-content: center; align-items: flex-end; font-size: 9px; color: var(--tb-icon); line-height: 1.3; padding: 0 6px 0 10px; white-space: nowrap; }
+  .tb__user-txt span:last-child { text-transform: uppercase; }
+  .tb__user-ico { width: 44px; height: calc(100% + var(--tb-lift)); margin-bottom: calc(var(--tb-lift) * -1); padding-bottom: var(--tb-lift); box-sizing: border-box; border-left: 1px solid var(--tb-line); }
+  .tb__ann { padding-top: 8px; min-width: 0; }
+  .tb__ann::before { content: ""; display: block; height: 6px; border: 1px solid var(--color-chip-border); border-top: 0; margin: 0 2px; }
+  .tb__ann span { display: block; margin-top: 4px; font-size: 10px; line-height: 1.35; color: var(--color-muted); }
+  .tb__ann b { font-family: var(--font-condensed); font-weight: 700; color: var(--color-accent-strong); margin-right: 4px; }
+  .tb__ann--a { grid-column: 1; } .tb__ann--b { grid-column: 2 / 4; } .tb__ann--c { grid-column: 4; }
+  .tb[data-mode="t"] .tb__groups, .tb[data-mode="m"] .tb__groups { display: none; }
+  .tb[data-mode="t"] .tb__compact, .tb[data-mode="m"] .tb__compact { display: flex; }
+  .tb[data-mode="m"] .tb__user-txt { display: none; }
+  .tb[data-mode="d"] .tb__pop { display: none !important; }
+
+  .lb-overlay { position: fixed; inset: 0; z-index: 50; background: rgba(14,12,16,0.92); display: none; justify-content: center; overflow-y: auto; padding: 72px 24px 48px; box-sizing: border-box; }
+  .lb-overlay.is-open { display: flex; }
+  .lb-close { position: fixed; top: 16px; right: 20px; height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--color-chip-border); background: var(--color-surface); color: var(--color-ink); font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; }
+  .lb-overlay img { width: 100%; max-width: 1100px; height: auto; align-self: flex-start; }
+
+  .rwd-crop { position: relative; overflow: hidden; border-radius: 6px; border: 1px solid var(--color-chip-border); background: #111; cursor: zoom-in; }
+  .rwd-crop img { position: absolute; max-width: none; height: auto; display: block; }
+
+  .rwd-phone-scroll { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.45) transparent; }
+  .rwd-phone-scroll::-webkit-scrollbar { width: 4px; }
+  .rwd-phone-scroll::-webkit-scrollbar-track { background: transparent; }
+  .rwd-phone-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.45); border-radius: 4px; }
+</style>
+
+<div id="cover" data-sec="cover" style="padding: 8px 0 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+  <h1 data-r="h1-app" style="font-weight: var(--weight-thin); font-size: 72px; line-height: var(--text-name-lh); margin: 0 0 14px; color: var(--color-ink);">{{ page.body.hero.h1 }}</h1>
+  <h1 data-r="h1-lead" style="font-weight: var(--weight-thin); font-size: var(--text-name); line-height: var(--text-name-lh); margin: 0 0 14px; color: var(--color-ink); max-width: 20ch; text-wrap: pretty;">{{ page.body.hero.lead }}</h1>
+  <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-muted); margin: 8px 0 0;">{{ page.body.hero.meta }}</p>
+</div>
+
+<div style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+  <div style="border: 1px solid var(--color-chip-border); border-left: 4px solid var(--color-accent); background: var(--color-accent-soft); padding: 20px;">
+    <p style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; color: var(--color-accent-strong); margin: 0 0 8px; text-transform: uppercase;">{{ page.body.hero.archKicker }}</p>
+    <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); font-style: italic; color: var(--color-ink); margin: 0; font-weight: 300;">{{ page.body.hero.archText }}</p>
+  </div>
+  <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-muted); margin: 10px 0 0; max-width: 75ch;">{{ page.body.hero.archNote }}</p>
+</div>
+
+<div id="{{ page.body.criteria.id }}" data-sec="{{ page.body.criteria.id }}" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+  <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.criteria.heading }}</h2>
+  <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 20px; font-weight: 300; max-width: 75ch; text-wrap: pretty;">{{ page.body.criteria.text }}</p>
+  <div style="display: flex; flex-direction: column; border-top: 1px solid var(--color-rule);">
+{% for b in page.body.criteria.breakpoints %}
+    <div style="display: grid; grid-template-columns: 72px minmax(0,1fr); gap: 16px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--color-rule);">
+      <span style="font-family: var(--font-condensed); font-size: 17px; font-weight: 700; color: var(--color-accent-strong);">{{ b.w }}</span>
+      <span style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body);"><b style="color: var(--color-ink); font-weight: 500;">{{ b.name }}</b> · {{ b.desc }}</span>
+    </div>
+{% endfor %}
+  </div>
+  <h3 style="font-family: var(--font-condensed); font-weight: 700; font-size: var(--text-legal); letter-spacing: 0.08em; text-transform: uppercase; margin: 32px 0 10px; color: var(--color-accent-strong);">{{ page.body.criteria.methodsHeading }}</h3>
+  <div style="display: flex; flex-direction: column; border-top: 1px solid var(--color-rule);">
+{% for m in page.body.criteria.methods %}
+    <div style="display: grid; grid-template-columns: minmax(0,170px) minmax(0,1fr); gap: 16px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--color-rule);">
+      <span style="font-size: var(--text-ui); font-weight: 500; color: var(--color-ink);">{{ m.name }}</span>
+      <span style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); text-wrap: pretty;">{{ m.desc }}</span>
+    </div>
+{% endfor %}
+  </div>
+  <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 12px 0 0;">{{ page.body.criteria.methodsNote }}</p>
+</div>
+
+<div id="{{ page.body.component.id }}" data-sec="{{ page.body.component.id }}" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+  <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.component.heading }}</h2>
+  <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 14px; font-weight: 300; max-width: 619px; text-wrap: pretty;">{{ page.body.component.text }}</p>
+  <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 28px; font-weight: 300; max-width: 619px; text-wrap: pretty;">{{ page.body.component.anatomyText }}</p>
+
+  <div class="tb-demo">
+    <div class="tb-demo__controls">
+      <div class="lang-switch" role="group" id="tbPresets">
+        <a class="lang-switch__option lang-switch__option--active" href="#" data-preset="d">{{ page.body.component.modeDesktop }}</a>
+        <a class="lang-switch__option" href="#" data-preset="t">{{ page.body.component.modeTablet }}</a>
+        <a class="lang-switch__option" href="#" data-preset="m">{{ page.body.component.modeMobile }}</a>
+      </div>
+      <span class="tb-demo__hint">{{ page.body.component.dragHint }}</span>
+    </div>
+
+    <div class="tb-stage" id="tbStage">
+      <span class="tb-stage__badge" id="tbBadge"></span>
+
+      <div class="tb" id="tbWidget" data-mode="d">
+        <div class="tb__logo" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+        <div class="tb__row">
+          <div class="tb__cell tb__a">
+            <div class="tb__ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></div>
+          </div>
+
+          <div class="tb__cell tb__b">
+            <div class="tb__groups">
+              <button type="button" class="tb__grp tb__search-btn" id="tbSearchBtn" aria-label="{{ page.body.component.searchLabel }}">
+                <svg class="i-lupa" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21"></path></svg>
+                <svg class="i-close" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+              </button>
+              <div class="tb__grp" id="tbDeskLinks"></div>
+              <div class="tb__grp" id="tbDeskNtf"></div>
+              <div class="tb__search" id="tbSearchBar">
+                <input class="tb__input" type="text" placeholder="{{ page.body.component.searchPlaceholder }}">
+                <button type="button" class="tb__go" aria-label="{{ page.body.component.searchLabel }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+              </div>
+            </div>
+
+            <div class="tb__compact">
+              <button type="button" class="tb__gicon" data-group="gA" aria-expanded="false" aria-label="{{ page.body.component.searchLabel }}"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21"></path></svg></span></button>
+              <button type="button" class="tb__gicon" data-group="gL" aria-expanded="false" aria-label="{{ page.body.component.blockB }}"><span><span class="i-sq"></span></span></button>
+              <button type="button" class="tb__gicon" data-group="gN" aria-expanded="false" aria-label="{{ page.body.component.blockB }}"><span><span class="i-bell has-badge"></span></span></button>
+            </div>
+
+            <div class="tb__pop tb__pop--search" data-pop="gA">
+              <button type="button" class="tb__pop-close" data-close="gA" aria-label="{{ page.body.portal.close }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+              <input class="tb__input" type="text" placeholder="{{ page.body.component.searchPlaceholder }}">
+              <button type="button" class="tb__go" aria-label="{{ page.body.component.searchLabel }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+            </div>
+            <div class="tb__pop tb__pop--links" data-pop="gL" id="tbPopLinks"></div>
+            <div class="tb__pop tb__pop--ntf" data-pop="gN" id="tbPopNtf"></div>
+          </div>
+
+          <div class="tb__cell"></div>
+
+          <div class="tb__cell tb__c">
+            <div class="tb__user-txt"><span>{{ page.body.component.user }}</span><span>{{ page.body.component.branch }}</span></div>
+            <div class="tb__ico tb__user-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg></div>
+          </div>
+        </div>
+
+        <div class="tb__ann tb__ann--a"><span><b>A</b><i style="font-style: normal;">{{ page.body.component.blockA }}</i></span></div>
+        <div class="tb__ann tb__ann--b"><span><b>B</b><i style="font-style: normal;">{{ page.body.component.blockB }}</i></span></div>
+        <div class="tb__ann tb__ann--c"><span><b>C</b><i style="font-style: normal;">{{ page.body.component.blockC }}</i></span></div>
+      </div>
+    </div>
+
+    <div class="tb-mode">
+      <span class="tb-mode__chip" id="tbModeTitle"></span>
+      <p class="tb-mode__note" id="tbModeNote"></p>
+    </div>
+  </div>
+
+  <div style="max-width: 619px; border: 1px solid var(--color-chip-border); border-left: 4px solid var(--color-accent); background: var(--color-accent-soft); padding: 20px; margin-top: 24px;">
+    <p style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; color: #18DA95; margin: 0 0 8px; text-transform: uppercase;">{{ page.body.component.qaKicker }}</p>
+    <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-ink); margin: 0; font-weight: 300;">{{ page.body.component.qaText }}</p>
+  </div>
+</div>
+
+<div id="{{ page.body.portal.id }}" data-sec="{{ page.body.portal.id }}" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+  <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.portal.heading }}</h2>
+  <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 8px; font-weight: 300; max-width: 619px; text-wrap: pretty;">{{ page.body.portal.text }}</p>
+  <span class="rwd-badge" style="margin-bottom: 24px;">{{ page.body.portal.proposalTag }}</span>
+
+  <div style="display: flex; flex-direction: column; gap: 32px; margin-top: 20px;">
+{% for s in page.body.portal.screens %}
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span class="rwd-badge" style="background: var(--color-accent-soft); color: var(--color-accent-strong);">{{ s.phase }}</span>
+        <span style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted);">{{ page.body.portal.desktopLabel }}</span>
+      </div>
+      <div role="button" tabindex="0" class="rwd-js-lightbox" data-lb-src="{{ assetsPath }}assets/img/casos/web-responsive/{{ s.img }}" style="cursor: zoom-in; border-radius: 6px; overflow: hidden; border: 1px solid var(--color-chip-border); background: #fff; aspect-ratio: 1848 / 1040;">
+        <img src="{{ assetsPath }}assets/img/casos/web-responsive/{{ s.img }}" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+      </div>
+      <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 0; max-width: 619px;">{{ s.note }}</p>
+    </div>
+{% endfor %}
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(264px,1fr)); gap: 24px; align-items: start; padding-top: 28px; margin-top: 8px; border-top: 1px solid var(--color-rule);">
+
+    <!-- Las 3 pantallas se construyen a escala real (375×780, controles 48px, radio 4px)
+         y se reducen con zoom:0.66 para el encaje visual — igual que el documento fuente,
+         en vez de recalcular una versión en miniatura con valores propios. -->
+
+    <!-- Inicio: marco realista con notch, fondo de imagen y scroll interno -->
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; min-width: 0;">
+      <span class="rwd-badge" style="background: var(--color-accent-soft); color: var(--color-accent-strong);">{{ page.body.portal.screens[0].phase }}</span>
+      <span style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted);">{{ page.body.portal.mobileLabel }}</span>
+      <div style="zoom: 0.66; width: 399px; margin: 0 auto; position: relative;">
+        <span style="position: absolute; left: -3px; top: 150px; width: 4px; height: 32px; border-radius: 2px; background: linear-gradient(90deg,#26262c,#4a4a52);"></span>
+        <span style="position: absolute; left: -3px; top: 205px; width: 4px; height: 62px; border-radius: 2px; background: linear-gradient(90deg,#26262c,#4a4a52);"></span>
+        <span style="position: absolute; left: -3px; top: 280px; width: 4px; height: 62px; border-radius: 2px; background: linear-gradient(90deg,#26262c,#4a4a52);"></span>
+        <span style="position: absolute; right: -3px; top: 230px; width: 4px; height: 96px; border-radius: 2px; background: linear-gradient(90deg,#26262c,#4a4a52);"></span>
+        <div style="position: relative; background: linear-gradient(145deg,#44444c,#1b1b21 38%,#2c2c34); border-radius: 58px; padding: 12px; box-sizing: border-box; box-shadow: inset 0 0 0 1.5px #5a5a62, inset 0 0 0 5px #111, 0 30px 60px -16px rgba(0,0,0,0.6), 0 6px 16px rgba(0,0,0,0.35);">
+          <div style="position: absolute; top: 23px; left: 50%; transform: translateX(-50%); width: 114px; height: 33px; border-radius: 20px; background: #000; z-index: 5; pointer-events: none;"></div>
+          <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: rgba(120,120,128,0.75); z-index: 5; pointer-events: none;"></div>
+          <div style="width: 375px; height: 780px; border-radius: 46px; overflow: hidden; background: #012b48; isolation: isolate; transform: translateZ(0);">
+            <div class="rwd-phone-scroll" style="width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; background: #012b48; position: relative; font-family: var(--font-body);">
+              <div style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 3;">
+                <div style="height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; font-size: 15px; font-weight: 600; color: #2d3a4a;"><span>9:41</span><span style="display: flex; gap: 5px; align-items: center;"><span style="width: 17px; height: 10px; border: 1.5px solid #2d3a4a; border-radius: 3px; box-sizing: border-box;"></span></span></div>
+                <div style="height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 16px;">
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; gap: 5px;"><span style="width: 42px; height: 6px; background: #2c3d91;"></span><span style="width: 42px; height: 6px; background: #e10f1a;"></span><span style="width: 42px; height: 6px; background: #119962;"></span><span style="width: 42px; height: 6px; background: #e75e19;"></span></div>
+                    <span style="font-size: 15px; letter-spacing: 0.02em; color: #2d3a4a;">CUSTOMERS BOARDS</span>
+                  </div>
+                  <span style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2d3a4a;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></span>
+                </div>
+              </div>
+              <div style="position: absolute; inset: 0; z-index: 0;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 390px; overflow: hidden; -webkit-mask-image: linear-gradient(180deg,#000 70%,transparent); mask-image: linear-gradient(180deg,#000 70%,transparent); background: url('{{ assetsPath }}assets/img/casos/web-responsive/portal.png') right 25% / cover no-repeat;"></div>
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(1,40,70,0.15) 0%,rgba(1,40,70,0.35) 35%,rgba(1,40,70,0.7) 100%);"></div>
+              </div>
+              <div style="position: relative; z-index: 1; padding: 24px 16px 56px; display: flex; flex-direction: column; gap: 32px;">
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 162px;">
+                  <div style="font-size: 34px; font-weight: 600; color: #fff; line-height: 1.05; text-shadow: 0 1px 8px rgba(0,0,0,0.35);">WELCOME<span style="display: block; font-size: 19px; font-weight: 300; margin-top: 4px;">SHIPPING OPPORTUNITIES</span></div>
+                  <p style="font-size: 15px; line-height: 1.45; color: #fff; margin: 0; font-weight: 300; max-width: 30ch; text-shadow: 0 1px 6px rgba(0,0,0,0.45);">Locate containers in maritime traffic and check their status and movements.</p>
+                </div>
+                <div style="background: rgba(1,38,66,0.62); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 12px; margin-bottom: -6px;">
+                  <div style="font-size: 13px; letter-spacing: 0.04em; color: #fff; padding: 8px 10px; background: linear-gradient(90deg,rgba(152,218,215,0.55),rgba(152,218,215,0)); display: flex; align-items: center; gap: 8px;"><span style="width: 8px; height: 8px; background: #4eba71;"></span>TRACKING</div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <span style="font-size: 14px; color: #fff;">BL, Booking or Container</span>
+                    <div style="display: flex; gap: 8px;"><input value="MEDU4331336" readonly style="flex: 1; min-width: 0; font-size: 16px; height: 48px; border: 1px solid #d5dbe6; border-radius: 4px; background: #fff; padding: 0 14px; color: #2d3a4a; box-sizing: border-box;"><button type="button" aria-label="Search" style="width: 48px; height: 48px; flex-shrink: 0; border: 0; border-radius: 4px; background: #538cff; color: #fff; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div>
+                  </div>
+                </div>
+                <div style="background: rgba(1,38,66,0.62); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+                  <div style="font-size: 13px; letter-spacing: 0.04em; color: #fff; padding: 8px 10px; background: linear-gradient(90deg,rgba(152,218,215,0.55),rgba(152,218,215,0)); display: flex; align-items: center; gap: 8px;"><span style="width: 8px; height: 8px; background: #4eba71;"></span>SCHEDULES</div>
+                  <p style="font-size: 14px; line-height: 1.4; color: #fff; margin: 0; font-weight: 300;">Search and compare maritime routes, request quotes and manage bookings.</p>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;"><span style="font-size: 14px; color: #fff;">Port of Loading</span><input value="ESVLC" readonly style="font-size: 16px; height: 48px; width: 100%; min-width: 0; border: 1px solid #d5dbe6; border-radius: 4px; background: #fff; padding: 0 14px; color: #2d3a4a; box-sizing: border-box;"></div>
+                    <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;"><span style="font-size: 14px; color: #fff;">Port of Discharge</span><input value="ARBUE" readonly style="font-size: 16px; height: 48px; width: 100%; min-width: 0; border: 1px solid #d5dbe6; border-radius: 4px; background: #fff; padding: 0 14px; color: #2d3a4a; box-sizing: border-box;"></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+                    <span style="font-size: 14px; color: #fff;">Date</span>
+                    <div style="display: flex; gap: 8px;"><input value="01/01/2023" readonly style="flex: 1; font-size: 16px; height: 48px; min-width: 0; border: 1px solid #d5dbe6; border-radius: 4px; background: #fff; padding: 0 14px; color: #2d3a4a; box-sizing: border-box;"><button type="button" aria-label="Search" style="width: 48px; height: 48px; flex-shrink: 0; border: 0; border-radius: 4px; background: #538cff; color: #fff; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resultado de tracking: marco plano -->
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; min-width: 0;">
+      <span class="rwd-badge" style="background: var(--color-accent-soft); color: var(--color-accent-strong);">{{ page.body.portal.screens[1].phase }}</span>
+      <span style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted);">{{ page.body.portal.mobileLabel }}</span>
+      <div style="zoom: 0.66; width: 399px; margin: 0 auto; position: relative;">
+        <div style="position: relative; background: #f2f2f1; border-radius: 40px; padding: 12px; box-sizing: border-box; box-shadow: inset 0 0 0 1px #e2e2e2;">
+          <div style="width: 375px; height: 780px; border-radius: 30px; overflow: hidden; outline: 1px solid #e2e2e2; box-sizing: border-box; background: #fff; position: relative; font-family: var(--font-body);">
+            <div style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: relative; z-index: 1;">
+              <div style="height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; font-size: 15px; font-weight: 600; color: #2d3a4a;"><span>9:41</span><span style="display: flex; gap: 5px; align-items: center;"><span style="width: 17px; height: 10px; border: 1.5px solid #2d3a4a; border-radius: 3px; box-sizing: border-box;"></span></span></div>
+              <div style="height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 4px;">
+                <span style="display: flex; align-items: center;"><span style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2d3a4a;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="font-size: 17px; font-weight: 500; color: #2d3a4a;">Tracking</span></span>
+                <span style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2d3a4a;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></span>
+              </div>
+            </div>
+            <div style="padding: 16px 16px 48px; display: flex; flex-direction: column; gap: 16px;">
+              <div style="font-size: 16px; letter-spacing: 0.04em; color: #2d3a4a; padding: 8px 10px; background: linear-gradient(90deg,#d8f1e8,#eef5fb); display: flex; align-items: center; gap: 8px;"><span style="width: 8px; height: 8px; background: #4eba71;"></span>RESULT · MEDU4331336</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px;">
+                <div><span style="display: block; font-size: 16px; color: #538cff; margin-bottom: 2px;">From</span><span style="font-size: 19px; color: #2d3a4a;">Xiamen, CN</span></div>
+                <div><span style="display: block; font-size: 16px; color: #538cff; margin-bottom: 2px;">To</span><span style="font-size: 19px; color: #2d3a4a;">Barcelona, ES</span></div>
+                <div><span style="display: block; font-size: 16px; color: #538cff; margin-bottom: 2px;">Port of loading</span><span style="font-size: 19px; color: #2d3a4a;">CNXIA</span></div>
+                <div><span style="display: block; font-size: 16px; color: #538cff; margin-bottom: 2px;">Port of discharge</span><span style="font-size: 19px; color: #2d3a4a;">ESBCN</span></div>
+              </div>
+              <div style="font-size: 17px; letter-spacing: 0.04em; color: #2d3a4a; margin-top: 4px;">EQUIPMENT · 3</div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="min-height: 64px; padding: 0 4px 0 14px; display: flex; justify-content: space-between; align-items: center; box-shadow: inset 0 0 0 1px #a9e0dc; border-radius: 4px; background-color: #C9EFED;"><span style="font-size: 19px; font-weight: 500; color: #1f2d3d;">TEMU4687950<span style="display: block; font-size: 17px; color: #5a6878; margin-top: 2px;">20' Dry Van · Barcelona</span></span><span style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: #2d3a4a; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></div>
+                <div style="padding: 0 14px 14px; box-shadow: inset 0 0 0 1px #a9e0dc; border-radius: 4px; background-color: #C9EFED;">
+                  <div style="min-height: 64px; display: flex; justify-content: space-between; align-items: center; margin-right: -10px;"><span style="font-size: 19px; font-weight: 500; color: #1f2d3d;">TEMU4687998<span style="display: block; font-size: 17px; color: #5a6878; margin-top: 2px;">40' Dry Van · Barcelona</span></span><span style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: #2d3a4a; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"></path></svg></span></div>
+                  <div style="font-size: 16px; letter-spacing: 0.04em; color: #2d3a4a; margin-bottom: 8px;">MOVEMENT</div>
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="background: #fff; box-shadow: inset 0 0 0 1px #a9e0dc; padding: 12px 14px; border-left: 3px solid #538cff; border-radius: 0 4px 4px 0;"><div style="font-size: 16px; color: #5a6878;">01/03/2023 13:00</div><div style="font-size: 18px; color: #2d3a4a; line-height: 1.4; margin: 3px 0;">MTY – Empty container available</div><div style="font-size: 16px; color: #5a6878;">Barcelona, ES · Terminal Best</div></div>
+                    <div style="background: #fff; box-shadow: inset 0 0 0 1px #a9e0dc; padding: 12px 14px; border-left: 3px solid #b3ccff; border-radius: 0 4px 4px 0;"><div style="font-size: 16px; color: #5a6878;">01/03/2023 03:40</div><div style="font-size: 18px; color: #2d3a4a; line-height: 1.4; margin: 3px 0;">T/C – Full out to consignee</div><div style="font-size: 16px; color: #5a6878;">Barcelona, ES · Terminal Best</div></div>
+                    <div style="background: #fff; box-shadow: inset 0 0 0 1px #a9e0dc; padding: 12px 14px; border-left: 3px solid #b3ccff; border-radius: 0 4px 4px 0;"><div style="font-size: 16px; color: #5a6878;">29/02/2023 17:55</div><div style="font-size: 18px; color: #2d3a4a; line-height: 1.4; margin: 3px 0;">IMP – Full discharge, import</div><div style="font-size: 16px; color: #5a6878;">Barcelona, ES · Terminal Best</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista de reservas: marco plano -->
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; min-width: 0;">
+      <span class="rwd-badge" style="background: var(--color-accent-soft); color: var(--color-accent-strong);">{{ page.body.portal.screens[2].phase }}</span>
+      <span style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted);">{{ page.body.portal.mobileLabel }}</span>
+      <div style="zoom: 0.66; width: 399px; margin: 0 auto; position: relative;">
+        <div style="position: relative; background: #f2f2f1; border-radius: 40px; padding: 12px; box-sizing: border-box; box-shadow: inset 0 0 0 1px #e2e2e2;">
+          <div style="width: 375px; height: 780px; border-radius: 30px; overflow: hidden; outline: 1px solid #e2e2e2; box-sizing: border-box; background: #fff; position: relative; font-family: var(--font-body);">
+            <div style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: relative; z-index: 1;">
+              <div style="height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; font-size: 15px; font-weight: 600; color: #2d3a4a;"><span>9:41</span><span style="display: flex; gap: 5px; align-items: center;"><span style="width: 17px; height: 10px; border: 1.5px solid #2d3a4a; border-radius: 3px; box-sizing: border-box;"></span></span></div>
+              <div style="height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 4px;">
+                <span style="display: flex; align-items: center;"><span style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2d3a4a;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="font-size: 17px; font-weight: 500; color: #2d3a4a;">Bookings</span></span>
+                <span style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2d3a4a;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></span>
+              </div>
+            </div>
+            <div style="padding: 16px 16px 48px; display: flex; flex-direction: column; gap: 16px;">
+              <div style="font-size: 16px; letter-spacing: 0.04em; color: #2d3a4a; padding: 8px 10px; background: linear-gradient(90deg,#d8f1e8,#eef5fb); display: flex; align-items: center; gap: 8px;"><span style="width: 8px; height: 8px; background: #4eba71;"></span>MANAGE BOOKINGS</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <span style="height: 48px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: #fff; background: #538cff;">Hub</span>
+                <span style="height: 48px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: #fff; background: #4466aa;">Booking list</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;"><span style="font-size: 17px; color: #5a6878;">From date</span><input value="01/01/2022" readonly style="font-size: 19px; height: 48px; width: 100%; min-width: 0; border: 1px solid #d5dbe6; border-radius: 4px; background: #fff; padding: 0 14px; color: #2d3a4a; box-sizing: border-box;"></div>
+                <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;"><span style="font-size: 17px; color: #5a6878;">To date</span><input value="28/03/2022" readonly style="font-size: 19px; height: 48px; width: 100%; min-width: 0; border: 1px solid #d5dbe6; border-radius: 4px; background: #fff; padding: 0 14px; color: #2d3a4a; box-sizing: border-box;"></div>
+              </div>
+              <div style="font-size: 17px; letter-spacing: 0.04em; color: #2d3a4a; margin-top: 4px;">BOOKING LIST · 4</div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="box-shadow: inset 0 0 0 1px #a9e0dc; padding: 12px 8px 12px 14px; display: flex; align-items: center; gap: 10px; border-radius: 4px; background-color: #C9EFED;">
+                  <div style="flex: 1; min-width: 0;"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 8px; align-items: baseline;"><span style="font-size: 19px; font-weight: 500; color: #1f2d3d;">BKCOT342093VLC</span><span style="font-size: 16px; color: #5a6878;">12/03/2022</span></div><div style="font-size: 17px; color: #5a6878; margin: 4px 0 6px;">ESBCN → TNTUN</div><span style="font-size: 16px; font-weight: 600; color: #538cff;">IN TRANSIT</span></div>
+                  <span style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 4px; background: #538cff; color: #fff; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
+                </div>
+                <div style="box-shadow: inset 0 0 0 1px #a9e0dc; padding: 12px 8px 12px 14px; display: flex; align-items: center; gap: 10px; border-radius: 4px; background-color: #C9EFED;">
+                  <div style="flex: 1; min-width: 0;"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 8px; align-items: baseline;"><span style="font-size: 19px; font-weight: 500; color: #1f2d3d;">BKCOT342101VLC</span><span style="font-size: 16px; color: #5a6878;">11/02/2022</span></div><div style="font-size: 17px; color: #5a6878; margin: 4px 0 6px;">ESBCN → TNSUS</div><span style="font-size: 16px; font-weight: 600; color: #4466aa;">CLOSED · WITH PENDING DOCUMENTS</span></div>
+                  <span style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 4px; background: #538cff; color: #fff; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
+                </div>
+                <div style="box-shadow: inset 0 0 0 1px #a9e0dc; padding: 12px 8px 12px 14px; display: flex; align-items: center; gap: 10px; border-radius: 4px; background-color: #C9EFED;">
+                  <div style="flex: 1; min-width: 0;"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 8px; align-items: baseline;"><span style="font-size: 19px; font-weight: 500; color: #1f2d3d;">BKCOT342117VLC</span><span style="font-size: 16px; color: #5a6878;">09/02/2022</span></div><div style="font-size: 17px; color: #5a6878; margin: 4px 0 6px;">ESVLC → TNTUN</div><span style="font-size: 16px; font-weight: 600; color: #5a6878;">CLOSED</span></div>
+                  <span style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 4px; background: #538cff; color: #fff; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
+                </div>
+                <div style="box-shadow: inset 0 0 0 1px #a9e0dc; padding: 12px 8px 12px 14px; display: flex; align-items: center; gap: 10px; border-radius: 4px; background-color: #C9EFED;">
+                  <div style="flex: 1; min-width: 0;"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 8px; align-items: baseline;"><span style="font-size: 19px; font-weight: 500; color: #1f2d3d;">BKCOT342124VLC</span><span style="font-size: 16px; color: #5a6878;">03/01/2022</span></div><div style="font-size: 17px; color: #5a6878; margin: 4px 0 6px;">ESVLC → TNSUS</div><span style="font-size: 16px; font-weight: 600; color: #5a6878;">CLOSED</span></div>
+                  <span style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 4px; background: #538cff; color: #fff; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 12px 0 0; max-width: 619px;">{{ page.body.portal.scrollHint }}</p>
+</div>
+
+<div id="{{ page.body.projects.id }}" data-sec="{{ page.body.projects.id }}" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+  <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.projects.heading }}</h2>
+  <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 24px; font-weight: 300; max-width: 619px; text-wrap: pretty;">{{ page.body.projects.text }}</p>
+  <div style="display: flex; flex-direction: column; gap: 40px;">
+{% for p in page.body.projects.items %}
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;">
+        <span style="font-size: var(--text-h3-sm); font-weight: 300; color: var(--color-ink);">{{ p.title }}</span>
+        <span style="font-size: var(--text-ui); color: var(--color-muted);">{{ p.year }}</span>
+      </div>
+      <span class="rwd-badge" style="background: var(--color-accent-soft); color: var(--color-accent-strong);">{{ p.pattern }}</span>
+      <div role="button" tabindex="0" class="rwd-js-lightbox" data-lb-src="{{ assetsPath }}assets/img/casos/web-responsive/{{ p.img }}" style="display: grid; grid-template-columns: minmax(0,1fr) 150px; gap: 16px; align-items: end; cursor: zoom-in;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div class="rwd-crop" style="aspect-ratio: {{ p.cropDesktop.w }} / {{ p.cropDesktop.h }};"><img src="{{ assetsPath }}assets/img/casos/web-responsive/{{ p.img }}" alt="" style="width: calc(1920 / {{ p.cropDesktop.w }} * 100%); left: calc({{ -p.cropDesktop.x }} / {{ p.cropDesktop.w }} * 100%); top: calc({{ -p.cropDesktop.y }} / {{ p.cropDesktop.h }} * 100%);"></div>
+          <span style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted);">{{ page.body.projects.desktopLabel }}</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div class="rwd-crop" style="aspect-ratio: {{ p.cropMobile.w }} / {{ p.cropMobile.h }};"><img src="{{ assetsPath }}assets/img/casos/web-responsive/{{ p.img }}" alt="" style="width: calc(1920 / {{ p.cropMobile.w }} * 100%); left: calc({{ -p.cropMobile.x }} / {{ p.cropMobile.w }} * 100%); top: calc({{ -p.cropMobile.y }} / {{ p.cropMobile.h }} * 100%);"></div>
+          <span style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted);">{{ page.body.projects.mobileLabel }}</span>
+        </div>
+      </div>
+      <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; max-width: 75ch;">{{ p.text }}</p>
+      <a href="#" class="rwd-js-lightbox" data-lb-src="{{ assetsPath }}assets/img/casos/web-responsive/{{ p.img }}" style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; color: var(--color-accent-strong); text-transform: uppercase; letter-spacing: 0.04em;">{{ page.body.projects.seeFull }}</a>
+    </div>
+{% endfor %}
+  </div>
+</div>
+
+<div id="{{ page.body.experience.id }}" data-sec="{{ page.body.experience.id }}" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+  <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">{{ page.body.experience.heading }}</h2>
+  <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 20px; font-weight: 300; max-width: 75ch; text-wrap: pretty;">{{ page.body.experience.text }}</p>
+  <div style="display: flex; flex-direction: column; gap: 20px;">
+{% for ex in page.body.experience.items %}
+    <div style="display: flex; flex-direction: column; gap: 6px; padding-left: 16px; border-left: 1px solid var(--color-chip-border);">
+      <span style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-accent-strong);">{{ ex.name }}</span>
+      <span style="font-size: var(--text-h3-sm); font-weight: 300; color: var(--color-ink); line-height: 1.3;">{{ ex.tech }}</span>
+      <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0; text-wrap: pretty;">{{ ex.desc }}</p>
+    </div>
+{% endfor %}
+  </div>
+</div>
+
+<div style="max-width: 619px;">
+  <p data-r="closing" style="font-size: 26px; line-height: 1.4; font-weight: 300; color: var(--color-ink); margin: 0; max-width: 34ch; text-wrap: pretty;">{{ page.body.closing }}</p>
+</div>
+
+<div class="lb-overlay" id="rwdLightbox">
+  <button type="button" class="lb-close" id="rwdLightboxClose">{{ page.body.portal.close }} ✕</button>
+  <img id="rwdLightboxImg" src="" alt="">
+</div>
+
+<script>
+(function () {
+  // Componente toolbar (fuente: handoff/toolbar/toolbar-responsive.html) —
+  // se porta tal cual, solo se sustituye el objeto T por el contenido ya
+  // resuelto en el idioma de la página (viene de content/casos/web-responsive).
+  var t = {
+    links: {{ page.body.component.links | json | safe }},
+    v1: {{ page.body.component.desktopView.title | json | safe }}, v1n: {{ page.body.component.desktopView.note | json | safe }},
+    v2: {{ page.body.component.tabletView.title | json | safe }}, v2n: {{ page.body.component.tabletView.note | json | safe }},
+    v3: {{ page.body.component.mobileView.title | json | safe }}, v3n: {{ page.body.component.mobileView.note | json | safe }},
+    pDesk: {{ page.body.component.modeDesktop | json | safe }}, pTab: {{ page.body.component.modeTablet | json | safe }}, pMob: {{ page.body.component.modeMobile | json | safe }}
+  };
+  var BP_DESK = 620, BP_TAB = 320;
+  var PRESETS = { d: { w: 0, open: null }, t: { w: 470, open: 'gN' }, m: { w: 272, open: 'gL' } };
+  var BADGES = [2, 5, 6, 8];
+  var CHANNELS = ['R', 'Q', 'M', 'U', 'F', 'L', 'G', 'Z'], CH_BADGES = [1, 3, 4, 6];
+
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  var stage = $('#tbStage'), tb = $('#tbWidget');
+  var state = { w: 0, open: null, forceDesk: true, search: false };
+
+  if (tb) {
+    $('#tbDeskLinks').innerHTML = '<span class="i-sq"></span>'.repeat(8);
+    $('#tbDeskNtf').innerHTML = Array.from({ length: 9 }, function (_, i) {
+      return '<span class="i-bell' + (BADGES.indexOf(i) > -1 ? ' has-badge' : '') + '"></span>';
+    }).join('');
+    $('#tbPopNtf').innerHTML = CHANNELS.map(function (c, i) {
+      return '<div class="tb__pop-row"><span class="ch">' + c + '</span><span class="i-bell' + (CH_BADGES.indexOf(i) > -1 ? ' has-badge' : '') + '"></span><span class="n">' + (CH_BADGES.indexOf(i) > -1 ? '44' : '') + '</span></div>';
+    }).join('');
+    $('#tbPopLinks').innerHTML = t.links.map(function (l) {
+      return '<div class="tb__pop-row"><span class="i-sq"></span><span class="lbl">' + l + '</span></div>';
+    }).join('');
+
+    function mode() {
+      var w = state.w;
+      var fd = state.forceDesk && (!w || w < BP_DESK);
+      return { m: fd || !w || w >= BP_DESK ? 'd' : w >= BP_TAB ? 't' : 'm', fd: fd };
+    }
+    function render() {
+      var mm = mode(), m = mm.m, fd = mm.fd;
+      tb.setAttribute('data-mode', m);
+      if (fd && state.w) { tb.style.width = BP_DESK + 'px'; tb.style.zoom = String(state.w / BP_DESK); }
+      else { tb.style.width = ''; tb.style.zoom = ''; }
+      var open = m === 'd' ? null : state.open;
+      $$('.tb__gicon').forEach(function (b) { b.setAttribute('aria-expanded', String(b.getAttribute('data-group') === open)); });
+      $$('[data-pop]').forEach(function (p) { p.classList.toggle('is-open', p.getAttribute('data-pop') === open); });
+      var so = m === 'd' && state.search;
+      $('#tbSearchBtn').classList.toggle('is-open', so);
+      $('#tbSearchBar').classList.toggle('is-open', so);
+      $('#tbBadge').textContent = (m === 'd' ? t.pDesk : m === 't' ? t.pTab : t.pMob) + ' · ' + (state.w + 28) + ' px';
+      $('#tbModeTitle').textContent = t['v' + (m === 'd' ? 1 : m === 't' ? 2 : 3)];
+      $('#tbModeNote').textContent = t['v' + (m === 'd' ? 1 : m === 't' ? 2 : 3) + 'n'];
+      $$('[data-preset]').forEach(function (a) { a.classList.toggle('lang-switch__option--active', a.getAttribute('data-preset') === m); });
+    }
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(function (es) {
+        var w = Math.round(es[0].contentRect.width);
+        if (w !== state.w) { state.w = w; render(); }
+      }).observe(stage);
+    }
+
+    stage.addEventListener('mousedown', function (e) {
+      var r = stage.getBoundingClientRect();
+      if (e.clientX > r.right - 24 && e.clientY > r.bottom - 24 && state.forceDesk) { state.forceDesk = false; render(); }
+    });
+
+    $$('[data-preset]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var p = PRESETS[a.getAttribute('data-preset')];
+        stage.style.width = p.w ? p.w + 'px' : '100%';
+        state.open = p.open; state.forceDesk = !p.w; state.search = false;
+        render();
+      });
+    });
+
+    $('#tbSearchBtn').addEventListener('click', function () { state.search = !state.search; render(); });
+    $$('.tb__gicon').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var g = b.getAttribute('data-group');
+        state.open = state.open === g ? null : g;
+        render();
+      });
+    });
+    $$('[data-close]').forEach(function (b) { b.addEventListener('click', function () { state.open = null; render(); }); });
+
+    render();
+  }
+
+  // Lightbox de imágenes (portal + proyectos)
+  var lb = document.getElementById('rwdLightbox');
+  var lbImg = document.getElementById('rwdLightboxImg');
+  function openLb(src) { lbImg.src = src; lb.classList.add('is-open'); }
+  function closeLb() { lb.classList.remove('is-open'); lbImg.src = ''; }
+  Array.prototype.forEach.call(document.querySelectorAll('.rwd-js-lightbox'), function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      openLb(el.getAttribute('data-lb-src'));
+    });
+  });
+  document.getElementById('rwdLightboxClose').addEventListener('click', closeLb);
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  window.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+})();
+</script>
+{% endblock %}

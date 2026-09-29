@@ -65,6 +65,11 @@ const imoles = {
   es: loadJSON('casos', 'imoles', 'es.json'),
 };
 
+const webResponsive = {
+  en: loadJSON('casos', 'web-responsive', 'en.json'),
+  es: loadJSON('casos', 'web-responsive', 'es.json'),
+};
+
 // Cada entrada = una ruta de salida real. assetsPath es la profundidad
 // relativa desde esa ruta hasta la raíz del repo (fonts/, tokens.css,
 // script.js, assets/...); otherLangHref es el enlace del lang-switch.
@@ -122,6 +127,24 @@ const pages = [
     otherLangHref: '../../../casos/imoles/index.html',
     common: common.es,
     page: imoles.es,
+  },
+  {
+    template: 'pages/casos/web-responsive.njk',
+    out: 'casos/web-responsive/index.html',
+    lang: 'en',
+    assetsPath: '../../',
+    otherLangHref: '../../es/casos/web-responsive/index.html',
+    common: common.en,
+    page: webResponsive.en,
+  },
+  {
+    template: 'pages/casos/web-responsive.njk',
+    out: 'es/casos/web-responsive/index.html',
+    lang: 'es',
+    assetsPath: '../../../',
+    otherLangHref: '../../../casos/web-responsive/index.html',
+    common: common.es,
+    page: webResponsive.es,
   },
 ];
 

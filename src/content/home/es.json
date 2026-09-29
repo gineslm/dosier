@@ -160,10 +160,10 @@
       "items": [
         {
           "title": "Diseños web responsive",
-          "meta": "Diseño UI · Maquetación",
-          "text": "Cuatro proyectos de páginas web responsive siguiendo el patrón mobile-first. Responsable del diseño y la maquetación en todos los casos.",
+          "meta": "Diseño UI · Maquetación · Archivo 2019—2024",
+          "text": "Cuatro sitios web y un componente de aplicación presentados por el patrón responsive que resuelven, más una propuesta posterior de adaptación a móvil de un portal logístico diseñado solo para escritorio.",
           "links": [
-            { "href": "https://xd.adobe.com/view/0bdee4e2-927e-4d1e-a2bb-c56e1fa8a43e-5e8d/?fullscreen", "label": "Ver proyectos" }
+            { "href": "casos/web-responsive/index.html", "label": "Ver proyectos" }
           ],
           "image": { "src": "assets/img/responsive.jpg", "alt": "Diseños web responsive en escritorio y móvil" }
         },
