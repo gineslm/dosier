@@ -127,19 +127,6 @@
       "heading": "Case studies",
       "items": [
         {
-          "title": "Redesign of a taxi transfer management app",
-          "meta": "Confidential client · 2026 · UX/UI · Maritime-port services",
-          "dataStrip": [
-            { "term": "Role", "def": "UX/UI" },
-            { "term": "Duration", "def": "1 month" },
-            { "term": "Sector", "def": "Maritime-port" },
-            { "term": "Output", "def": "Redesign in production" }
-          ],
-          "text": "A taxi transfer management app for the maritime-port sector was built on the wrong entity: the day, not the trip. The original brief was to extend functionality, but analysis showed no improvement would add value on top of a broken foundation. Full redesign in one month, from analysis to production: real use at the moment of the trip, faster invoicing and fewer issues from incomplete documentation.",
-          "linkHref": "casos/app-taxi/index.html",
-          "linkLabel": "View full case study"
-        },
-        {
           "title": "Evolving the product design of a dermatology pre-diagnosis app",
           "meta": "iMoles · 2026 · Functional analysis · UX/UI · Product Design",
           "dataStrip": [
@@ -150,6 +137,32 @@
           ],
           "text": "A proof of concept for AI melanoma detection worked at a technical level, but had no product definition: no data entity, no defined audience, no fit with the care circuit. I analysed the only competitor with published clinical evidence to understand the category's real limits, and developed three product contributions and four interface decisions: what the app should do, when it should not refer to a professional, and how the result is communicated without creating a false sense of diagnosis.",
           "linkHref": "casos/imoles/index.html",
+          "linkLabel": "View full case study"
+        },
+        {
+          "title": "DSimoles: a design-system framework and the iMoles ecosystem DS",
+          "meta": "Own project · 2026 · Design Systems · Medical applications · WCAG 2.1 AA",
+          "dataStrip": [
+            { "term": "Role", "def": "System design and architecture" },
+            { "term": "Origin", "def": "Prototype from the iMoles review" },
+            { "term": "Scope", "def": "Framework + iMoles DS" },
+            { "term": "Status", "def": "Under construction" }
+          ],
+          "text": "Two things are exposed: DSBook, a reusable framework to define, document and track a design system, and DSimoles, the design system of the iMoles ecosystem for medical applications with WCAG 2.1 AA accessibility, built with that framework. The initial starting point is the prototype from the iMoles project review.",
+          "linkHref": "casos/dsimoles/index.html",
+          "linkLabel": "View full case"
+        },
+        {
+          "title": "Redesign of a taxi transfer management app",
+          "meta": "Confidential client · 2026 · UX/UI · Maritime-port services",
+          "dataStrip": [
+            { "term": "Role", "def": "UX/UI" },
+            { "term": "Duration", "def": "1 month" },
+            { "term": "Sector", "def": "Maritime-port" },
+            { "term": "Output", "def": "Redesign in production" }
+          ],
+          "text": "A taxi transfer management app for the maritime-port sector was built on the wrong entity: the day, not the trip. The original brief was to extend functionality, but analysis showed no improvement would add value on top of a broken foundation. Full redesign in one month, from analysis to production: real use at the moment of the trip, faster invoicing and fewer issues from incomplete documentation.",
+          "linkHref": "casos/app-taxi/index.html",
           "linkLabel": "View full case study"
         }
       ]

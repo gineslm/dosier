@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "title": "Caso de estudio · DSimoles — Ginés López Montalbán",
+    "description": "DSimoles expone dos cosas: un framework para definir y documentar sistemas de diseño (DSBook) y el sistema de diseño del ecosistema iMoles para aplicaciones médicas con accesibilidad WCAG 2.1 AA.",
+    "themeColor": "#1E1B22",
+    "canonical": "https://www.dsigncloud.es/dosier/en/es/casos/dsimoles/",
+    "hreflangEn": "https://www.dsigncloud.es/dosier/en/casos/dsimoles/",
+    "hreflangEs": "https://www.dsigncloud.es/dosier/en/es/casos/dsimoles/",
+    "hreflangDefault": "https://www.dsigncloud.es/dosier/en/casos/dsimoles/"
+  },
+  "chrome": {
+    "accentClass": "ds-accent-mustard",
+    "backLabel": "Volver",
+    "backAriaLabel": "Volver al profile",
+    "backHref": "../../index.html#casos",
+    "tag": "Caso de estudio · DSimoles",
+    "onThisPageLabel": "En esta página",
+    "toc": [
+      { "id": "portada", "label": "Portada" },
+      { "id": "que-se-expone", "label": "Qué se expone" },
+      { "id": "punto-de-partida", "label": "Punto de partida" },
+      { "id": "como-se-trabaja", "label": "Cómo se trabaja" },
+      { "id": "estado", "label": "Estado" },
+      { "id": "enlaces", "label": "Enlaces" }
+    ],
+    "foot": {
+      "disclaimer": "DSimoles está en construcción: los valores de los tokens y de los componentes son propuestas pendientes de la review de su owner.",
+      "backLabel": "← Volver al profile"
+    }
+  },
+  "body": {
+    "hero": {
+      "id": "portada",
+      "kicker": "Caso de estudio · Design Systems",
+      "title": "DSimoles: un framework para sistemas de diseño y el DS del ecosistema iMoles",
+      "sub": "Lo que se expone aquí son dos cosas a la vez: DSBook, un framework reutilizable para definir, documentar y dar seguimiento a un sistema de diseño, y DSimoles, el sistema de diseño del ecosistema iMoles para aplicaciones médicas con accesibilidad WCAG 2.1 AA, construido con ese framework.",
+      "lead": "El punto de partida es el prototipo de la revisión del proyecto iMoles: de él salen los productos, los requisitos y los componentes que el sistema de diseño tiene que cubrir. El framework se abre aquí mismo, en el navegador, con todo su contenido.",
+      "ctaPrimary": "Abrir el framework",
+      "ctaPrimaryHref": "https://gineslm.github.io/DSimoles/",
+      "ctaSecondary": "Ver el punto de partida",
+      "facts": [
+        { "k": "Rol", "v": "Diseño y arquitectura del sistema, y del método para construirlo" },
+        { "k": "Alcance", "v": "16 categorías · 175 subsecciones · componentes específicos de iMoles" },
+        { "k": "Dominio", "v": "Aplicaciones médicas · WCAG 2.1 AA" },
+        { "k": "Estado", "v": "En construcción, valores pendientes de review" }
+      ]
+    },
+    "deliverables": {
+      "id": "que-se-expone",
+      "heading": "Qué se expone",
+      "intro": "El repositorio de DSimoles contiene dos capas que se pueden leer por separado: el método y el sistema que se obtiene al aplicarlo.",
+      "cards": [
+        {
+          "label": "Framework",
+          "title": "DSBook",
+          "text": "Un workspace para definir, documentar y seguir un sistema de diseño, pensado para reutilizarse en otros proyectos.",
+          "points": [
+            "Guía de definición con una subsección por decisión y sus criterios de aceptación.",
+            "Matriz de seguimiento con estados (Ready, In process, Pending, Not applicable) y review registrada.",
+            "Contenedor de documentación en HTML estático, sin build ni servicios externos.",
+            "Ciclo de trabajo entre Claude Design, Claude Code y Git, con protección contra la pérdida de trabajo."
+          ]
+        },
+        {
+          "label": "Sistema de diseño",
+          "title": "DSimoles para el ecosistema iMoles",
+          "text": "El sistema de diseño de las aplicaciones médicas del ecosistema iMoles, definido con el framework.",
+          "points": [
+            "Tokens primitivos y semánticos, con temas.",
+            "Componentes base y patrones, más componentes de producto propios de iMoles (por ejemplo, la insignia de riesgo, la fila de captura o el resumen de análisis).",
+            "Accesibilidad WCAG 2.1 AA como requisito, no como extra.",
+            "Gobierno: cómo se añade, cambia o depreca algo del sistema."
+          ]
+        }
+      ]
+    },
+    "start": {
+      "id": "punto-de-partida",
+      "heading": "Punto de partida",
+      "kicker": "De dónde sale",
+      "callout": "El punto de partida inicial es el prototipo de la revisión del proyecto iMoles.",
+      "paragraphs": [
+        "Ese prototipo navegable de la app de prediagnóstico dermatológico fija los productos, los flujos y los requisitos que el sistema de diseño tiene que servir. DSimoles no parte de un catálogo genérico de componentes: parte de lo que esa propuesta necesita y lo generaliza donde tiene sentido.",
+        "Por eso conviven en el sistema los componentes base y los específicos de iMoles, y por eso el contenido de la guía (usuarios, productos, requisitos) se escribe a partir de ese caso."
+      ],
+      "linkHref": "../imoles/index.html#prototipo",
+      "linkLabel": "Ver el prototipo de iMoles →"
+    },
+    "method": {
+      "id": "como-se-trabaja",
+      "heading": "Cómo se trabaja",
+      "intro": "El repositorio es la fuente de verdad. El diseño y la implementación se reparten entre dos herramientas y una persona que valida.",
+      "steps": [
+        { "term": "GitHub", "def": "Es la única fuente de verdad del sistema." },
+        { "term": "Claude Design", "def": "Lee el repositorio, diseña y construye las páginas de cada sección." },
+        { "term": "Claude Code", "def": "Trae los cambios, los integra en local y ejecuta las comprobaciones del contrato de datos y de las pruebas." },
+        { "term": "Validación", "def": "La persona responsable revisa en local; sin su visto bueno no se sube nada." },
+        { "term": "Registro", "def": "Cada integración queda en el changelog y se avisa a Claude Design para que siga desde la nueva base." }
+      ]
+    },
+    "state": {
+      "id": "estado",
+      "heading": "Estado",
+      "paragraphs": [
+        "De las 175 subsecciones de la guía, 25 están en Ready con una review registrada, 46 están en proceso, 1 está pendiente y 103 se han marcado como no aplicables, cada una con un motivo explícito.",
+        "Una página existente no implica Ready: ese estado exige una review registrada, no una certificación automática."
+      ],
+      "note": "Las cifras corresponden a la versión 0.29.0 del proyecto (2026-10-15) y cambian con cada integración."
+    },
+    "links": {
+      "id": "enlaces",
+      "heading": "Enlaces",
+      "newWindow": "(abre en una ventana nueva)",
+      "items": [
+        { "href": "https://gineslm.github.io/DSimoles/", "label": "Abrir el framework con su contenido" },
+        { "href": "https://gineslm.github.io/DSimoles/#/imoles-components", "label": "Componentes de producto de iMoles" },
+        { "href": "https://gineslm.github.io/DSimoles/#/foundations", "label": "Fundamentos del sistema" }
+      ]
+    }
+  }
+}

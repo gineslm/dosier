@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5NZ42DXJD3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5NZ42DXJD3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de estudio · DSimoles — Ginés López Montalbán</title>
+    <meta name="description" content="DSimoles expone dos cosas: un framework para definir y documentar sistemas de diseño (DSBook) y el sistema de diseño del ecosistema iMoles para aplicaciones médicas con accesibilidad WCAG 2.1 AA.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#1E1B22">
+
+    <link rel="canonical" href="https://www.dsigncloud.es/dosier/en/es/casos/dsimoles/">
+    <link rel="alternate" hreflang="en" href="https://www.dsigncloud.es/dosier/en/casos/dsimoles/">
+    <link rel="alternate" hreflang="es" href="https://www.dsigncloud.es/dosier/en/es/casos/dsimoles/">
+    <link rel="alternate" hreflang="x-default" href="https://www.dsigncloud.es/dosier/en/casos/dsimoles/">
+
+    <link rel="preload" href="../../../fonts/roboto-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/roboto-condensed-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="../../../tokens.css">
+    <link rel="stylesheet" href="../../../case.css">
+</head>
+<body>
+<div class="ds-theme-dark-casos-estudio ds-accent-mustard" style="width: 100%; display: flex; flex-direction: column;">
+
+  <div data-r="topbar" style="position: sticky; top: 0; z-index: 10; height: 60px; background: var(--color-surface); border-bottom: 1px solid var(--color-rule); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; box-sizing: border-box;">
+    <a href="../../index.html#casos" aria-label="Volver al profile" style="display: flex; align-items: center; gap: 6px; font-size: var(--text-ui); font-weight: 500; color: var(--color-ink);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+      Volver
+    </a>
+    <span style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; color: var(--color-accent-strong); text-transform: uppercase;">Caso de estudio · DSimoles</span>
+<div class="lang-switch" role="group" aria-label="Idioma">
+    <a class="lang-switch__option" href="../../../casos/dsimoles/index.html" hreflang="en" lang="en">EN</a>
+    <span class="lang-switch__option lang-switch__option--active" aria-current="true">ES</span>
+</div>
+  </div>
+
+  <div data-r="shell" style="display: flex; align-items: flex-start; gap: 40px; padding: 48px 40px 100px; max-width: 1180px; margin: 0 auto; width: 100%; box-sizing: border-box;">
+
+    <nav data-r="sidebar" aria-label="En esta página" style="width: 220px; flex-shrink: 0; position: sticky; top: 100px; display: flex; flex-direction: column; gap: 2px; border-right: 1px solid var(--color-rule); padding-right: 20px; box-sizing: border-box;">
+      <div style="font-family: var(--font-condensed); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin-bottom: 10px;">En esta página</div>
+      <a class="case-index__link is-active" href="#portada">Portada</a>
+      <a class="case-index__link" href="#que-se-expone">Qué se expone</a>
+      <a class="case-index__link" href="#punto-de-partida">Punto de partida</a>
+      <a class="case-index__link" href="#como-se-trabaja">Cómo se trabaja</a>
+      <a class="case-index__link" href="#estado">Estado</a>
+      <a class="case-index__link" href="#enlaces">Enlaces</a>
+    </nav>
+
+    <div data-r="main" style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px;">
+
+      <div id="portada" data-sec="portada" style="padding: 8px 0 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <div style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 10px;">Caso de estudio · Design Systems</div>
+        <h1 data-r="h1-lead" style="font-weight: var(--weight-thin); font-size: var(--text-name); line-height: var(--text-name-lh); margin: 0 0 14px; color: var(--color-ink); max-width: 20ch; text-wrap: pretty;">DSimoles: un framework para sistemas de diseño y el DS del ecosistema iMoles</h1>
+        <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0 0 10px; max-width: 70ch;">Lo que se expone aquí son dos cosas a la vez: DSBook, un framework reutilizable para definir, documentar y dar seguimiento a un sistema de diseño, y DSimoles, el sistema de diseño del ecosistema iMoles para aplicaciones médicas con accesibilidad WCAG 2.1 AA, construido con ese framework.</p>
+        <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 20px; font-weight: 300; max-width: 75ch;">El punto de partida es el prototipo de la revisión del proyecto iMoles: de él salen los productos, los requisitos y los componentes que el sistema de diseño tiene que cubrir. El framework se abre aquí mismo, en el navegador, con todo su contenido.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 24px;">
+          <a href="https://gineslm.github.io/DSimoles/" target="_blank" rel="noopener noreferrer" style="border: 1px solid var(--color-accent); color: var(--color-accent-strong); padding: 9px 14px; border-radius: 999px; text-decoration: none; font-size: var(--text-ui);">Abrir el framework <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">(abre en una ventana nueva)</span></a>
+          <a href="#punto-de-partida" style="border: 1px solid var(--color-chip-border); color: var(--color-body); padding: 9px 14px; border-radius: 999px; text-decoration: none; font-size: var(--text-ui);">Ver el punto de partida</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule);">
+          <div style="background: var(--color-surface); padding: 14px 16px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 4px;">Rol</div>
+            <div style="font-size: var(--text-ui); line-height: 1.5; color: var(--color-ink);">Diseño y arquitectura del sistema, y del método para construirlo</div>
+          </div>
+          <div style="background: var(--color-surface); padding: 14px 16px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 4px;">Alcance</div>
+            <div style="font-size: var(--text-ui); line-height: 1.5; color: var(--color-ink);">16 categorías · 175 subsecciones · componentes específicos de iMoles</div>
+          </div>
+          <div style="background: var(--color-surface); padding: 14px 16px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 4px;">Dominio</div>
+            <div style="font-size: var(--text-ui); line-height: 1.5; color: var(--color-ink);">Aplicaciones médicas · WCAG 2.1 AA</div>
+          </div>
+          <div style="background: var(--color-surface); padding: 14px 16px;">
+            <div style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 4px;">Estado</div>
+            <div style="font-size: var(--text-ui); line-height: 1.5; color: var(--color-ink);">En construcción, valores pendientes de review</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="que-se-expone" data-sec="que-se-expone" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">Qué se expone</h2>
+        <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 20px; font-weight: 300; max-width: 75ch;">El repositorio de DSimoles contiene dos capas que se pueden leer por separado: el método y el sistema que se obtiene al aplicarlo.</p>
+        <div data-r="grid2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start;">
+          <div style="border: 1px solid var(--color-chip-border); border-top: 4px solid var(--color-accent); background: var(--color-surface); padding: 20px;">
+            <p style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; color: var(--color-accent-strong); margin: 0 0 8px; text-transform: uppercase;">Framework</p>
+            <h3 style="font-size: 20px; font-weight: var(--weight-thin); margin: 0 0 10px; color: var(--color-ink);">DSBook</h3>
+            <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0 0 12px;">Un workspace para definir, documentar y seguir un sistema de diseño, pensado para reutilizarse en otros proyectos.</p>
+            <ul style="margin: 0; padding-left: 18px; font-size: var(--text-ui); line-height: 1.6; color: var(--color-body);">
+              <li>Guía de definición con una subsección por decisión y sus criterios de aceptación.</li>
+              <li>Matriz de seguimiento con estados (Ready, In process, Pending, Not applicable) y review registrada.</li>
+              <li>Contenedor de documentación en HTML estático, sin build ni servicios externos.</li>
+              <li>Ciclo de trabajo entre Claude Design, Claude Code y Git, con protección contra la pérdida de trabajo.</li>
+            </ul>
+          </div>
+          <div style="border: 1px solid var(--color-chip-border); border-top: 4px solid var(--color-accent); background: var(--color-surface); padding: 20px;">
+            <p style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; color: var(--color-accent-strong); margin: 0 0 8px; text-transform: uppercase;">Sistema de diseño</p>
+            <h3 style="font-size: 20px; font-weight: var(--weight-thin); margin: 0 0 10px; color: var(--color-ink);">DSimoles para el ecosistema iMoles</h3>
+            <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body); margin: 0 0 12px;">El sistema de diseño de las aplicaciones médicas del ecosistema iMoles, definido con el framework.</p>
+            <ul style="margin: 0; padding-left: 18px; font-size: var(--text-ui); line-height: 1.6; color: var(--color-body);">
+              <li>Tokens primitivos y semánticos, con temas.</li>
+              <li>Componentes base y patrones, más componentes de producto propios de iMoles (por ejemplo, la insignia de riesgo, la fila de captura o el resumen de análisis).</li>
+              <li>Accesibilidad WCAG 2.1 AA como requisito, no como extra.</li>
+              <li>Gobierno: cómo se añade, cambia o depreca algo del sistema.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="punto-de-partida" data-sec="punto-de-partida" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">Punto de partida</h2>
+        <div style="border: 1px solid var(--color-chip-border); border-left: 4px solid var(--color-accent); background: var(--color-accent-soft); padding: 20px; margin-bottom: 14px;">
+          <p style="font-family: var(--font-condensed); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.08em; color: var(--color-accent-strong); margin: 0 0 8px; text-transform: uppercase;">De dónde sale</p>
+          <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-ink); margin: 0; font-weight: 300;">El punto de partida inicial es el prototipo de la revisión del proyecto iMoles.</p>
+        </div>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 14px; font-weight: 300; max-width: 75ch; text-wrap: pretty;">Ese prototipo navegable de la app de prediagnóstico dermatológico fija los productos, los flujos y los requisitos que el sistema de diseño tiene que servir. DSimoles no parte de un catálogo genérico de componentes: parte de lo que esa propuesta necesita y lo generaliza donde tiene sentido.</p>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 14px; font-weight: 300; max-width: 75ch; text-wrap: pretty;">Por eso conviven en el sistema los componentes base y los específicos de iMoles, y por eso el contenido de la guía (usuarios, productos, requisitos) se escribe a partir de ese caso.</p>
+        <a href="../imoles/index.html#prototipo" style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; color: var(--color-accent-strong); text-transform: uppercase; letter-spacing: 0.04em;">Ver el prototipo de iMoles →</a>
+      </div>
+
+      <div id="como-se-trabaja" data-sec="como-se-trabaja" style="padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">Cómo se trabaja</h2>
+        <p style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 20px; font-weight: 300; max-width: 75ch;">El repositorio es la fuente de verdad. El diseño y la implementación se reparten entre dos herramientas y una persona que valida.</p>
+        <ol style="margin: 0; padding: 0; list-style: none; display: grid; gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule); max-width: 75ch;">
+          <li style="background: var(--color-surface); padding: 14px 16px; display: flex; gap: 14px;">
+            <span style="font-family: var(--font-condensed); font-weight: 700; color: var(--color-accent-strong);">1</span>
+            <span style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body);"><strong style="color: var(--color-ink); font-weight: 500;">GitHub.</strong> Es la única fuente de verdad del sistema.</span>
+          </li>
+          <li style="background: var(--color-surface); padding: 14px 16px; display: flex; gap: 14px;">
+            <span style="font-family: var(--font-condensed); font-weight: 700; color: var(--color-accent-strong);">2</span>
+            <span style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body);"><strong style="color: var(--color-ink); font-weight: 500;">Claude Design.</strong> Lee el repositorio, diseña y construye las páginas de cada sección.</span>
+          </li>
+          <li style="background: var(--color-surface); padding: 14px 16px; display: flex; gap: 14px;">
+            <span style="font-family: var(--font-condensed); font-weight: 700; color: var(--color-accent-strong);">3</span>
+            <span style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body);"><strong style="color: var(--color-ink); font-weight: 500;">Claude Code.</strong> Trae los cambios, los integra en local y ejecuta las comprobaciones del contrato de datos y de las pruebas.</span>
+          </li>
+          <li style="background: var(--color-surface); padding: 14px 16px; display: flex; gap: 14px;">
+            <span style="font-family: var(--font-condensed); font-weight: 700; color: var(--color-accent-strong);">4</span>
+            <span style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body);"><strong style="color: var(--color-ink); font-weight: 500;">Validación.</strong> La persona responsable revisa en local; sin su visto bueno no se sube nada.</span>
+          </li>
+          <li style="background: var(--color-surface); padding: 14px 16px; display: flex; gap: 14px;">
+            <span style="font-family: var(--font-condensed); font-weight: 700; color: var(--color-accent-strong);">5</span>
+            <span style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-body);"><strong style="color: var(--color-ink); font-weight: 500;">Registro.</strong> Cada integración queda en el changelog y se avisa a Claude Design para que siga desde la nueva base.</span>
+          </li>
+        </ol>
+      </div>
+
+      <div id="estado" data-sec="estado" style="max-width: 619px; padding-bottom: 40px; border-bottom: 1px solid var(--color-rule); scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">Estado</h2>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 14px; font-weight: 300; max-width: 75ch; text-wrap: pretty;">De las 175 subsecciones de la guía, 25 están en Ready con una review registrada, 46 están en proceso, 1 está pendiente y 103 se han marcado como no aplicables, cada una con un motivo explícito.</p>
+        <p data-r="body" style="font-size: var(--case-text-body); line-height: var(--case-lh-body); color: var(--color-body); margin: 0 0 14px; font-weight: 300; max-width: 75ch; text-wrap: pretty;">Una página existente no implica Ready: ese estado exige una review registrada, no una certificación automática.</p>
+        <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--color-muted); margin: 10px 0 0; max-width: 75ch;">Las cifras corresponden a la versión 0.29.0 del proyecto (2026-10-15) y cambian con cada integración.</p>
+      </div>
+
+      <div id="enlaces" data-sec="enlaces" style="padding-bottom: 8px; scroll-margin-top: 90px;">
+        <h2 style="font-family: var(--font-condensed); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 14px; color: var(--color-accent);">Enlaces</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 9px;">
+          <a href="https://gineslm.github.io/DSimoles/" target="_blank" rel="noopener noreferrer" style="border: 1px solid var(--color-chip-border); color: var(--color-body); padding: 9px 14px; border-radius: 999px; text-decoration: none; font-size: var(--text-ui);">Abrir el framework con su contenido <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">(abre en una ventana nueva)</span></a>
+          <a href="https://gineslm.github.io/DSimoles/#/imoles-components" target="_blank" rel="noopener noreferrer" style="border: 1px solid var(--color-chip-border); color: var(--color-body); padding: 9px 14px; border-radius: 999px; text-decoration: none; font-size: var(--text-ui);">Componentes de producto de iMoles <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">(abre en una ventana nueva)</span></a>
+          <a href="https://gineslm.github.io/DSimoles/#/foundations" target="_blank" rel="noopener noreferrer" style="border: 1px solid var(--color-chip-border); color: var(--color-body); padding: 9px 14px; border-radius: 999px; text-decoration: none; font-size: var(--text-ui);">Fundamentos del sistema <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">(abre en una ventana nueva)</span></a>
+        </div>
+      </div>
+
+      <div data-r="foot" style="max-width: 619px; display: flex; flex-direction: column; gap: 10px;">
+        <p style="font-size: var(--text-note); line-height: var(--case-lh-note); color: var(--color-muted); margin: 0;">DSimoles está en construcción: los valores de los tokens y de los componentes son propuestas pendientes de la review de su owner.</p>
+        <a href="../../index.html#casos" style="font-family: var(--font-condensed); font-size: var(--text-legal); font-weight: 700; color: var(--color-accent-strong); text-transform: uppercase; letter-spacing: 0.04em;">← Volver al profile</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.case-index__link'));
+  var secs = Array.prototype.slice.call(document.querySelectorAll('[data-sec]'));
+  var raf = null;
+  function spy() {
+    raf = null;
+    var current = secs.length ? secs[0].getAttribute('data-sec') : null;
+    secs.forEach(function (el) { if (el.getBoundingClientRect().top <= 90) current = el.getAttribute('data-sec'); });
+    links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + current); });
+  }
+  function onScroll() { if (!raf) raf = requestAnimationFrame(spy); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  spy();
+})();
+</script>
+</body>
+</html>

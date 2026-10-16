@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "title": "Case study · DSimoles — Ginés López Montalbán",
+    "description": "DSimoles exposes two things: a framework for defining and documenting design systems (DSBook) and the design system of the iMoles ecosystem for medical applications with WCAG 2.1 AA accessibility.",
+    "themeColor": "#1E1B22",
+    "canonical": "https://www.dsigncloud.es/dosier/en/casos/dsimoles/",
+    "hreflangEn": "https://www.dsigncloud.es/dosier/en/casos/dsimoles/",
+    "hreflangEs": "https://www.dsigncloud.es/dosier/en/es/casos/dsimoles/",
+    "hreflangDefault": "https://www.dsigncloud.es/dosier/en/casos/dsimoles/"
+  },
+  "chrome": {
+    "accentClass": "ds-accent-mustard",
+    "backLabel": "Back",
+    "backAriaLabel": "Back to profile",
+    "backHref": "../../index.html#casos",
+    "tag": "Case study · DSimoles",
+    "onThisPageLabel": "On this page",
+    "toc": [
+      { "id": "portada", "label": "Cover" },
+      { "id": "que-se-expone", "label": "What is exposed" },
+      { "id": "punto-de-partida", "label": "Starting point" },
+      { "id": "como-se-trabaja", "label": "How it works" },
+      { "id": "estado", "label": "Status" },
+      { "id": "enlaces", "label": "Links" }
+    ],
+    "foot": {
+      "disclaimer": "DSimoles is under construction: token and component values are proposals pending review by its owner.",
+      "backLabel": "← Back to profile"
+    }
+  },
+  "body": {
+    "hero": {
+      "id": "portada",
+      "kicker": "Case study · Design Systems",
+      "title": "DSimoles: a framework for design systems and the iMoles ecosystem DS",
+      "sub": "Two things are exposed here at once: DSBook, a reusable framework to define, document and track a design system, and DSimoles, the design system of the iMoles ecosystem for medical applications with WCAG 2.1 AA accessibility, built with that framework.",
+      "lead": "The starting point is the prototype from the iMoles project review: it provides the products, requirements and components the design system has to cover. The framework opens right here, in the browser, with all its content.",
+      "ctaPrimary": "Open the framework",
+      "ctaPrimaryHref": "https://gineslm.github.io/DSimoles/",
+      "ctaSecondary": "See the starting point",
+      "facts": [
+        { "k": "Role", "v": "Design and architecture of the system, and of the method to build it" },
+        { "k": "Scope", "v": "16 categories · 175 subsections · iMoles-specific components" },
+        { "k": "Domain", "v": "Medical applications · WCAG 2.1 AA" },
+        { "k": "Status", "v": "Under construction, values pending review" }
+      ]
+    },
+    "deliverables": {
+      "id": "que-se-expone",
+      "heading": "What is exposed",
+      "intro": "The DSimoles repository holds two layers that can be read separately: the method, and the system obtained by applying it.",
+      "cards": [
+        {
+          "label": "Framework",
+          "title": "DSBook",
+          "text": "A workspace to define, document and track a design system, designed to be reused in other projects.",
+          "points": [
+            "Definition guide with one subsection per decision and its acceptance criteria.",
+            "Tracking matrix with statuses (Ready, In process, Pending, Not applicable) and a recorded review.",
+            "Static HTML documentation container, with no build step or external services.",
+            "Workflow between Claude Design, Claude Code and Git, with protection against losing work."
+          ]
+        },
+        {
+          "label": "Design system",
+          "title": "DSimoles for the iMoles ecosystem",
+          "text": "The design system for the medical applications of the iMoles ecosystem, defined with the framework.",
+          "points": [
+            "Primitive and semantic tokens, with themes.",
+            "Base components and patterns, plus iMoles-specific product components (for example the risk badge, the capture row or the analysis summary).",
+            "WCAG 2.1 AA accessibility as a requirement, not an extra.",
+            "Governance: how something in the system is added, changed or deprecated."
+          ]
+        }
+      ]
+    },
+    "start": {
+      "id": "punto-de-partida",
+      "heading": "Starting point",
+      "kicker": "Where it comes from",
+      "callout": "The initial starting point is the prototype from the iMoles project review.",
+      "paragraphs": [
+        "That navigable prototype of the dermatological pre-diagnosis app fixes the products, flows and requirements the design system has to serve. DSimoles does not start from a generic component catalogue: it starts from what that proposal needs and generalises it where it makes sense.",
+        "That is why base and iMoles-specific components live side by side in the system, and why the guide content (users, products, requirements) is written from that case."
+      ],
+      "linkHref": "../imoles/index.html#prototipo",
+      "linkLabel": "See the iMoles prototype →"
+    },
+    "method": {
+      "id": "como-se-trabaja",
+      "heading": "How it works",
+      "intro": "The repository is the source of truth. Design and implementation are split between two tools and a person who validates.",
+      "steps": [
+        { "term": "GitHub", "def": "It is the only source of truth for the system." },
+        { "term": "Claude Design", "def": "Reads the repository, designs and builds the page for each section." },
+        { "term": "Claude Code", "def": "Brings the changes in, integrates them locally and runs the data-contract and test checks." },
+        { "term": "Validation", "def": "The responsible person reviews locally; nothing is pushed without their approval." },
+        { "term": "Record", "def": "Each integration is logged in the changelog and Claude Design is told to continue from the new base." }
+      ]
+    },
+    "state": {
+      "id": "estado",
+      "heading": "Status",
+      "paragraphs": [
+        "Of the 175 subsections in the guide, 25 are Ready with a recorded review, 46 are in process, 1 is pending and 103 are marked not applicable, each with an explicit reason.",
+        "An existing page does not imply Ready: that status requires a recorded review, not an automatic certification."
+      ],
+      "note": "Figures correspond to project version 0.29.0 (2026-10-15) and change with each integration."
+    },
+    "links": {
+      "id": "enlaces",
+      "heading": "Links",
+      "newWindow": "(opens in a new window)",
+      "items": [
+        { "href": "https://gineslm.github.io/DSimoles/", "label": "Open the framework with its content" },
+        { "href": "https://gineslm.github.io/DSimoles/#/imoles-components", "label": "iMoles product components" },
+        { "href": "https://gineslm.github.io/DSimoles/#/foundations", "label": "System foundations" }
+      ]
+    }
+  }
+}

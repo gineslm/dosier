@@ -127,19 +127,6 @@
       "heading": "Casos de estudio",
       "items": [
         {
-          "title": "Rediseño de app de gestión de traslados en taxi",
-          "meta": "Cliente confidencial · 2026 · UX/UI · Servicios marítimo-portuarios",
-          "dataStrip": [
-            { "term": "Rol", "def": "UX/UI" },
-            { "term": "Duración", "def": "1 mes" },
-            { "term": "Sector", "def": "Marítimo-portuario" },
-            { "term": "Salida", "def": "Rediseño en producción" }
-          ],
-          "text": "Una app de gestión de traslados en taxi para el sector marítimo-portuario estaba construida sobre una entidad equivocada: el día, no el viaje. El encargo original era ampliar funcionalidad, pero el análisis reveló que ninguna mejora tendría valor sobre una base rota. Rediseño completo en un mes, del análisis a producción: más uso real durante el servicio, facturación más ágil y menos incidencias por documentación incompleta.",
-          "linkHref": "casos/app-taxi/index.html",
-          "linkLabel": "Ver caso completo"
-        },
-        {
           "title": "Evolución de diseño de producto en una app de prediagnóstico dermatológico",
           "meta": "iMoles · 2026 · Análisis funcional · UX/UI · Product Design",
           "dataStrip": [
@@ -150,6 +137,32 @@
           ],
           "text": "Una prueba de concepto de detección de melanoma con IA funcionaba a nivel técnico, pero no tenía definición de producto: sin entidad de datos, sin destinatario, sin encaje en el circuito asistencial. Analicé al único competidor con evidencia clínica publicada para entender los límites reales de la categoría, y desarrollé tres aportaciones de producto y cuatro decisiones de interfaz: qué debe hacer la app, cuándo no debe derivar a un profesional, y cómo se comunica el resultado sin generar una falsa sensación de diagnóstico.",
           "linkHref": "casos/imoles/index.html",
+          "linkLabel": "Ver caso completo"
+        },
+        {
+          "title": "DSimoles: framework de sistemas de diseño y DS del ecosistema iMoles",
+          "meta": "Proyecto propio · 2026 · Design Systems · Aplicaciones médicas · WCAG 2.1 AA",
+          "dataStrip": [
+            { "term": "Rol", "def": "Diseño y arquitectura del sistema" },
+            { "term": "Origen", "def": "Prototipo de la revisión de iMoles" },
+            { "term": "Alcance", "def": "Framework + DS de iMoles" },
+            { "term": "Estado", "def": "En construcción" }
+          ],
+          "text": "Lo que se expone son dos cosas: DSBook, un framework reutilizable para definir, documentar y dar seguimiento a un sistema de diseño, y DSimoles, el sistema de diseño del ecosistema iMoles para aplicaciones médicas con accesibilidad WCAG 2.1 AA, construido con ese framework. El punto de partida inicial es el prototipo de la revisión del proyecto iMoles.",
+          "linkHref": "casos/dsimoles/index.html",
+          "linkLabel": "Ver caso completo"
+        },
+        {
+          "title": "Rediseño de app de gestión de traslados en taxi",
+          "meta": "Cliente confidencial · 2026 · UX/UI · Servicios marítimo-portuarios",
+          "dataStrip": [
+            { "term": "Rol", "def": "UX/UI" },
+            { "term": "Duración", "def": "1 mes" },
+            { "term": "Sector", "def": "Marítimo-portuario" },
+            { "term": "Salida", "def": "Rediseño en producción" }
+          ],
+          "text": "Una app de gestión de traslados en taxi para el sector marítimo-portuario estaba construida sobre una entidad equivocada: el día, no el viaje. El encargo original era ampliar funcionalidad, pero el análisis reveló que ninguna mejora tendría valor sobre una base rota. Rediseño completo en un mes, del análisis a producción: más uso real durante el servicio, facturación más ágil y menos incidencias por documentación incompleta.",
+          "linkHref": "casos/app-taxi/index.html",
           "linkLabel": "Ver caso completo"
         }
       ]

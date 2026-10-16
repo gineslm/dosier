@@ -65,6 +65,11 @@ const imoles = {
   es: loadJSON('casos', 'imoles', 'es.json'),
 };
 
+const dsimoles = {
+  en: loadJSON('casos', 'dsimoles', 'en.json'),
+  es: loadJSON('casos', 'dsimoles', 'es.json'),
+};
+
 const webResponsive = {
   en: loadJSON('casos', 'web-responsive', 'en.json'),
   es: loadJSON('casos', 'web-responsive', 'es.json'),
@@ -127,6 +132,24 @@ const pages = [
     otherLangHref: '../../../casos/imoles/index.html',
     common: common.es,
     page: imoles.es,
+  },
+  {
+    template: 'pages/casos/dsimoles.njk',
+    out: 'casos/dsimoles/index.html',
+    lang: 'en',
+    assetsPath: '../../',
+    otherLangHref: '../../es/casos/dsimoles/index.html',
+    common: common.en,
+    page: dsimoles.en,
+  },
+  {
+    template: 'pages/casos/dsimoles.njk',
+    out: 'es/casos/dsimoles/index.html',
+    lang: 'es',
+    assetsPath: '../../../',
+    otherLangHref: '../../../casos/dsimoles/index.html',
+    common: common.es,
+    page: dsimoles.es,
   },
   {
     template: 'pages/casos/web-responsive.njk',
